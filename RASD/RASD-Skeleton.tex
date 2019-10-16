@@ -23,11 +23,18 @@ Finally, the application must allow both autorities and citizens to analyze the 
 	In the context of the system, when any user notices an illegal parking, he/she may notify the system and provide any needed informations to the competent authorities. In particular, the notification is composed by a picture of the infraction, a timestamp (date and time), the geographical location of the infraction and the type of infraction wich is to be notified. Some of these informations can be gathered automatically from the user's device.
 	In addiction, the user may interrogate the system to gather aggregated informations about the locations with more violation incidence, and the cars which committed more violations. 
 	\subsection{Definitions, Acronyms,Abbreviations}
-		\paragraph{Citizen:} this term will be used to denote every user not owning particular privileges or permissions. A citizen is only allowed to notify violations and see some aggregated data
-		\paragraph{Authority:} %TODO
-	\subsection{Revision history}
-	\subsection{Reference documents}
-	\subsection{Document Structure}
+		\paragraph{Citizen:} This term will be used to denote every user not owning particular privileges or permissions. A citizen is only allowed to notify violations and see some aggregated data
+		\paragraph{Authority:} This term will denote every user (or process) having privileged access to the stored data. An example of Authority is the Local Police.
+		\paragraph{Notification:} 
+			\begin{list}{-}{Represents a set of data submitted by any user composed by:}
+				\item A picture of a parking infraction
+				\item A timestamp of when the notification occourred, containing date and time (may be gathered automatically by the citizen's device)
+				\item A geographical position of where the infraction occurred (may be gathered automatically by the citizen's device)
+				\item The type of infraction notified
+			\end{list}
+%	\subsection{Revision history}
+%	\subsection{Reference documents}
+%	\subsection{Document Structure}
 \section{Overall descriprion}
 	\subsection{Product perspective} \textit{here we include further details on the shared phenomena and a domain model (class diagrams and statecharts)}
 	\subsection{Product functions}\textit{here we include anything that is relevant to clarify their needs}
