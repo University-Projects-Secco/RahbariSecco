@@ -23,9 +23,9 @@
 	\item  Allow citizens to notify parking violations in real time
 	\item Allow citizens to provide all the needed data about violation, in particular infraction type, picture, date, time and position
 	\item Prevent the autorities to have to manually address parking tickets
-	\item Ensuring no ticket is \textbf{given} to people who does not deserve it 
-	\subitem Someone alters the plate in the picture
-	\subitem A car is lecitly parked (ex: a car owned by a disabled man on a reserved parking)
+	\item \label{discardAlteredNotG} Ensure no ticket is given if the notification's data has been modified somehow
+	\item \label{respectPermissionsG} Ensure no ticket is given if the plate of the car that committed the infringment owns a permission for that infringiment
+	\item Every notification not covered by \ref{discardAlteredNotG} or \ref{respectPermissionsG} will always generate a ticket
 	\item Allow both citizens and authorities retrive informations about previous violations and released tickets, possibly in an aggregated form 
 \end{enumerate}
 
@@ -41,8 +41,10 @@
 		\item hello
 	\end{list}
 	\subsection{Definitions, Acronyms,Abbreviations}
-		\paragraph{Citizen:} This term will be used to denote every user not owning particular privileges or permissions. A citizen is only allowed to notify violations and see some aggregated data
-		\paragraph{Authority:} This term will denote every user (or process) having privileged access to the stored data. An example of Authority is the Local Police.
+		\paragraph{Person:}A person in the real world. Every Citizen is a person, generally an Authorithy is not
+		\paragraph{User:}A person, an organization or a system which somehow uses SafeStreets
+		\paragraph{Citizen (cit):} This term will be used to denote every \underline{user} not owning particular privileges or permissions. A citizen is only allowed to notify violations and see some aggregated data
+		\paragraph{Authority (auth):} This term will denote every \underline{user} (phisical or digital) having privileged access to the stored data. An example of Authority is the Local Police.
 		\paragraph{Notification:} 
 			\begin{list}{-}{Represents a set of data submitted by any user composed by:}
 				\item A picture of a parking infraction
@@ -50,6 +52,10 @@
 				\item A geographical position of where the infraction occurred (may be gathered automatically by the citizen's device)
 				\item The type of infraction notified
 			\end{list}
+		\paragraph{Car:}The word car will be used to issue every mothorized vehicle
+		\paragraph{Plate:}Identifies a \underline{car}
+		\paragraph{Permisison:}A document released by a verified authority, granting to a car the permission to park in a set of reserved parkings (ex: permission to park on parking reserved for disabled people). 
+		
 %	\subsection{Revision history}
 %	\subsection{Reference documents}
 %	\subsection{Document Structure}
@@ -57,6 +63,14 @@
 	\subsection{Product perspective} \textit{here we include further details on the shared phenomena and a domain model (class diagrams and statecharts)}
 	\subsection{Product functions}\textit{here we include anything that is relevant to clarify their needs}
 	\subsection{Assumptions, dependencies and constraints} \textit{Here we include domain assumptions}
+	\paragraph{Assumptions:}
+	\begin{enumerate}[label=\enum{A}]
+		\item Different cars always have different plates
+		\item Each car exactly has 1 plate
+		\item No car is owned by more than 1 person
+		\item If an authority is enabled to give tickets, that authorty will have access to every permission
+			\subitem In particular, if the auth is evaluating a ticket for plate p, she will be able to check every permission granted to p
+	\end{enumerate}
 \section{Specific Requirements} \textit{Here we include more details on all the aspects in Section 2 if they can be used for the development team}
 	\subsection{External Interface Requirements}
 		\subsubsection{User Interfaces}
