@@ -3,6 +3,7 @@
 \date{release date: \today\\version 0: skeleton}
 \author{Matteo Secco, Mohammad Rahbari}
 \usepackage{enumitem}
+\usepackage{siunitx}
 \newcommand{\enum}[1]{\texttt{#1.\arabic*}}
 \begin{document}
 \pagenumbering{gobble}
@@ -17,29 +18,37 @@
 \paragraph{}The system must allow the citizen to submit pictures of the violation, attaching data such as date, time and position. The user will have to specify the type of the violation when sending these data. 
 \paragraph{}When reciving such data, the system must store them, toghether with the plate of the car that performed the violation (elictated from the picture the citizen sent), the informations about the violation itself (in particular the type of violation), and the name of the street where the violation occourred (which can be retrieved by the positioning information the user sent).
 \paragraph{}In addition, the application must allow both autorities and citizens to analyze the stored data, for example highlighting streets or plates with most violations registered. Different levels of security can be offered.
-\paragraph{}Finally, the application must be able to automatically generate traffic tickets for people commiting violations, if and only if it can be verified that the data concerning it has not been altered. In this case, SafeStreets could use this informations to build additional statistics.
+\paragraph{}Finally, the application must be enable authorities to automatically generate traffic tickets using its data for people commiting violations, if and only if it can be verified that the data concerning it has not been altered. In this case, SafeStreets could use this informations to build additional statistics.
 \paragraph{Goal list}
 \begin{enumerate}[label=\enum{G}]
 	\item  Allow citizens to notify parking violations in real time
 	\item \label{G_allData}Allow citizens to provide all the needed data about violation, in particular infraction type, picture, date, time and position
 	\item Prevent the autorities to have to manually address parking tickets
-	\item \label{G_discardAlteredNot} Ensure no ticket is given if the notification's data has been modified somehow
-	\item \label{G_respectPermissions} Ensure no ticket is given if the plate of the car that committed the infringment owns a permission for that infringiment
-	\item \label{G_ticketsEmitted} Every notification not covered by \ref{G_discardAlteredNot} or \ref{G_respectPermissions} will always generate a ticket
+	\item \label{G_discardAltered} Ensure no notification is saved if the notification's data has been modified somehow
+	\item \label{G_respectPermissions} Ensure no notifications are stored if the plate of the car that committed the infringment owns a permission for that infringiment
+	\item \label{G_storeFine} Every notification not covered by \ref{G_discardAltered} or \ref{G_respectPermissions} will always be saved
 	\item \label{G_statistics}Allow both citizens and authorities retrive informations about previous violations and released tickets, possibly in an aggregated form 
 \end{enumerate}
 
 	\subsection{Scope} \textit{here we include an analysis of the world and of the shared phenomena}\\
 	The world where the system must fit is an everday city, with focus on the traffic of moterized veichles.\\
 	The events the system aims to influence are the parking of motorized veichles,  in particular the ones considered infractions.\\
-	In the context of the system, when any user notices an illegal parking, he/she may notify the system and provide any needed informations to the competent authorities. In particular, the notification is composed by a picture of the infraction, a timestamp (date and time), the geographical location of the infraction and the type of infraction wich is to be notified. Some of these informations can be gathered automatically from the user's device.\\
+	In the context of the system, when any user notices an illegal parking, he/she may notify the system and provide any needed informations to the competent authorities. In particular, the notification is composed by a picture of the infraction, a timestamp (date and time), the geographical location of the infraction and the type of infraction wich is to be notified. Some of these informations can be gathered automatically from the user's device. Notice that, for legal reasons, SafeStreets will just make the data available to the auth, and will \underline{not} generate tickets itself. \\
 	In addiction, the user may interrogate the system to gather aggregated informations about the locations with more violation incidence, and the cars which committed more violations. 
-	\begin{list}{-}{World phenomena}
-		\item item
-	\end{list}
-	\begin{list}{-}{Shared phenomena}
-		\item hello
-	\end{list}
+		\begin{table}[h]
+			\begin{center}
+				\caption{Phenomena}
+				\label{Phenomena}
+				\begin{tabular}{c|c}
+					\textbf{World phenomena}&\textbf{Shared Phenomena}\\
+					\hline
+					A person parks its car somewhere&A person inserts the data about the infraction on its device\\
+					A person finds out a traffic violation&A violation is processed and a ticket is generated\\
+					Police generates a ticket for some violation&Police access data about infractions and produces tickets\\
+					&An user accesses aggregated data about previous infractions
+				\end{tabular}
+			\end{center}
+		\end{table}
 	\subsection{Definitions, Acronyms,Abbreviations} \label{definitions}
 		\paragraph{Person:}A person in the real world. Every Citizen is a person, generally an Authorithy is not
 		\paragraph{User:}A person, an organization or a system which somehow uses SafeStreets
@@ -68,7 +77,7 @@
 		\item \label{A_disjPlates} Different cars always have different plates
 		\item \label{A_Single plate}Each car exactly has 1 plate
 		\item \label{A_singleOwner}No car is owned by more than 1 person
-		\item \label{A_accessiblePermissions}If an authority is enabled to give tickets, that authorty will have access to every permission
+		\item \label{A_accessiblePermissions}If an authority is enabled to give tickets, that authorty will have access to every permission ever released by any authority
 			\subitem In particular, if the auth is evaluating a ticket for plate p, it will be able to check every permission granted to p
 	\end{enumerate}
 	\paragraph{Constraints:}
@@ -78,28 +87,65 @@
 	\end{enumerate}
 \section{Specific Requirements} \textit{Here we include more details on all the aspects in Section 2 if they can be used for the development team}
 	\subsection{External Interface Requirements}
+		These requirements come from the needing to communicate to the local police to submit notifications and gather ticket statistics
 		\subsubsection{User Interfaces}
-		\subsubsection{Hardware Interfaces}
+			\begin{enumerate}
+				\item A graphical user interface should be provided to the auths to allow them to retrive dat manually
+			\end{enumerate}
 		\subsubsection{Software Interfaces}
-		\subsubsection{Communication Interfaces}
+			\begin{enumerate}
+					\item An api should be produced to allow auth's servers to access data programmatically
+			\end{enumerate}
 	\subsection{Functional Requirements} \textit{Definition of use case diagrams, usa cases and associated sequence/activity diagrams, and mapping on requirements}
 		\subsubsection{Scenarios}
 			\paragraph{The man, the street and the monstertruck}
 				Mario is walking down the street when he comes to a cross. He would like to \textbf{cross the cross} staying on the pedestrian lines, but a monstertruck decided to park over there. So Mario needs to walk around the truck and through the street (cars are driving fast), but at least he can take a little revenge by notifying the police via SafeStreets and knowing the crazy-minded driver will pay what he deserves! (like some fines)
 			\paragraph{Prevent is better than healing}Luigi is late for work. He cannot find any parking, and is thinking about parking on the bycicle line. He's about to do that, when he suddently remembers that nowaday anyone could signal his infractions with SafeStreets. So he decides to keep searching for a proper parking, and granny Maria can take her daily ride on her bycicle!
+		\subsubsection{Requirements}
+			\begin{enumerate}[label=\enum{R}]
+				\item \label{G_storeTickets}Requires the authorities to give SafeStreets access to the tickets they emitted using SafeStreets' data
+				\item Automatically extract the plate number of the car from the photo, ignoring cars in the background if present
+				\item Ensure no data is altered from the insertion to the eventual storage
+				\item For each data to insert, if the  user's device has a sensor to collect thatkind of data, that sensor should be used instead of manual insertion (example: GPS)
+				\item The system should notify the user when his notification has been processed correctly, or ask for more datailed data (example: a more focused picture) if needed.
+			\end{enumerate}
 	\subsection{Performance requirements}
+		\begin{enumerate}
+			\item The notification should be sent to the server as soon as possible. It should be recived and elaborated as soon as internet and the server's speed allows.
+			\item The quality of the photo should be at most XYZ (to reduce overload on network and server) but at least PQR (to enable automatic recognition.
+		\end{enumerate}
 	\subsection{Design Constraints}
-		\subsubsection{Standard compliance}
-		\subsubsection{Hardware limitations}
-		\subsubsection{Any other constraint}
+		\subsubsection{Hardware limitations} The aut's hardware only needs to have access to the internet. The cit's device must be a smartphone so to ensure the photo is taken inside the application and no modification happens
+		\subsubsection{Any other constraint} If possible, it should be checked that the cit's device has not been modified anyhow
 	\subsection{Software system attributes}
 		\subsubsection{Reliability}
+			The only critical part of the system is the one concerning data mining, as people could exploit it to decide about it's daily routine. For this reason, it's recommended to make the result of the mining (old ones if needed) more available than the rest of the system.
+			In addiction, the system must avoid to generate fake notifications because of system faults to prevent innocent people from getting an unfair ticket.
 		\subsubsection{Availability}
+			As the system does not concern life-critical events, we think an availability of 99\% of the time should be enought to ensure a good experience for both cits and auths.
 		\subsubsection{Security}
+			\begin{enumerate}
+				\item Transmit data encrypted to prevent alteration in the network
+				\item Only allow auths to access the license plate numbers stored
+			\end{enumerate}
 		\subsubsection{Maintainability}
+			Maintainability is not a crucial issue as no updates are planned for the system.
 		\subsubsection{Portability}
+			Portability is a crucial aspect of the system, at least on the citizen's side: it is needed to allow them to submit a notification as they spot a violation. For this reason, the cit's client should be avaiable on as most mobile devices as possible.
+	\subsection{Traceability matrix}
+		\begin{table}[h]
+			\begin{center}
+				\caption{Traceability matrix}
+				\label{Trace matrix}
+				\begin{tabular}{S|S|S}
+					\textbf{Goal ID} & \textbf{Req ID} & \textbf{Usecase ID}\\
+					\hline
+					1.1 & 2.2 & 3.3
+				\end{tabular}
+			\end{center}
+		\end{table}
 \section{Formal analysis using alloy} \textit{This section should include a brief presentation of the main objectives driving the formal modeling activity, as well as a description of the model itself, what can be proved with it, and why what is proved is important given the problem at hand. To show the soundness and correctness of the model, this section can show some worlds obtained by running it, and/or the results of the checks performed on meaningful assertions}
-	\paragraph{}The signatures are omitted in the document as they reflect the entities 				desctibes in section \ref{definitions}, plus some "enumerations". The goals we were able to define in Alloy are \ref{G_discardAlteredNot},\ref{G_respectPermissions} and \ref{G_ticketsEmitted}.
+	\paragraph{}The signatures are omitted in the document as they reflect the entities 				desctibes in section \ref{definitions}, plus some "enumerations". The goals we were able to define in Alloy are \ref{G_discardAltered},\ref{G_respectPermissions} and \ref{G_storeFine}.
 	There was no need to check \ref{G_statistics} and \ref{G_allData} as they can be satisfied 	by an equal requirement
 	\paragraph{}The assumptions we were able to define are \ref{A_disjPlates}, \ref{A_Single plate}, \ref{A_singleOwner}, \ref{A_accessiblePermissions}. Please note not all of them has been expressed by facts as some was already expressed by multiplicity in the signatures.
 \section{Effort spent} \textit{In this section you will include information about the number of hours each group member has worked for this document}
@@ -110,10 +156,12 @@
 			\item October 16: Definitions. 15m.
 			\item October 23: Scenarios and goals. toghether. 1h
 			\item October 24: Update goals, assumptions, alloy skeleton. 2h
+			\item October 24: Teamwork. 2h
 		\end{list}
 	\paragraph{Rahbari}
 		\begin{list}{-}{}
 			\item October 23: Scenarios and goals. toghether. 1h
+			\ite October 24: Teamwork. 2h
 		\end{list}
 \section{References}
 \end{document}
