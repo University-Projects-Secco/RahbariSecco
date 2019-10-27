@@ -21,7 +21,7 @@
 \paragraph{}Finally, the application must be enable authorities to automatically generate traffic tickets using its data for people commiting violations, if and only if it can be verified that the data concerning it has not been altered. In this case, SafeStreets could use this informations to build additional statistics.
 \paragraph{Goal list}
 \begin{enumerate}[label=\enum{G}]
-	\item  Allow citizens to notify parking violations in real time
+	\item  \label{G_realTime}Allow citizens to notify parking violations in real time
 	\item \label{G_allData}Allow citizens to provide all the needed data about violation, in particular infraction type, picture, date, time and position
 	\item Prevent the autorities to have to manually address parking tickets
 	\item \label{G_discardAltered} Ensure no notification is saved if the notification's data has been modified somehow
@@ -44,9 +44,11 @@
 					\textbf{World phenomena}&\textbf{Shared Phenomena}\\
 					\hline
 					A person parks its car somewhere&A person inserts the data about the infraction on its device\\
-					A person finds out a traffic violation&A violation is processed and a ticket is generated\\
-					Police generates a ticket for some violation&Police access data about infractions and produces tickets\\
-					&An user accesses aggregated data about previous infractions
+					A person finds out a traffic violation&An user accesses aggregated data about previous infractions\\
+					\hline
+					Auth generates a ticket for some violation&Auth access data about infractions and produces tickets\\
+					&Auth accesses aggregated data on violations\\
+					
 				\end{tabular}
 			\end{center}
 		\end{table}
@@ -83,7 +85,7 @@
 	\end{enumerate}
 	\paragraph{Constraints:}
 	\begin{enumerate}[label=\enum{C}]
-		\item A constraint
+		\item The authorities will not be able to register automatically to the service. For authentication, they'll be verified and added by an administrator of the system
 		\item Another constraint
 	\end{enumerate}
 \section{Specific Requirements} \textit{Here we include more details on all the aspects in Section 2 if they can be used for the development team}
@@ -99,9 +101,12 @@
 			\end{enumerate}
 	\subsection{Functional Requirements} \textit{Definition of use case diagrams, usa cases and associated sequence/activity diagrams, and mapping on requirements}
 		\subsubsection{Scenarios}
-			\paragraph{The man, the street and the monstertruck}
-				Mario is walking down the street when he comes to a cross. He would like to \textbf{cross the cross} staying on the pedestrian lines, but a monstertruck decided to park over there. So Mario needs to walk around the truck and through the street (cars are driving fast), but at least he can take a little revenge by notifying the police via SafeStreets and knowing the crazy-minded driver will pay what he deserves! (like some fines)
-			\paragraph{Prevent is better than healing}Luigi is late for work. He cannot find any parking, and is thinking about parking on the bycicle line. He's about to do that, when he suddently remembers that nowaday anyone could signal his infractions with SafeStreets. So he decides to keep searching for a proper parking, and granny Maria can take her daily ride on her bycicle!
+			\begin{enumerate}[label=\enum{S}]
+				\item \label{S_The man, the street and the monstertruck}
+				Mario is walking down the street when he comes to a cross. He would like to \textbf{cross the cross} staying on the pedestrian lines, but a monstertruck decided to park over there. So Mario needs to walk around the truck and through the street (cars are driving fast), but at least he can take a little revenge by taking out his mobile phone, opening the SafeStreets application, and in a couple passages notifying the police and knowing the crazy-minded driver will pay what he deserves! (like some fines)
+			\item \textbf{Prevent is better than healing}Luigi is late for work. He cannot find any parking, and is thinking about parking on the bycicle line. He's about to do that, when he suddently remembers that nowaday anyone could signal his infractions with SafeStreets. So he decides to keep searching for a proper parking, and granny Maria can take her daily ride on her bycicle!
+			\end{enumerate}
+			
 		\subsubsection{Requirements}
 			\begin{enumerate}[label=\enum{R}]
 				\item \label{G_storeTickets}Requires the authorities to give SafeStreets access to the tickets they emitted using SafeStreets' data
@@ -141,7 +146,7 @@
 				\begin{tabular}{S|S|S}
 					\textbf{Goal ID} & \textbf{Req ID} & \textbf{Usecase ID}\\
 					\hline
-					1.1 & 2.2 & 3.3
+					\ref{G_realTime} & 2.2 & \ref{S_The man, the street and the monstertruck}
 				\end{tabular}
 			\end{center}
 		\end{table}
