@@ -27,7 +27,7 @@
 			\begin{enumerate}[label=\enum{G}]
 				\item  \label{G_realTime}Allow citizens to notify parking violations in real time
 				\item \label{G_allData}Allow citizens to provide all the needed data about violation, in particular infraction type, picture, date, time and position
-				\item Prevent the autorities to have to manually address parking tickets
+				\item \label{G_helpAuth}Prevent the autorities to have to manually address parking tickets
 				\item \label{G_discardAltered} Ensure no notification is saved if the notification's data has been modified somehow
 				\item \label{G_respectPermissions} Ensure no notifications are stored if the plate of the car that committed the infringment owns a permission for that infringiment
 				\item \label{G_storeFine} Every notification not covered by \ref{G_discardAltered} or \ref{G_respectPermissions} will always be saved
@@ -50,6 +50,7 @@
 					\hline
 					A person parks its car somewhere&A person inserts the data about the infraction on its device\\
 					A person finds out a traffic violation&An user accesses aggregated data about previous infractions\\
+						&Data of a notification are filled automatically when possible, manually for the rest\\
 					\hline
 					Auth generates a ticket for some violation&Auth access data about infractions and produces tickets\\
 					&Auth accesses aggregated data on violations\\
@@ -91,8 +92,7 @@
 			\item \label{A_disjPlates} Different cars always have different plates
 			\item \label{A_Single plate}Each car exactly has 1 plate
 			\item \label{A_singleOwner}No car is owned by more than 1 person
-			\item \label{A_accessiblePermissions}If an authority is enabled to give tickets, that authorty will have access to every permission ever released by any authority
-				\subitem In particular, if the auth is evaluating a ticket for plate p, it will be able to check every permission granted to p
+			\item \label{A_accessiblePermissions}SafeStreets will have access to any permission released by the auths
 		\end{enumerate}
 	
 	\paragraph{Constraints:}
@@ -122,18 +122,20 @@
 		
 			\begin{enumerate}[label=\enum{S}]
 				\item \label{S_The man, the street and the monstertruck}
-				Mario is walking down the street when he comes to a cross. He would like to \textbf{cross the cross} staying on the pedestrian lines, but a monstertruck decided to park over there. So Mario needs to walk around the truck and through the street (cars are driving fast), but at least he can take a little revenge by taking out his mobile phone, opening the SafeStreets application, and in a couple passages notifying the police and knowing the crazy-minded driver will pay what he deserves! (like some fines)
+				Mario is walking down the street when he comes to a cross. He would like to \textbf{cross the cross} staying on the pedestrian lines, but a monstertruck decided to park over there. So Mario needs to walk around the truck and through the street (cars are driving fast), but at least he can take a little revenge by taking out his mobile phone, opening the SafeStreets application and take a picture of the plate of the truck. The application automatically acquires data on time and position using the gps and sends the data to SafeStreets' server. In a second, Mario is notified that the violation has been saved and will be avilable for the police.
+Mario now knows the crazy-minded driver will pay what he deserves! (like some fines)
 				\item \textbf{Prevent is better than healing}Luigi is late for work. He cannot find any parking, and is thinking about parking on the bycicle line. He's about to do that, when he suddently remembers that nowaday anyone could signal his infractions with SafeStreets. So he decides to keep searching for a proper parking, and granny Maria can take her daily ride on her bycicle!
 			\end{enumerate}
 			
 		\subsubsection{Requirements}
 		
 			\begin{enumerate}[label=\enum{R}]
-				\item \label{G_storeTickets}Requires the authorities to give SafeStreets access to the tickets they emitted using SafeStreets' data
-				\item Automatically extract the plate number of the car from the photo, ignoring cars in the background if present
-				\item Ensure no data is altered from the insertion to the eventual storage
-				\item For each data to insert, if the  user's device has a sensor to collect thatkind of data, that sensor should be used instead of manual insertion (example: GPS)
-				\item The system should notify the user when his notification has been processed correctly, or ask for more datailed data (example: a more focused picture) if needed.
+				\item \label{R_storeTickets}Requires the authorities to give SafeStreets access to the tickets they emitted using SafeStreets' data
+				\item \label{R_autoPlate}Automatically extract the plate number of the car from the photo, ignoring cars in the background if present
+				\item \label{R_unalteredData}Ensure no data is altered from the insertion to the eventual storage
+				\item \label{R_dataGather}For each data to insert, if the  user's device has a sensor to collect thatkind of data, that sensor should be used instead of manual insertion (example: GPS)
+				\item \label{R_notifyUser}The system should notify the user when his notification has been processed correctly, or ask for more datailed data (example: a more focused picture) if needed.
+				\item \label{R_fullData}If a notification is missing any needed data, the client application will prevent the user from sending them
 			\end{enumerate}
 			
 	\subsection{Performance requirements}
@@ -177,7 +179,22 @@
 				\begin{tabular}{S|S|S}
 					\textbf{Goal ID} & \textbf{Req ID} & \textbf{Usecase ID}\\
 					\hline
-					\ref{G_realTime} & 2.2 & \ref{S_The man, the street and the monstertruck}
+					\ref{G_realTime} & \ref{R_autoPlate} & \ref{S_The man, the street and the monstertruck}\\
+					&\ref{R_dataGather}&\\
+					&\ref{R_notifyUser}&\\
+					\hline
+					\ref{G_allData} & \ref{R_fullData} & \\
+						& \ref{R_dataGather} & \\
+					\hline
+					\ref{G_helpAuth}&&\\
+					\hline
+					\ref{G_discardAltered}&&\\
+					\hline
+					\ref{G_respectPermissions}&&\\
+					\hline
+					\ref{G_storeFine}&&\\
+					\hline
+					\ref{G_statistics}&&\\
 				\end{tabular}
 			\end{center}
 		\end{table}
