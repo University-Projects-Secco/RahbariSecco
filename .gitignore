@@ -1,3 +1,4 @@
+#Ignore
 *.aux
 *.glo
 *.idx
@@ -21,3 +22,6 @@
 *.mtc1
 *.out
 *.synctex.gz
+*.pdf
+#Allow
+!DeliveryFolder/*.pdf
