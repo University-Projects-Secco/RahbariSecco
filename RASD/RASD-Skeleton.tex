@@ -17,22 +17,22 @@
 
 	\subsection{Purpose} \textit{here we	 include	 the	 goals of the project}
 	
-\paragraph{}The required system, called SafeStreets, is a distributed system to allow the citizens to signal parking violations to the competent autorities.
-\paragraph{}The system must allow the citizen to submit pictures of the violation, attaching data such as date, time and position. The user will have to specify the type of the violation when sending these data. 
-\paragraph{}When reciving such data, the system must store them, toghether with the plate of the car that performed the violation (elictated from the picture the citizen sent), the informations about the violation itself (in particular the type of violation), and the name of the street where the violation occourred (which can be retrieved by the positioning information the user sent).
-\paragraph{}In addition, the application must allow both autorities and citizens to analyze the stored data, for example highlighting streets or plates with most violations registered. Different levels of security can be offered.
-\paragraph{}Finally, the application must be enable authorities to automatically generate traffic tickets using its data for people commiting violations, if and only if it can be verified that the data concerning it has not been altered. In this case, SafeStreets could use this informations to build additional statistics.
+		\paragraph{}The required system, called SafeStreets, is a distributed system to allow the citizens to signal parking violations to the competent autorities.
+		\paragraph{}The system must allow the citizen to submit pictures of the violation, attaching data such as date, time and position. The user will have to specify the type of the violation when sending these data. 
+		\paragraph{}When reciving such data, the system must store them, toghether with the plate of the car that performed the violation (elictated from the picture the citizen sent), the informations about the violation itself (in particular the type of violation), and the name of the street where the violation occourred (which can be retrieved by the positioning information the user sent).
+		\paragraph{}In addition, the application must allow both autorities and citizens to analyze the stored data, for example highlighting streets or plates with most violations registered. Different levels of security can be offered.
+		\paragraph{}Finally, the application must be enable authorities to automatically generate traffic tickets using its data for people commiting violations, if and only if it can be verified that the data concerning it has not been altered. In this case, SafeStreets could use this informations to build additional statistics.
 
-\paragraph{Goal list}
-\begin{enumerate}[label=\enum{G}]
-	\item  \label{G_realTime}Allow citizens to notify parking violations in real time
-	\item \label{G_allData}Allow citizens to provide all the needed data about violation, in particular infraction type, picture, date, time and position
-	\item Prevent the autorities to have to manually address parking tickets
-	\item \label{G_discardAltered} Ensure no notification is saved if the notification's data has been modified somehow
-	\item \label{G_respectPermissions} Ensure no notifications are stored if the plate of the car that committed the infringment owns a permission for that infringiment
-	\item \label{G_storeFine} Every notification not covered by \ref{G_discardAltered} or \ref{G_respectPermissions} will always be saved
-	\item \label{G_statistics}Allow both citizens and authorities retrive informations about previous violations and released tickets, possibly in an aggregated form 
-\end{enumerate}
+		\paragraph{Goal list}
+			\begin{enumerate}[label=\enum{G}]
+				\item  \label{G_realTime}Allow citizens to notify parking violations in real time
+				\item \label{G_allData}Allow citizens to provide all the needed data about violation, in particular infraction type, picture, date, time and position
+				\item Prevent the autorities to have to manually address parking tickets
+				\item \label{G_discardAltered} Ensure no notification is saved if the notification's data has been modified somehow
+				\item \label{G_respectPermissions} Ensure no notifications are stored if the plate of the car that committed the infringment owns a permission for that infringiment
+				\item \label{G_storeFine} Every notification not covered by \ref{G_discardAltered} or \ref{G_respectPermissions} will always be saved
+				\item \label{G_statistics}Allow both citizens and authorities retrive informations about previous violations and released tickets, possibly in an aggregated form 
+			\end{enumerate}
 
 	\subsection{Scope} \textit{here we include an analysis of the world and of the shared phenomena}\\
 	The world where the system must fit is an everday city, with focus on the traffic of moterized veichles.\\
@@ -87,19 +87,19 @@
 	\subsection{Assumptions, dependencies and constraints}
 	
 	\paragraph{Assumptions:}
-	\begin{enumerate}[label=\enum{A}]
-		\item \label{A_disjPlates} Different cars always have different plates
-		\item \label{A_Single plate}Each car exactly has 1 plate
-		\item \label{A_singleOwner}No car is owned by more than 1 person
-		\item \label{A_accessiblePermissions}If an authority is enabled to give tickets, that authorty will have access to every permission ever released by any authority
-			\subitem In particular, if the auth is evaluating a ticket for plate p, it will be able to check every permission granted to p
-	\end{enumerate}
+		\begin{enumerate}[label=\enum{A}]
+			\item \label{A_disjPlates} Different cars always have different plates
+			\item \label{A_Single plate}Each car exactly has 1 plate
+			\item \label{A_singleOwner}No car is owned by more than 1 person
+			\item \label{A_accessiblePermissions}If an authority is enabled to give tickets, that authorty will have access to every permission ever released by any authority
+				\subitem In particular, if the auth is evaluating a ticket for plate p, it will be able to check every permission granted to p
+		\end{enumerate}
 	
 	\paragraph{Constraints:}
-	\begin{enumerate}[label=\enum{C}]
-		\item The authorities will not be able to register automatically to the service. For authentication, they'll be verified and added by an administrator of the system
-		\item Another constraint
-	\end{enumerate}
+		\begin{enumerate}[label=\enum{C}]
+			\item The authorities will not be able to register automatically to the service. For authentication, they'll be verified and added by an administrator of the system
+			\item Another constraint
+		\end{enumerate}
 	
 \section{Specific Requirements} \textit{Here we include more details on all the aspects in Section 2 if they can be used for the development team}
 
@@ -123,7 +123,7 @@
 			\begin{enumerate}[label=\enum{S}]
 				\item \label{S_The man, the street and the monstertruck}
 				Mario is walking down the street when he comes to a cross. He would like to \textbf{cross the cross} staying on the pedestrian lines, but a monstertruck decided to park over there. So Mario needs to walk around the truck and through the street (cars are driving fast), but at least he can take a little revenge by taking out his mobile phone, opening the SafeStreets application, and in a couple passages notifying the police and knowing the crazy-minded driver will pay what he deserves! (like some fines)
-			\item \textbf{Prevent is better than healing}Luigi is late for work. He cannot find any parking, and is thinking about parking on the bycicle line. He's about to do that, when he suddently remembers that nowaday anyone could signal his infractions with SafeStreets. So he decides to keep searching for a proper parking, and granny Maria can take her daily ride on her bycicle!
+				\item \textbf{Prevent is better than healing}Luigi is late for work. He cannot find any parking, and is thinking about parking on the bycicle line. He's about to do that, when he suddently remembers that nowaday anyone could signal his infractions with SafeStreets. So he decides to keep searching for a proper parking, and granny Maria can take her daily ride on her bycicle!
 			\end{enumerate}
 			
 		\subsubsection{Requirements}
@@ -168,6 +168,7 @@
 			
 		\subsubsection{Portability}
 			Portability is a crucial aspect of the system, at least on the citizen's side: it is needed to allow them to submit a notification as they spot a violation. For this reason, the cit's client should be avaiable on as most mobile devices as possible.
+			
 	\subsection{Traceability matrix}
 		\begin{table}[h]
 			\begin{center}
@@ -180,11 +181,14 @@
 				\end{tabular}
 			\end{center}
 		\end{table}
+		
 \section{Formal analysis using alloy} \textit{This section should include a brief presentation of the main objectives driving the formal modeling activity, as well as a description of the model itself, what can be proved with it, and why what is proved is important given the problem at hand. To show the soundness and correctness of the model, this section can show some worlds obtained by running it, and/or the results of the checks performed on meaningful assertions}
 	\paragraph{}The signatures are omitted in the document as they reflect the entities 				desctibes in section \ref{definitions}, plus some "enumerations". The goals we were able to define in Alloy are \ref{G_discardAltered},\ref{G_respectPermissions} and \ref{G_storeFine}.
 	There was no need to check \ref{G_statistics} and \ref{G_allData} as they can be satisfied 	by an equal requirement
 	\paragraph{}The assumptions we were able to define are \ref{A_disjPlates}, \ref{A_Single plate}, \ref{A_singleOwner}, \ref{A_accessiblePermissions}. Please note not all of them has been expressed by facts as some was already expressed by multiplicity in the signatures.
+	
 \section{Effort spent} \textit{In this section you will include information about the number of hours each group member has worked for this document}
+
 	\paragraph{Matteo Secco} 
 		\begin{list}{-}{}
 			\item October 15: created the skeleton. 1h
@@ -194,6 +198,7 @@
 			\item October 24: Update goals, assumptions, alloy skeleton. 2h
 			\item October 24: Teamwork. 2h
 		\end{list}
+		
 	\paragraph{Rahbari}
 		\begin{list}{-}{}
 			\item October 23: Scenarios and goals. toghether. 1h
