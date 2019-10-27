@@ -12,13 +12,17 @@
 \tableofcontents
 \pagebreak
 \pagenumbering{arabic}
+
 \section{Introduction}
+
 	\subsection{Purpose} \textit{here we	 include	 the	 goals of the project}
+	
 \paragraph{}The required system, called SafeStreets, is a distributed system to allow the citizens to signal parking violations to the competent autorities.
 \paragraph{}The system must allow the citizen to submit pictures of the violation, attaching data such as date, time and position. The user will have to specify the type of the violation when sending these data. 
 \paragraph{}When reciving such data, the system must store them, toghether with the plate of the car that performed the violation (elictated from the picture the citizen sent), the informations about the violation itself (in particular the type of violation), and the name of the street where the violation occourred (which can be retrieved by the positioning information the user sent).
 \paragraph{}In addition, the application must allow both autorities and citizens to analyze the stored data, for example highlighting streets or plates with most violations registered. Different levels of security can be offered.
 \paragraph{}Finally, the application must be enable authorities to automatically generate traffic tickets using its data for people commiting violations, if and only if it can be verified that the data concerning it has not been altered. In this case, SafeStreets could use this informations to build additional statistics.
+
 \paragraph{Goal list}
 \begin{enumerate}[label=\enum{G}]
 	\item  \label{G_realTime}Allow citizens to notify parking violations in real time
@@ -35,6 +39,7 @@
 	The events the system aims to influence are the parking of motorized veichles,  in particular the ones considered infractions.\\
 	In the context of the system, when any user notices an illegal parking, he/she may notify the system and provide any needed informations to the competent authorities. In particular, the notification is composed by a picture of the infraction, a timestamp (date and time), the geographical location of the infraction and the type of infraction wich is to be notified. Some of these informations can be gathered automatically from the user's device. Notice that, for legal reasons, SafeStreets will just make the data available to the auth, and will \underline{not} generate tickets itself. \\
 	In addiction, the user may interrogate the system to gather aggregated informations about the locations with more violation incidence, and the cars which committed more violations. 
+	
 		\begin{table}[h]
 			\begin{center}
 				\caption{Phenomena}
@@ -52,6 +57,7 @@
 				\end{tabular}
 			\end{center}
 		\end{table}
+		
 	\subsection{Definitions, Acronyms,Abbreviations} \label{definitions}
 		\paragraph{Person:}A person in the real world. Every Citizen is a person, generally an Authorithy is not
 		\paragraph{User:}A person, an organization or a system which somehow uses SafeStreets
@@ -71,10 +77,15 @@
 %	\subsection{Revision history}
 %	\subsection{Reference documents}
 %	\subsection{Document Structure}
+
 \section{Overall descriprion}
+
 	\subsection{Product perspective} \textit{here we include further details on the shared phenomena and a domain model (class diagrams and statecharts)}
+	
 	\subsection{Product functions}\textit{here we include anything that is relevant to clarify their needs}
+	
 	\subsection{Assumptions, dependencies and constraints}
+	
 	\paragraph{Assumptions:}
 	\begin{enumerate}[label=\enum{A}]
 		\item \label{A_disjPlates} Different cars always have different plates
@@ -83,24 +94,32 @@
 		\item \label{A_accessiblePermissions}If an authority is enabled to give tickets, that authorty will have access to every permission ever released by any authority
 			\subitem In particular, if the auth is evaluating a ticket for plate p, it will be able to check every permission granted to p
 	\end{enumerate}
+	
 	\paragraph{Constraints:}
 	\begin{enumerate}[label=\enum{C}]
 		\item The authorities will not be able to register automatically to the service. For authentication, they'll be verified and added by an administrator of the system
 		\item Another constraint
 	\end{enumerate}
+	
 \section{Specific Requirements} \textit{Here we include more details on all the aspects in Section 2 if they can be used for the development team}
+
 	\subsection{External Interface Requirements}
 		These requirements come from the needing to communicate to the local police to submit notifications and gather ticket statistics
+		
 		\subsubsection{User Interfaces}
 			\begin{enumerate}
 				\item A graphical user interface should be provided to the auths to allow them to retrive dat manually
 			\end{enumerate}
+			
 		\subsubsection{Software Interfaces}
 			\begin{enumerate}
 					\item An api should be produced to allow auth's servers to access data programmatically
 			\end{enumerate}
+			
 	\subsection{Functional Requirements} \textit{Definition of use case diagrams, usa cases and associated sequence/activity diagrams, and mapping on requirements}
+	
 		\subsubsection{Scenarios}
+		
 			\begin{enumerate}[label=\enum{S}]
 				\item \label{S_The man, the street and the monstertruck}
 				Mario is walking down the street when he comes to a cross. He would like to \textbf{cross the cross} staying on the pedestrian lines, but a monstertruck decided to park over there. So Mario needs to walk around the truck and through the street (cars are driving fast), but at least he can take a little revenge by taking out his mobile phone, opening the SafeStreets application, and in a couple passages notifying the police and knowing the crazy-minded driver will pay what he deserves! (like some fines)
@@ -108,6 +127,7 @@
 			\end{enumerate}
 			
 		\subsubsection{Requirements}
+		
 			\begin{enumerate}[label=\enum{R}]
 				\item \label{G_storeTickets}Requires the authorities to give SafeStreets access to the tickets they emitted using SafeStreets' data
 				\item Automatically extract the plate number of the car from the photo, ignoring cars in the background if present
@@ -115,27 +135,37 @@
 				\item For each data to insert, if the  user's device has a sensor to collect thatkind of data, that sensor should be used instead of manual insertion (example: GPS)
 				\item The system should notify the user when his notification has been processed correctly, or ask for more datailed data (example: a more focused picture) if needed.
 			\end{enumerate}
+			
 	\subsection{Performance requirements}
 		\begin{enumerate}
 			\item The notification should be sent to the server as soon as possible. It should be recived and elaborated as soon as internet and the server's speed allows.
 			\item The quality of the photo should be at most XYZ (to reduce overload on network and server) but at least PQR (to enable automatic recognition.
 		\end{enumerate}
+		
 	\subsection{Design Constraints}
+	
 		\subsubsection{Hardware limitations} The aut's hardware only needs to have access to the internet. The cit's device must be a smartphone so to ensure the photo is taken inside the application and no modification happens
+		
 		\subsubsection{Any other constraint} If possible, it should be checked that the cit's device has not been modified anyhow
+		
 	\subsection{Software system attributes}
+	
 		\subsubsection{Reliability}
 			The only critical part of the system is the one concerning data mining, as people could exploit it to decide about it's daily routine. For this reason, it's recommended to make the result of the mining (old ones if needed) more available than the rest of the system.
 			In addiction, the system must avoid to generate fake notifications because of system faults to prevent innocent people from getting an unfair ticket.
+			
 		\subsubsection{Availability}
 			As the system does not concern life-critical events, we think an availability of 99\% of the time should be enought to ensure a good experience for both cits and auths.
+			
 		\subsubsection{Security}
-			\begin{enumerate}
+			\begin{list}{-}{}
 				\item Transmit data encrypted to prevent alteration in the network
 				\item Only allow auths to access the license plate numbers stored
-			\end{enumerate}
+			\end{list}
+			
 		\subsubsection{Maintainability}
 			Maintainability is not a crucial issue as no updates are planned for the system.
+			
 		\subsubsection{Portability}
 			Portability is a crucial aspect of the system, at least on the citizen's side: it is needed to allow them to submit a notification as they spot a violation. For this reason, the cit's client should be avaiable on as most mobile devices as possible.
 	\subsection{Traceability matrix}
