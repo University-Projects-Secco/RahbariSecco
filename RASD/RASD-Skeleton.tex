@@ -86,21 +86,35 @@
 		\begin{table} [H]
 		\begin{center}
 		\caption{register as a citizen}
-		\begin{tabular}{|c|p{3cm}|}
+		\begin{tabular}{|c|p{8cm}|}
 			\hline
 			Actor&User\\
 			\hline
 			Entry condition&
 				\begin{enumerate}
-					\item item1
-					\item item2
+					\item The user has installed the Application
+					\item The user has opened the Application
 				\end{enumerate}\\
 			\hline
-			Events flow&\\
+			Events flow&
+			\begin{enumerate}
+			\item Click on “Sign up” button
+			\item Fill all the mandatory fields and provide the necessary information
+			\item Click on “Confirm” button
+			\item The system saves the data
+			
+			\end{enumerate}\\
 			\hline
-			Exit condition&\\
+			Exit condition& The user's Account has register successfully\\
 			\hline
-			Exeption&\\
+			Exeption&
+			\begin{enumerate}
+			\item The user is already signed up.In this case the system warns the user and suggests him/her to do the login.
+			\item The username is already taken
+			\item The e-mail is already registered
+			\item The user didn’t fill all of the mandatory fields with valid data
+			
+			\end{enumerate}\\
 			\hline
 		\end{tabular}
 				
