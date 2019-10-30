@@ -113,6 +113,16 @@
 	\subsection{Product functions}\textit{here we include anything that is relevant to clarify their needs}
 		\paragraph{Violation notification}
 			This is the core function of the system, exploited by the citizens.
+			This function can be divided in X parts:
+				\begin{itemize}
+					\item \textbf{Data gathering}
+					When the user spots the violation and with the help of its phone fills all the data (hopefully many will be gathered automatically) and sends them to the server
+					\item \textbf{Elaboration}
+					When the data are recived by our server the integrity of the data is checked; then a computer vision algorithm elaborates the plate. Finally, all the encoded data are stored to the database.
+					\item \textbf{Acknowledgment}
+					After the elaboration, the user recives a message confirming everything was ok, or asking more data if something went wrong during the elaboration.
+				\end{itemize}
+				
 		\paragraph{Violation examination}
 			This is the way the system could deeply influence the world. This function, exploited by recognized authorities, is the first step for automatically releasing tickets
 		\paragraph{Statistics}
