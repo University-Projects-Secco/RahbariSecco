@@ -4,6 +4,7 @@
 \author{Matteo Secco, Mohammad Rahbari}
 \usepackage{enumitem}
 \usepackage{siunitx}
+\usepackage{float}
 \newcommand{\enum}[1]{\texttt{#1.\arabic*}}
 \begin{document}
 \pagenumbering{gobble}
@@ -82,7 +83,7 @@
 \section{Overall descriprion}
 
 	\subsection{Product perspective} Generally speaking safe street app provides a better collaborating between normal citizs and auths to solve some problem related to traffic of their city.In this case citizs can report car drivers violator to the auths by sendig a photo from the violator's car through the application then if the photo sender has right he/she can be sure that the violator received his/her fines. Overally auths and citizs by mining these data that comes from the app can have some information about the violations that already happend over their city.Bellow we provide some Diagrams to have better understanding and making our goals more explicit.
-		\begin{table} 
+		\begin{table} [H]
 		\begin{center}
 		\caption{register as a citizen}
 		\begin{tabular}{|c|p{3cm}|}
@@ -109,6 +110,12 @@
 		\end{table} 
 	
 	\subsection{Product functions}\textit{here we include anything that is relevant to clarify their needs}
+		\paragraph{Violation notification}
+			This is the core function of the system, exploited by the citizens.
+		\paragraph{Violation examination}
+			This is the way the system could deeply influence the world. This function, exploited by recognized authorities, is the first step for automatically releasing tickets
+		\paragraph{Statistics}
+			This funciton can be exploited by any user. Basically, it concerns the displaying of statistics about violations in a graphic, map-based ay
 	
 	\subsection{Assumptions, dependencies and constraints}
 	
