@@ -110,10 +110,11 @@
 
 		\end{table} 
 	
-	\subsection{Product functions}\textit{here we include anything that is relevant to clarify their needs}
+	\subsection{Product functions}
+	The main functions of the system follows (lines in parenthesis are outside the system domain but are inserted for completeness):
 		\paragraph{Violation notification}
 			This is the core function of the system, exploited by the citizens.
-			This function can be divided in X parts:
+			This function can be divided in 3 parts:
 				\begin{itemize}
 					\item \textbf{Data gathering}
 					When the user spots the violation and with the help of its phone fills all the data (hopefully many will be gathered automatically) and sends them to the server
@@ -124,9 +125,22 @@
 				\end{itemize}
 				
 		\paragraph{Violation examination}
-			This is the way the system could deeply influence the world. This function, exploited by recognized authorities, is the first step for automatically releasing tickets
+			This is the way the system could deeply influence the world. This function, exploited by recognized authorities, is the first step for automatically releasing tickets. In particular, the authority will:
+			\begin{itemize}
+				\item Access the server from its interface
+				\item Retrieve data about violation
+				\item Check the data
+				\item (If data are correct, decide if a ticket can be created and in case create it)
+			\end{itemize}
 		\paragraph{Statistics}
-			This funciton can be exploited by any user. Basically, it concerns the displaying of statistics about violations in a graphic, map-based ay
+			This funciton can be exploited by any user. Basically, it concerns the displaying of statistics about violations in a graphic, map-based \textbf{structure}. It is composed by the following steps:
+			\begin{itemize}
+				\item A data-mining service runs on our servers, mining the database
+				\item Data are aggregated by location (streets)
+				\item Aggregated data are divided in "classes of risk"
+				\item The streets on the map will be marked differently based on the "class of risk"
+			\end{itemize}
+			
 	
 	\subsection{Assumptions, dependencies and constraints}
 	
@@ -267,7 +281,8 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 			\item October 24: Update goals, assumptions, alloy skeleton. 2h
 			\item October 24: Teamwork. 2h
 			\item October 27: Traceabiity matrix and related. 1.30h
-			\item October 28: modify some Tasks toghether . 1
+			\item October 28: modify some Tasks toghether. 1h
+			\item October 30: Design fixes, product functions. 1.30h
 		\end{list}
 		
 	\paragraph{Rahbari}
@@ -275,8 +290,8 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 			\item October 23: Scenarios and goals. toghether. 1h
 			\item October 24: Teamwork. 2h
 			\item October 27: Use case diagram,product prospective 2h
-			\item October 28:modify some Tasks toghether. 1h
-
+			\item October 28: Modify some Tasks toghether. 1h
+			\item Obtober 20: Something. 1h
 		\end{list}
 \section{References}
 \end{document}
