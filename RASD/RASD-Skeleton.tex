@@ -41,12 +41,13 @@
 	In the context of the system, when any user notices an illegal parking, he/she may notify the system and provide any needed informations to the competent authorities. In particular, the notification is composed by a picture of the infraction, a timestamp (date and time), the geographical location of the infraction and the type of infraction wich is to be notified. Some of these informations can be gathered automatically from the user's device. Notice that, for legal reasons, SafeStreets will just make the data available to the auth, and will \underline{not} generate tickets itself. \\
 	In addiction, the user may interrogate the system to gather aggregated informations about the locations with more violation incidence, and the cars which committed more violations. 
 	
-		\begin{table}[h]
+		\begin{table}[H]
 			\begin{center}
 				\caption{Phenomena}
 				\small
 				\label{Phenomena}
 				\begin{tabular}{|p{6cm}|p{5.5cm}|}
+					\hline
 					\textbf{World phenomena}&\textbf{Shared Phenomena}\\
 					\hline
 					A person parks its car somewhere&A person inserts the data about the infraction on its device\\
@@ -55,7 +56,7 @@
 					\hline
 					Auth generates a ticket for some violation&Auth access data about infractions and produces tickets\\
 					&Auth accesses aggregated data on violations\\
-					
+					\hline
 				\end{tabular}
 			\end{center}
 		\end{table}
@@ -204,7 +205,7 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 			Portability is a crucial aspect of the system, at least on the citizen's side: it is needed to allow them to submit a notification as they spot a violation. For this reason, the cit's client should be avaiable on as most mobile devices as possible.
 			
 	\subsection{Traceability matrix}
-		\begin{table}[h]
+		\begin{table}[H]
 			\begin{center}
 				\caption{Traceability matrix}
 				\label{Trace matrix}
