@@ -41,12 +41,13 @@
 	In the context of the system, when any user notices an illegal parking, he/she may notify the system and provide any needed informations to the competent authorities. In particular, the notification is composed by a picture of the infraction, a timestamp (date and time), the geographical location of the infraction and the type of infraction wich is to be notified. Some of these informations can be gathered automatically from the user's device. Notice that, for legal reasons, SafeStreets will just make the data available to the auth, and will \underline{not} generate tickets itself. \\
 	In addiction, the user may interrogate the system to gather aggregated informations about the locations with more violation incidence, and the cars which committed more violations. 
 	
-		\begin{table}[h]
+		\begin{table}[H]
 			\begin{center}
 				\caption{Phenomena}
 				\small
 				\label{Phenomena}
 				\begin{tabular}{|p{6cm}|p{5.5cm}|}
+					\hline
 					\textbf{World phenomena}&\textbf{Shared Phenomena}\\
 					\hline
 					A person parks its car somewhere&A person inserts the data about the infraction on its device\\
@@ -55,7 +56,7 @@
 					\hline
 					Auth generates a ticket for some violation&Auth access data about infractions and produces tickets\\
 					&Auth accesses aggregated data on violations\\
-					
+					\hline
 				\end{tabular}
 			\end{center}
 		\end{table}
@@ -126,6 +127,16 @@
 	\subsection{Product functions}\textit{here we include anything that is relevant to clarify their needs}
 		\paragraph{Violation notification}
 			This is the core function of the system, exploited by the citizens.
+			This function can be divided in X parts:
+				\begin{itemize}
+					\item \textbf{Data gathering}
+					When the user spots the violation and with the help of its phone fills all the data (hopefully many will be gathered automatically) and sends them to the server
+					\item \textbf{Elaboration}
+					When the data are recived by our server the integrity of the data is checked; then a computer vision algorithm elaborates the plate. Finally, all the encoded data are stored to the database.
+					\item \textbf{Acknowledgment}
+					After the elaboration, the user recives a message confirming everything was ok, or asking more data if something went wrong during the elaboration.
+				\end{itemize}
+				
 		\paragraph{Violation examination}
 			This is the way the system could deeply influence the world. This function, exploited by recognized authorities, is the first step for automatically releasing tickets
 		\paragraph{Statistics}
@@ -149,21 +160,6 @@
 	
 \section{Specific Requirements} \textit{Here we include more details on all the aspects in Section 2 if they can be used for the development team}
 
-	\subsection{External Interface Requirements}
-		These requirements come from the needing to communicate to the local police to submit notifications and gather ticket statistics
-		
-		\subsubsection{User Interfaces}
-			\begin{enumerate}
-				\item A graphical user interface should be provided to the auths to allow them to retrive dat manually
-			\end{enumerate}
-			
-		\subsubsection{Software Interfaces}
-			\begin{enumerate}
-					\item An api should be produced to allow auth's servers to access data programmatically
-			\end{enumerate}
-			
-	\subsection{Functional Requirements} \textit{Definition of use case diagrams, usa cases and associated sequence/activity diagrams, and mapping on requirements}
-	
 		\subsubsection{Scenarios}
 		
 			\begin{enumerate}[label=\enum{S}]
@@ -172,6 +168,23 @@
 Mario now knows the crazy-minded driver will pay what he deserves! (like some fines)
 				\item \textbf{Prevent is better than healing}Luigi is late for work. He cannot find any parking, and is thinking about parking on the bycicle line. He's about to do that, when he suddently remembers that nowaday anyone could signal his infractions with SafeStreets. So he decides to keep searching for a proper parking, and granny Maria can take her daily ride on her bycicle!
 			\end{enumerate}
+
+	\subsection{External Interface Requirements}
+		These requirements come from the needing to communicate to the local police to submit notifications and gather ticket statistics, and to reduce the project cost by outsourcing.
+		
+		\subsubsection{User Interfaces}
+			\begin{enumerate}[label=\enum{UI}]
+				\item A graphical user interface should be provided to the auths to allow them to retrive data manually. It could be web-based or desktop-based.
+				\item \label{UI_mobileApp}The citizen's user interface should be a mobile application to both be able to ensure mobility and security, being able to control the dataflow.
+			\end{enumerate}
+			
+		\subsubsection{Software Interfaces}
+			\begin{enumerate}[label=\enum{SW}]
+				\item An api should be produced to allow auth's servers to access data programmatically
+				\item An external api should be used to manage the map-based displaying of statistics
+			\end{enumerate}
+			
+	\subsection{Functional Requirements} \textit{Definition of use case diagrams, usa cases and associated sequence/activity diagrams, and mapping on requirements}
 			
 		\subsubsection{Requirements}
 		
@@ -185,16 +198,23 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 			\end{enumerate}
 			
 	\subsection{Performance requirements}
-		\begin{enumerate}
+		\begin{enumerate}[label=\enum{P}]
 			\item The notification should be sent to the server as soon as possible. It should be recived and elaborated as soon as internet and the server's speed allows to match almost-real-time speed
 			\item The quality of the photo should be at most XYZ (to reduce overload on network and server) but at least PQR (to enable automatic recognition).
 		\end{enumerate}
 		
 	\subsection{Design Constraints}
 	
-		\subsubsection{Hardware limitations} The aut's hardware only needs to have access to the internet. The cit's device must be a smartphone so to ensure the photo is taken inside the application and no modification happens
+		\subsubsection{Hardware limitations} 
+			\begin{enumerate}[label=\enum{SW}]
+				\item The auth's hardware will require an internet connection to access the data.
+				\item The cit's device will have to be a smartphone for the reasons explained in \ref{UI_mobileApp}
+			\end{enumerate}					
 		
-		\subsubsection{Any other constraint} If possible, it should be checked that the cit's device has not been modified anyhow
+		\subsubsection{Any other constraint} 
+			\begin{enumerate}[label=\enum{OT}]
+				\item The citizen's device should be checked to be trustable, and rooted devices should be blocked (as they could change the app behaviour and submit altered photos)
+			\end{enumerate}		
 		
 	\subsection{Software system attributes}
 	
@@ -208,7 +228,7 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 		\subsubsection{Security}
 			\begin{list}{-}{}
 				\item Transmit data encrypted to prevent alteration in the network
-				\item Only allow auths to access the license plate numbers stored
+				\item Only allow auths to access non-aggregated data
 			\end{list}
 			
 		\subsubsection{Maintainability}
@@ -218,7 +238,7 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 			Portability is a crucial aspect of the system, at least on the citizen's side: it is needed to allow them to submit a notification as they spot a violation. For this reason, the cit's client should be avaiable on as most mobile devices as possible.
 			
 	\subsection{Traceability matrix}
-		\begin{table}[h]
+		\begin{table}[H]
 			\begin{center}
 				\caption{Traceability matrix}
 				\label{Trace matrix}
