@@ -123,7 +123,85 @@
 
 
 		\end{table} 
+
+		\begin{table} [H]
+		\begin{center}
+		\caption{Register as authorities}
+		\begin{tabular}{|c|p{8cm}|}
+			\hline
+			Actor&authorities\\
+			\hline
+			Entry condition&
+				\begin{enumerate}
+					\item The user has installed the Application
+					\item The user has opened the Application
+				\end{enumerate}\\
+			\hline
+			Events flow&
+			\begin{enumerate}
+			\item Click on “Sign up” button
+			\item Fill all the mandatory fields and provide the necessary information(different for authorities such as there is no 
+			field for enter their Email and their username should be their personal code as an officer ...)
+			\item Click on “Confirm” button
+			\item The system saves the data
+			
+			\end{enumerate}\\
+			\hline
+			Exit condition& The user's Account has register successfully\\
+			\hline
+			Exeption&
+			\begin{enumerate}
+			\item The user is already signed up.In this case the system warns the user and suggests him/her to do the login.
+			\item The username is already taken
+			\item The user didn’t fill all of the mandatory fields with valid data
+			
+			\end{enumerate}\\
+			\hline
+		\end{tabular}
+				
+		\end{center}
+
+
+		\end{table} 
 	
+		
+		\begin{table} [H]
+		\begin{center}
+		\caption{Login as both kind of users}
+		\begin{tabular}{|c|p{8cm}|}
+			\hline
+			Actor&user\\
+			\hline
+			Entry condition&
+				\begin{enumerate}
+					\item The user has already signed up and has the application on own device
+					\item The user has opened the Application
+				\end{enumerate}\\
+			\hline
+			Events flow&
+			\begin{enumerate}
+			\item Fill the Username and Password fields 
+			\item Click on "sign in" button
+			\item The user is successfully logged in 
+			
+			\end{enumerate}\\
+			\hline
+			Exit condition& The user has already access to whole the applicaton's tools\\
+			\hline
+			Exeption&
+			\begin{enumerate}
+			\item The user enters invalid Username
+			\item The user enters invalid Password
+			\item All the exceptions are handled by notifying the user which fieldis are wrong , suggesting to correct it
+			
+			\end{enumerate}\\
+			\hline
+		\end{tabular}
+				
+		\end{center}
+
+
+		\end{table} 
 	\subsection{Product functions}
 	The main functions of the system follows (lines in parenthesis are outside the system domain but are inserted for completeness):
 		\paragraph{Violation notification}
@@ -306,7 +384,7 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 			\item October 24: Teamwork. 2h
 			\item October 27: Use case diagram,product prospective 2h
 			\item October 28: Modify some Tasks toghether. 1h
-			\item Obtober 20: Something. 1h
+			\item Obtober 20: use case table. 1h
 		\end{list}
 \section{References}
 \end{document}
