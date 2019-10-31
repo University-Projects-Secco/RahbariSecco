@@ -18,10 +18,11 @@ sig Person{
 
 sig Violation{
 	type: VIOL_TYPE,
-	data: Data,
+	data: set Data,
 	modified: Bool
 }{
-	(some disj d1,d2:Data | d1.type = d2.type) implies (modified = True)	//Different data iff something has been modified
+	//(some disj d1,d2:Data | d1.type = d2.type) implies (modified = True) and	//Different data iff something has been modified
+	#data>0
 }
 
 sig Ticket{
@@ -38,16 +39,16 @@ sig Car{
 sig Plate{
 	permissions: set PERMISSION
 }
-sig Data{
-	type: DATATYPE
+abstract sig Data{}{
+	no disj v1,v2: Violation | v1.data = v2.data	//non-obiquity
 }
-abstract sig DATATYPE{}
-sig Date extends DATATYPE{}
-sig Time extends DATATYPE{}
-sig Position extends DATATYPE{}
-sig Picture extends DATATYPE{
+sig Date extends Data{}
+sig Time extends Data{}
+sig Position extends Data{}
+sig Picture extends Data{
 	plate: Plate
 }
+
 sig Statictics{
 	from: some Violation
 }
@@ -62,10 +63,20 @@ one sig onDisabledParking extends VIOL_TYPE{}{permission = disabledPermission}
 abstract sig PERMISSION{}
 one sig disabledPermission extends PERMISSION{}
 //GOALS
-//G1 Allow citizens to notify parking violations in real time
-//G2 Allow citizens to provide all the needed data about violation, in particular infraction type, picture, date, time and position
 //G3 Prevent the autorities to have to manually address parking tickets => not defined in the model
 //G7 Allow both citizens and authorities retrive informations about previous violations and released tickets, possibly in an aggregated form 
+assert G1{//Allow citizens to notify parking violations
+	//?
+}
+
+assert G2{//Allow citizens to provide all the needed data about violation, in particular infraction type, picture, date, time and position
+	//?
+}
+
+assert G3{//Prevent the autorities to have to manually address parking tickets
+	//?
+}
+
 assert G4{//Ensure no tickets can be emitted if the notification's data has been modified somehow
 	no t: Ticket | t.viol.modified = True
 }
@@ -73,11 +84,11 @@ assert G5{//Ensure no tickets can be emitted if the plate of the car that commit
 	no t: Ticket | t.viol.type.permission in t.plate.permissions
 }
 
-assert G6{// Every notification not covered by \ref{G_discardAltered} or \ref{G_respectPermissions} will always be saved
-	all v: Violation | (not v.type.permission in v.pic.plate.permissions) 
-				implies
-				(some t:Ticket | t.viol  = v)
+assert G6{// Every notification not covered by \ref{G_discardAltered} or \ref{G_respectPermissions} will always be saved (In this analysis, assume that every saved violation generates a ticket)
+	all v: Violation | (v.modified = False and some pic: Picture | pic in v.data and not (v.type.permission in pic.plate.permissions)) implies 
+	some t:Ticket | t.viol = v	
 }
+
 
 //PROGRAMMING FUNCTIONS
 pred insertData[c:Citizen,v:Violation,d:Data]{
@@ -86,15 +97,12 @@ pred insertData[c:Citizen,v:Violation,d:Data]{
 
 //ALLOY FUNCTIONS AND PREDICATES
 pred fullData[v:Violation]{
-	(some d:Data | d in v.data and d.type = Date) and
-	(some d:Data | d in v.data and d.type = Time) and
-	(some d:Data | d in v.data and d.type = Position) and
-	(some d:Data | d in v.data and d.type = Picture)
+	(some d:Date | d in v.data) and
+	(some d:Time | d in v.data) and
+	(some d:Position | d in v.data) and
+	(some d:Picture | d in v.data)
 }
 
-fun getDataByType[v:Violation,t:DATATYPE]: set Data{	//FIX
-	all d:Data | d in v.data and d.type=t
-}
 
 //DOMAIN ASSUMPTIONS
 fact A1{	//Different cars always have different plates
@@ -110,6 +118,7 @@ fact A4{//SafeStreets will have access to any permission released by the auths
 		(per in p.permissions) implies (some a: Authority | a.knownPermissions[p] = per)	//valid syntax?
 }
 
+
 //CONSTRAINTS
 assert C1{//The authorities will not be able to register automatically to the service. For authentication, they'll be verified and added by an administrator of the system
 	
@@ -119,7 +128,7 @@ assert C1{//The authorities will not be able to register automatically to the se
 //R5: The system should notify the user when his notification has been processed correctly, or ask for more datailed data (example: a more focused picture) if needed.
 
 fact R1{	//Requires the authorities to give SafeStreets access to the tickets they emitted using SafeStreets' data
-	all t: Ticket | t.plate.permissions in t.releasedBy.knownPermissions[t.plate]
+	no t: Ticket | t.plate.permissions in t.releasedBy.knownPermissions[t.plate]
 }
 
 
@@ -131,9 +140,12 @@ fact R3{	//Ensure no data is altered from the insertion to the eventual storage
 	all v: Violation | (v.modified = True) implies (no u: User | v in u.visibleViolations)	//no user can "see" it->it's not stored
 }
 fact R6{//R6: If a notification is missing any needed data, the client application will prevent the user from sending them
-	no v:Violation | not fullData[v]
+	//no v:Violation | not fullData[v]
 }
 
+fact tmp{#Violation > 0}
+
+//check G3 for 10
 check G4
 check G5
 check G6
