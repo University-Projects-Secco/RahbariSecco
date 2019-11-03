@@ -32,7 +32,8 @@
 				\item \label{G_discardAltered} Ensure no tickets can be emitted if the notification's data has been modified somehow
 				\item \label{G_respectPermissions} Ensure no tickets can be emitted if the plate of the car that committed the infringment owns a permission for that infringiment
 				\item \label{G_storeFine} Every notification not covered by \ref{G_discardAltered} or \ref{G_respectPermissions} will be eligible for ticket generation
-				\item \label{G_statistics}Allow both citizens and authorities retrive informations about previous violations and released tickets, possibly in an aggregated form 
+				\item \label{G_statistics}Allow both citizens and authorities retrive informations about previous violations and released tickets, possibly in an aggregated form. Every violation reported to the system and stored will appear in some statistics
+				
 			\end{enumerate}
 
 	\subsection{Scope} \textit{here we include an analysis of the world and of the shared phenomena}\\
@@ -352,7 +353,10 @@
 			\item \label{A_disjPlates} Different cars always have different plates
 			\item \label{A_Single plate}Each car exactly has 1 plate
 			\item \label{A_singleOwner}No car is owned by more than 1 person
-			\item \label{A_accessiblePermissions}SafeStreets will have access to any permission released by the auths
+			\item \label{A_accessiblePermissions}Every auth will have access to any permission released by any other auth. SafeStreets will have access too.
+			\item \label{A_noGeneratedModifiedNotif}Every modified notification has a corresponding non-modified one (even only theoretical)
+			\item \label{A_newNotificationsAreNotModified}When a notification is created it is unmodified. Modifications can happen later, generating a new notification (see \ref{A_noGeneratedModifiedNotif})
+			\item \label{A_authsNotClairvoyants}If a notification is not stored then no auth can see it and therefore no ticket can be released for that notification
 		\end{enumerate}
 	
 	\paragraph{Constraints:}
@@ -399,8 +403,11 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 				\item \label{R_dataGather}For each data to insert, if the  user's device has a sensor to collect thatkind of data, that sensor should be used instead of manual insertion (example: GPS). Otherwise it will be possible to insert it by hand.
 				\item \label{R_notifyUser}The system should notify the user when his notification has been processed correctly, or ask for more datailed data (example: a more focused picture) if needed.
 				\item \label{R_fullData}If a notification is missing any needed data, the client application will prevent the user from sending it
+				\item \label{R_modifiedNotStored}No modified notification will be stored by SafeStreets
+				\item \label{R_validPermissionNotStored}If a violation is invalidated by a permission, it won't be stored
+				\item \label{R_legitNotificationsAlwaysStored}All notifications which are not modified and neither covered by a permission will be saved
 			\end{enumerate}
-			
+				
 	\subsection{Performance requirements}
 		\begin{enumerate}[label=\enum{P}]
 			\item The notification should be sent to the server as soon as possible. It should be recived and elaborated as soon as internet and the server's speed allows to match almost-real-time speed
@@ -446,25 +453,46 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 			\begin{center}
 				\caption{Traceability matrix}
 				\label{Trace matrix}
-				\begin{tabular}{S|S|S}
+				\begin{tabular}{c|c|c}
 					\textbf{Goal ID} & \textbf{Req ID} & \textbf{Usecase ID}\\
 					\hline
-					\ref{G_realTime} & \ref{R_autoPlate} & \ref{S_The man, the street and the monstertruck}\\
-					&\ref{R_dataGather}&\\
-					&\ref{R_notifyUser}&\\
+					\ref{G_realTime} 	& \ref{R_autoPlate}	& \ref{S_The man, the street and the monstertruck}\\
+										&\ref{R_dataGather}	&\\
+										&\ref{R_notifyUser}	&\\
 					\hline
-					\ref{G_allData} & \ref{R_fullData} & \\
-						& \ref{R_dataGather} & \\
+					\ref{G_allData} 	& \ref{R_dataGather} & \\
+									& \ref{R_fullData} & \\
 					\hline
-					\ref{G_helpAuth}&&\\
+					\ref{G_helpAuth}	&\ref{A_disjPlates}&\\
+									&\ref{A_Single plate}&\\
+									&\ref{A_singleOwner}&\\
+									&\ref{A_accessiblePermissions}&\\
+									&\ref{A_noGeneratedModifiedNotif}&\\
+									&\ref{A_newNotificationsAreNotModified}&\\
+									&\ref{R_autoPlate}&\\
+									&\ref{R_unalteredData}&\\
+									&\ref{R_fullData}&\\
 					\hline
-					\ref{G_discardAltered}&&\\
+					\ref{G_discardAltered}	&\ref{A_noGeneratedModifiedNotif}&\\
+											&\ref{A_newNotificationsAreNotModified}&\\
+											&\ref{R_unalteredData}&\\
+											&\ref{R_dataGather}&\\
+											&\ref{R_fullData}&\\
+											
 					\hline
-					\ref{G_respectPermissions}&&\\
+					\ref{G_respectPermissions}	&\ref{A_disjPlates}&\\
+												&\ref{A_Single plate}&\\
+												&\ref{A_accessiblePermissions}&\\
+												&\ref{R_autoPlate}&\\
 					\hline
-					\ref{G_storeFine}&&\\
+					\ref{G_storeFine}	&\ref{A_disjPlates}&\\
+										&\ref{A_Single plate}&\\
+										&\ref{A_accessiblePermissions}&\\
 					\hline
-					\ref{G_statistics}&&\\
+					\ref{G_statistics}	&\ref{R_storeTickets}\\
+										&\ref{R_dataGather}&\\
+										&\ref{R_fullData}&\\
+										
 				\end{tabular}
 			\end{center}
 		\end{table}
@@ -490,6 +518,9 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 			\item October 28: modify some Tasks toghether. 1h
 			\item October 30: Design fixes, product functions. 1.30h
 			\item October 30: Alloy. 1h
+			\item October 2: Alloy. 1h
+			\item October 3: Use-cases. 1h
+			\item October 3: Alloy. 2h
 		\end{list}
 		
 	\paragraph{Rahbari}
