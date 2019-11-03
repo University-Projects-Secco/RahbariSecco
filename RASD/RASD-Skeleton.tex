@@ -126,7 +126,7 @@
 
 		\begin{table} [H]
 		\begin{center}
-		\caption{Register as authorities}
+		\caption{Register as an authority}
 		\begin{tabular}{|c|p{8cm}|}
 			\hline
 			Actor&authorities\\
@@ -171,6 +171,44 @@
 		\begin{tabular}{|c|p{8cm}|}
 			\hline
 			Actor&user\\
+			\hline
+			Entry condition&
+				\begin{enumerate}
+					\item The user has already signed up and has the application on own device
+					\item The user has opened the Application
+				\end{enumerate}\\
+			\hline
+			Events flow&
+			\begin{enumerate}
+			\item Fill the Username and Password fields 
+			\item Click on "sign in" button
+			\item The user is successfully logged in 
+			
+			\end{enumerate}\\
+			\hline
+			Exit condition& The user has already access to whole the applicaton's tools\\
+			\hline
+			Exeption&
+			\begin{enumerate}
+			\item The user enters invalid Username
+			\item The user enters invalid Password
+			\item All the exceptions are handled by notifying the user which fieldis are wrong , suggesting to correct it
+			
+			\end{enumerate}\\
+			\hline
+		\end{tabular}
+				
+		\end{center}
+
+
+		\end{table} 
+
+			\begin{table} [H]
+		\begin{center}
+		\caption{Report a violation}
+		\begin{tabular}{|c|p{8cm}|}
+			\hline
+			Actor&citizens\\
 			\hline
 			Entry condition&
 				\begin{enumerate}
