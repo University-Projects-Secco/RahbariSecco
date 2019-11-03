@@ -84,6 +84,7 @@
 \section{Overall descriprion}
 
 	\subsection{Product perspective} Generally speaking safe street app provides a better collaborating between normal citizs and auths to solve some problem related to traffic of their city.In this case citizs can report car drivers violator to the auths by sendig a photo from the violator's car through the application then if the photo sender has right he/she can be sure that the violator received his/her fines. Overally auths and citizs by mining these data that comes from the app can have some information about the violations that already happend over their city.Bellow we provide some Diagrams to have better understanding and making our goals more explicit.
+
 		\begin{table} [H]
 		\begin{center}
 		\caption{register as a citizen}
@@ -210,29 +211,55 @@
 			\hline
 			Actor&citizens\\
 			\hline
+			Entry condition&The user has already signed in into the application\\
+			\hline
+			 Events flow&
+			\begin{enumerate}
+			\item User open the app and observe that the first interface is like a camera App for faster access to taking the 					photo			
+			\item After focus on the violator's car's license plate push the Red Circle Button to taking photo
+			\item If the photo have all the well captured photo(vivid picture) push the send button
+			\item Inform the user that his/her photo successfully recieved by representing a notification
+			\item App after some minutes send the result whether it is accepted as a violation or this is Reserved parking place  				for some Special citizens(Such as under cover police or people with dissabilities and...)
+			\end{enumerate}\\
+			\hline
+			Exit condition& The user has already access to whole the applicaton's tools\\
+			\hline
+			Exeption&\\
+			\hline
+		\end{tabular}
+				
+		\end{center}
+
+
+		\end{table} 
+
+
+
+
+			\begin{table} [H]
+		\begin{center}
+		\caption{Mine the recieved information}
+		\begin{tabular}{|c|p{8cm}|}
+			\hline
+			Actor&citizens\\
+			\hline
 			Entry condition&
 				\begin{enumerate}
-					\item The user has already signed up and has the application on own device
-					\item The user has opened the Application
+					\item The user has already signed in into the application
 				\end{enumerate}\\
 			\hline
-			Events flow&
+			 Events flow&
 			\begin{enumerate}
-			\item Fill the Username and Password fields 
-			\item Click on "sign in" button
-			\item The user is successfully logged in 
-			
+			\item User Click on MINE DATA buttom 			
+			\item App represent two kind of option(The map-The list of vehicles)
+			\item The first one indicate a Map with Highlighted street with considering the most violation area in the city
+			\item The second option show a list of vehicles that commit the most violation by order
 			\end{enumerate}\\
 			\hline
 			Exit condition& The user has already access to whole the applicaton's tools\\
 			\hline
 			Exeption&
-			\begin{enumerate}
-			\item The user enters invalid Username
-			\item The user enters invalid Password
-			\item All the exceptions are handled by notifying the user which fieldis are wrong , suggesting to correct it
-			
-			\end{enumerate}\\
+		\\
 			\hline
 		\end{tabular}
 				
@@ -422,7 +449,7 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 			\item October 24: Teamwork. 2h
 			\item October 27: Use case diagram,product prospective 2h
 			\item October 28: Modify some Tasks toghether. 1h
-			\item Obtober 20: use case table. 1h
+			\item October 30: use case table. 1h
 		\end{list}
 \section{References}
 \end{document}
