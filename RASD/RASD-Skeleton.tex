@@ -94,10 +94,10 @@
 			\hline
 			Actor&User\\
 			\hline
-			Entry condition & \begin{enumerate}
+			Entry condition & \begin{itemize}
 								\item The user has installed the Application
 								\item The user has opened the Application
-							\end{enumerate}\\
+							\end{itemize}\\
 			\hline
 			Events flow & \begin{enumerate}
 							\item Click on “Sign up” button
@@ -111,14 +111,14 @@
 			\hline
 			Exit condition & The user's Account has register successfully\\
 			\hline
-			Exeption & \begin{enumerate}
+			Exeption & \begin{itemize}
 							\item The user is already signed up.In this case the system warns the user and suggests him/her to do the login.
 							\item The username is already taken
 							\item The e-mail is already registered
 							\item The user didn’t fill all of the mandatory fields with valid data
 							\item The user doesn't confirm the email in time, and its data are deleted
 							\item Server is unreachable
-						\end{enumerate}\\
+						\end{itemize}\\
 			\hline
 		\end{tabular}	
 		\end{center}
@@ -131,10 +131,10 @@
 			\hline
 			Actor&Authorities\\
 			\hline
-			Entry condition&\begin{enumerate}
+			Entry condition&\begin{itemize}
 								\item The user has installed the Application
 								\item The user has opened the Application
-							\end{enumerate}\\
+							\end{itemize}\\
 			\hline
 			Events flow & \begin{enumerate}
 							\item Click on “Sign up” button
@@ -145,12 +145,12 @@
 			\hline
 			Exit condition& The user's Account has register successfully\\
 			\hline
-			Exeption& \begin{enumerate}
+			Exeption& \begin{itemize}
 							\item The user is already signed up.In this case the system warns the user and suggests him/her to do the login.
 							\item The username is already taken
 							\item The user didn’t fill all of the mandatory fields with valid data
 							\item Server is unreachable
-						\end{enumerate}\\
+						\end{itemize}\\
 			\hline
 		\end{tabular}
 		\end{center}
@@ -163,10 +163,10 @@
 			\hline
 			Actor&User\\
 			\hline
-			Entry condition& \begin{enumerate}
+			Entry condition& \begin{itemize}
 								\item The user has already signed up and has the application on own device
 								\item The user has opened the Application
-							\end{enumerate}\\
+							\end{itemize}\\
 			\hline
 			Events flow& \begin{enumerate}
 							\item Fill the Username and Password fields 
@@ -177,11 +177,11 @@
 			\hline
 			Exit condition& The user is signed in and can access the services for its user class\\
 			\hline
-			Exeption& \begin{enumerate}
+			Exeption& \begin{itemize}
 							\item The user enters invalid Username
 							\item The user enters invalid Password
 							\item All the exceptions are handled by notifying the user which fieldis are wrong , suggesting to correct it
-						\end{enumerate}\\
+						\end{itemize}\\
 			\hline
 		\end{tabular}
 		\end{center}
@@ -206,11 +206,11 @@
 			\hline
 			Exit condition& The violation is stored and the user is notified of the result\\
 			\hline
-			Exeption& \begin{enumerate}
+			Exeption& \begin{itemize}
 						\item Server is unreachable
 						\item The notification is discarded for some reason, such as a permission for the car to park in the reserved parking. In that case, the user is notified
 						\item Server is unreachable
-					\end{enumerate}\\
+					\end{itemize}\\
 			\hline
 		\end{tabular}
 		\end{center}
@@ -223,9 +223,9 @@
 			\hline
 			Actor&Citizens\\
 			\hline
-			Entry condition& \begin{enumerate}
+			Entry condition& \begin{itemize}
 								\item The user is signed in into the application
-							\end{enumerate}\\
+							\end{itemize}\\
 			\hline
 			 Events flow& \begin{enumerate}
 							\item User Click on MINE DATA button			
@@ -237,11 +237,11 @@
 			\hline
 			Exit condition & The user can see the requested data presented on its device\\
 			\hline
-			Exeption& \begin{enumerate}
+			Exeption& \begin{itemize}
 						\item Server is unreachable
 						\item The service for map creation is not available
 						\item The needed data cannot be retrived from the database
-					\end{enumerate}\\
+					\end{itemize}\\
 			\hline
 		\end{tabular}
 		\end{center}
@@ -254,9 +254,9 @@
 			\hline
 			Actor&Authorities\\
 			\hline
-			Entry condition& \begin{enumerate}
+			Entry condition& \begin{itemize}
 								\item The user is signed in into the application
-							\end{enumerate}\\
+							\end{itemize}\\
 			\hline
 			 Events flow& \begin{enumerate}
 							\item User Click on MINE DATA buttom 			
@@ -267,11 +267,11 @@
 			\hline
 			Exit condition& The user can see the requested data presented on its device\\
 			\hline
-			Exeption& \begin{enumerate}
+			Exeption& \begin{itemize}
 						\item Server is unreachable
 						\item The service for map creation is not available
 						\item The needed data cannot be retrived from the database
-					\end{enumerate}\\
+					\end{itemize}\\
 			\hline
 		\end{tabular}
 		\end{center}
@@ -284,9 +284,9 @@
 			\hline
 			Actor&Authorities\\
 			\hline
-			Entry condition& \begin{enumerate}
+			Entry condition& \begin{itemize}
 								\item The user is signed in into the application
-							\end{enumerate}\\
+							\end{itemize}\\
 			\hline
 			 Events flow& \begin{enumerate}
 							\item User see all the recieved photos from citizens by order
@@ -295,15 +295,15 @@
 							\item \textbf{Provide infos about the ticket (ex: how moch money}
 						\end{enumerate}\\
 			\hline
-			Exit condition& \begin{enumerate}
+			Exit condition& \begin{itemize}
 								\item The authority releases a ticket for the choosen violation
 								\item If the owner of the plate which recived the ticket is a SefeStreets user, he's notified of the ticket
-							\end{enumerate}\\
+							\end{itemize}\\
 			\hline
-			Exeption& \begin{enumerate}
+			Exeption& \begin{itemize}
 						\item Server is unreachable
 						\item Violation is discarded
-					\end{enumerate}\\
+					\end{itemize}\\
 			\hline
 		\end{tabular}
 		\end{center}
