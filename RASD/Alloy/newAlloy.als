@@ -61,6 +61,8 @@ sig Ticket{
 
 sig Statistic{
 	violations: set Violation
+}{
+	#violations>0
 }
 
 sig Plate{}
@@ -104,7 +106,7 @@ assert G6{
 
 //G7: Allow both citizens and authorities retrive informations about previous violations and released tickets, possibly in an aggregated form. Every violation reported to the system and stored will appear in some statistics
 assert G7{
-	all v: Violation | some s: Statistic | v in s.violations
+	all v: Violation | some s: Statistic | (v in s.violations <=> some n:Notification | n in SafeStreets.storedNotifications and n.viol = v)
 }
 
 //REQUIREMENTS
@@ -127,7 +129,8 @@ fact enforceStore{
 }
 
 fact enforceGenerateStat{
-	all s:Statistic | some l:Location | s=generateStats[l]
+	(all s:Statistic | some l:Location | s=generateStats[l]) and 
+	all l:Location | some s:Statistic | s=generateStats[l]
 }
 
 //ASSUMPTION
@@ -189,10 +192,11 @@ fun generateStats[l: Location]: one Statistic{
 	{s: Statistic | all v: Violation | (v in s.violations <=> (v.loc = l and some n:Notification | (n.viol = v and n in SafeStreets.storedNotifications))) }
 }
 
+
 //check G1 for 10
 //check G2 for 10
 	//check G3
 //check G4 for 10
-//check G5 for 10	//DOESN'T WORK
+check G5 for 10	//DOESN'T WORK
 //check G6 for 10
-check G7 for 10	//DOESN'T WORK
+check G7 for 10
