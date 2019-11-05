@@ -86,7 +86,11 @@ assert G2{
 	all n: Notification | fullData[n]
 }
 
-//G3: undefinable
+//G3: check if there's a violation it is stored
+assert G3{
+	#Violation>0 => #SafeStreets.storedNotifications>0
+}
+
 
 //G4: Ensure no tickets can be emitted if the notification's data has been modified somehow
 assert G4{
@@ -95,7 +99,7 @@ assert G4{
 
 //G5: Ensure no tickets can be emitted if the plate of the car that committed the infringment owns a permission for that infringiment
 assert G5{
-	no t: Ticket | let p=t.plate | some per: Permission | per.type = t.viol.type and per.plate = p
+	no t: Ticket | some per: Permission | per.type = t.viol.type and per.plate = t.plate
 }
 
 //G6: Every notification not covered by G4 or G5 will be eligible for ticket generation
@@ -134,7 +138,7 @@ fact enforceGenerateStat{
 }
 
 //ASSUMPTION
-//Every valid violation generates a ticket (only used for formal analysis)
+//Every "valid" violation generates a ticket (only used for formal analysis)
 fact everyNotificationStoredGeneratesATicket{
 	all n:Notification | n in SafeStreets.storedNotifications implies some t:Ticket | t=generateTicket[n]
 }
@@ -174,9 +178,10 @@ pred notify[c,c': Citizen,v: Violation,n:Notification]{
 }
 
 pred store[n:Notification]{
-	(n in SafeStreets.storedNotifications)<=>(n.modified=False and no p:Permission | (p.type=n.viol.type and
-										 	(some pic:Picture | pic in n.data and pic.plate=p.plate)) and 
-											all c:Citizen | n in c.sent => n in c.acked) 
+	(n in SafeStreets.storedNotifications)<=> n.modified=False 
+							and (no p:Permission |	(p.type=n.viol.type and
+										 	(some pic:Picture | pic in n.data and pic.plate=p.plate)))
+							and (all c:Citizen | n in c.sent => n in c.acked)
 }
 
 //FUNCTIONS
@@ -192,11 +197,10 @@ fun generateStats[l: Location]: one Statistic{
 	{s: Statistic | all v: Violation | (v in s.violations <=> (v.loc = l and some n:Notification | (n.viol = v and n in SafeStreets.storedNotifications))) }
 }
 
-
 //check G1 for 10
 //check G2 for 10
-	//check G3
+//check G3 for 10
 //check G4 for 10
-check G5 for 10	//DOESN'T WORK
+check G5 for 10
 //check G6 for 10
 check G7 for 10
