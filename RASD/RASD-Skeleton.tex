@@ -356,6 +356,7 @@
 				\item (If data are correct, decide if a ticket can be created and in case create it)
 			\end{itemize}
 			In case a ticket is issued to a SafeStreets user, he/she will be notified about it, and will recive informations about the violation and the fee of the ticket itself.
+		
 		\paragraph{Statistics}
 			This funciton can be exploited by any user. Basically, it concerns the displaying of statistics about violations in a graphic, map-based \textbf{structure}. It is composed by the following steps:
 			\begin{itemize}
@@ -368,6 +369,20 @@
 				\subparagraph{Map-based} Data are displayed in a map marking the streets of the city with different colors, one for each identified "class of risk". A street is identified with a class of risk based on the number of violations in that streets in the last 3 months.
 				\subparagraph{List of vehicles} Veichles are sorted by number of violations, the ones with the highest number comes first. Depending on privacy laws, a picture of the vehicle taken from the pictures of violations, with the plate hidden, could be displayed
 				\subparagraph{City data} General statistics about the violations in the city can be viewed from authorities to decide about \textbf{SOMETHING TO DO}
+				
+		\begin{figure}[H]
+			\centering
+			\def\svgwidth{\columnwidth}
+			\input{Images/Notify_Violation_Class_Diagram.pdf_tex}
+		\caption{High level class diagram for violation notification and examination}
+		\end{figure}
+				
+		\begin{figure}[H]
+			\centering
+			\def\svgwidth{\columnwidth}
+			\input{Images/Statistics_class_diagram.pdf_tex}
+		\caption{High level class diagram for Statistic production and presentation}
+		\end{figure}
 			
 	
 	\subsection{Assumptions, dependencies and constraints}

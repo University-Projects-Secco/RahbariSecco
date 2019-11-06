@@ -1,0 +1,122 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Images/Notify_Violation_Class_Diagram.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{615.75bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.87819732)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.3410475,0.68574909){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}CITIZENS\end{tabular}}}}%
+    \put(0.26309379,0.65408039){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}email\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.47503045,0.85627284){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}USER\end{tabular}}}}%
+    \put(0.39707674,0.82460414){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}username\end{tabular}}}}%
+    \put(0.39707674,0.79293544){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}password\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.61510353,0.68574909){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}AUTHORITIES\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.3410475,0.24116931){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}VIOLATION\end{tabular}}}}%
+    \put(0.26309379,0.21071864){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}type\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.12789281,0.47868453){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}NOTIFICATION\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.9135201,0.38733252){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}PERMISSION\end{tabular}}}}%
+    \put(0.83556638,0.35566382){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}plate\end{tabular}}}}%
+    \put(0.83556638,0.32399513){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}type\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.61510353,0.38124239){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}TICKET\end{tabular}}}}%
+    \put(0.53714982,0.34957369){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}plate\end{tabular}}}}%
+    \put(0.53714982,0.31790499){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}fee\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.6272838,0.28745432){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.2046285,0.3045067){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}signals\end{tabular}}}}%
+    \put(0.17417783,0.42021924){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}0..n\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.29841657,0.62606577){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}generates\end{tabular}}}}%
+    \put(0.09013398,0.50426309){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}generated by\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.63946407,0.62606577){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}generates\end{tabular}}}}%
+    \put(0.5773447,0.40682095){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}generated by\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.73081608,0.6638246){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}emits\end{tabular}}}}%
+    \put(0.88306943,0.41291108){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}emitted by\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.0316687,0.00609013){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Picture\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.11693057,0.00609013){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Location\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.19610231,0.00609013){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Date\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.29232643,0.00609013){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Time\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.04872107,0.02314251){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.13398295,0.02557856){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.20828258,0.02557856){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.30328867,0.02557856){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.51766139,0.08038977){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
+    \put(0.34226553,0.16077954){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}violator\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.49939099,0.05481121){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}CAR\end{tabular}}}}%
+    \put(0.42143727,0.02314251){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}plate\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.10353228,0.41778319){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=24]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.94518879,0.29719854){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}granted to\end{tabular}}}}%
+    \put(0.62362972,0.06577345){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}has granted\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=25]{Images/Notify_Violation_Class_Diagram.pdf}}%
+    \put(0.08526188,0.21924482){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}DATA\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
