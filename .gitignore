@@ -25,3 +25,4 @@
 *.pdf
 #Allow
 !DeliveryFolder/*.pdf
+!RASD/Images/*.pdf
