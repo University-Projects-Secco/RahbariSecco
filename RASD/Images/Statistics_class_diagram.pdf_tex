@@ -89,45 +89,45 @@
     \put(0,0){\includegraphics[width=\unitlength,page=13]{Images/Statistics_class_diagram.pdf}}%
     \put(0.39136302,0.24426451){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Time\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=14]{Images/Statistics_class_diagram.pdf}}%
-    \put(0.09446694,0.14304993){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}[Not supported by viewer]\end{tabular}}}}%
+    \put(0.32928475,0){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=15]{Images/Statistics_class_diagram.pdf}}%
-    \put(0.33063428,0){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
+    \put(0.32928475,0.08097166){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=16]{Images/Statistics_class_diagram.pdf}}%
-    \put(0.33063428,0.08097166){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
+    \put(0.33198381,0.19568151){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=17]{Images/Statistics_class_diagram.pdf}}%
-    \put(0.33468286,0.19568151){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
+    \put(0.32928475,0.25641026){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=18]{Images/Statistics_class_diagram.pdf}}%
-    \put(0.33063428,0.25641026){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=19]{Images/Statistics_class_diagram.pdf}}%
     \put(0.4925776,0.3805668){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
     \put(0.56815115,0.41160594){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}violator\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=20]{Images/Statistics_class_diagram.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{Images/Statistics_class_diagram.pdf}}%
     \put(0.11470985,0.18893387){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{Images/Statistics_class_diagram.pdf}}%
+    \put(0.63562753,0.69230769){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}PLACE STATISTICS\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=21]{Images/Statistics_class_diagram.pdf}}%
-    \put(0.4925776,0.84480432){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}[Not supported by viewer]\end{tabular}}}}%
+    \put(0.33738192,0.69230769){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}DRIVER STATISTICS\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=22]{Images/Statistics_class_diagram.pdf}}%
-    \put(0.63562753,0.69230769){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}[Not supported by viewer]\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=23]{Images/Statistics_class_diagram.pdf}}%
-    \put(0.33738192,0.69230769){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}[Not supported by viewer]\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=24]{Images/Statistics_class_diagram.pdf}}%
     \put(0.63697706,0.60323887){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1..n\end{tabular}}}}%
     \put(0.13630229,0.43049933){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1..n\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=25]{Images/Statistics_class_diagram.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{Images/Statistics_class_diagram.pdf}}%
     \put(0.365722,0.63832659){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1..n\end{tabular}}}}%
     \put(0.64102564,0.56950067){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1..n\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=26]{Images/Statistics_class_diagram.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=24]{Images/Statistics_class_diagram.pdf}}%
     \put(0.47233468,0.35087719){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}VIOLATION\end{tabular}}}}%
     \put(0.38596491,0.317139){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}type\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=27]{Images/Statistics_class_diagram.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=25]{Images/Statistics_class_diagram.pdf}}%
     \put(0.64777328,0.51147099){\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}CAR\end{tabular}}}}%
     \put(0.56140351,0.47638327){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}plate\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=28]{Images/Statistics_class_diagram.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=26]{Images/Statistics_class_diagram.pdf}}%
     \put(0.84345479,0.71524966){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=29]{Images/Statistics_class_diagram.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=27]{Images/Statistics_class_diagram.pdf}}%
     \put(0.52226721,1.01079622){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}can see\end{tabular}}}}%
     \put(0.50067476,1.0391363){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=30]{Images/Statistics_class_diagram.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=28]{Images/Statistics_class_diagram.pdf}}%
     \put(0.73684211,0.70850202){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}1\end{tabular}}}}%
     \put(0.62618084,0.36437247){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Text\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=29]{Images/Statistics_class_diagram.pdf}}%
+    \put(0.09446694,0.14304993){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}DATA\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=30]{Images/Statistics_class_diagram.pdf}}%
+    \put(0.4925776,0.85155196){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textit{abstract}\\STATISTICS\end{tabular}}}}%
   \end{picture}%
 \endgroup%
