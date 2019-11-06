@@ -1,0 +1,83 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Register_Citizen_Sequence_Diagram.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{552.30799805bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.57101292)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Images/Register_Citizen_Sequence_Diagram.pdf}}%
+    \put(0.72298065,0.31707852){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}250 OK\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Images/Register_Citizen_Sequence_Diagram.pdf}}%
+    \put(0.72162272,0.34423727){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}send verification email(token)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{Images/Register_Citizen_Sequence_Diagram.pdf}}%
+    \put(0.50027883,0.53434859){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}SafeStreets\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{Images/Register_Citizen_Sequence_Diagram.pdf}}%
+    \put(0.63859717,0.42802861){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}generate temporary token\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{Images/Register_Citizen_Sequence_Diagram.pdf}}%
+    \put(0.93074516,0.53434859){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Mail Provider\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{Images/Register_Citizen_Sequence_Diagram.pdf}}%
+    \put(0.12277207,0.49496839){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Citizen\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{Images/Register_Citizen_Sequence_Diagram.pdf}}%
+    \put(0.04672755,0.14190452){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}retrieve torken\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{Images/Register_Citizen_Sequence_Diagram.pdf}}%
+    \put(0.30880957,0.43929293){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}register(email,username,password)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{Images/Register_Citizen_Sequence_Diagram.pdf}}%
+    \put(0.31152545,0.0590703){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}return\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{Images/Register_Citizen_Sequence_Diagram.pdf}}%
+    \put(0.52472171,0.20844348){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}get emails()\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{Images/Register_Citizen_Sequence_Diagram.pdf}}%
+    \put(0.52472171,0.16906328){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}return\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{Images/Register_Citizen_Sequence_Diagram.pdf}}%
+    \put(0.30880957,0.09980844){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}confirm email(token)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{Images/Register_Citizen_Sequence_Diagram.pdf}}%
+    \put(0.31288339,0.28991976){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}return\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
