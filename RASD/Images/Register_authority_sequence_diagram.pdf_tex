@@ -1,0 +1,81 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Images/Register_authority_sequence_diagram.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{555.75bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.62145074)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Images/Register_authority_sequence_diagram.pdf}}%
+    \put(0.048583,0.32051282){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}alternative\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Images/Register_authority_sequence_diagram.pdf}}%
+    \put(0.20782726,0.53643725){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Authority representative\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{Images/Register_authority_sequence_diagram.pdf}}%
+    \put(0.50472335,0.53238866){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}SafeStreets staff\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{Images/Register_authority_sequence_diagram.pdf}}%
+    \put(0.59784076,0.45681511){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}verify authority\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{Images/Register_authority_sequence_diagram.pdf}}%
+    \put(0.85155196,0.58097166){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}SafeStreets\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{Images/Register_authority_sequence_diagram.pdf}}%
+    \put(0.35222672,0.49190283){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}request accounts (n)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{Images/Register_authority_sequence_diagram.pdf}}%
+    \put(0.00674764,0.28812416){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{[Authority is trusted]}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{Images/Register_authority_sequence_diagram.pdf}}%
+    \put(0.67881242,0.30161943){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}create accounts(n)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{Images/Register_authority_sequence_diagram.pdf}}%
+    \put(0.67881242,0.25978408){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}accounts[n]\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{Images/Register_authority_sequence_diagram.pdf}}%
+    \put(0.35222672,0.24763833){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}accounts[n]\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{Images/Register_authority_sequence_diagram.pdf}}%
+    \put(0.00674764,0.16464238){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textit{[Authority is not trusted]}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{Images/Register_authority_sequence_diagram.pdf}}%
+    \put(0.35492578,0.11268556){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}refuse\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
