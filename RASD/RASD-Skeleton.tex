@@ -8,6 +8,9 @@
 \usepackage{graphicx}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage{alloy-style}
 \newcommand{\enum}[1]{\texttt{#1.\arabic*}}
 \begin{document}
 \pagenumbering{gobble}
@@ -605,6 +608,7 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 	\paragraph{}The signatures are omitted in the document as they reflect the entities 				desctibes in section \ref{definitions}, plus some "enumerations". The goals we were able to define in Alloy are \ref{G_discardAltered},\ref{G_respectPermissions} and \ref{G_storeFine}.
 	There was no need to check \ref{G_statistics} and \ref{G_allData} as they can be satisfied 	by an equal requirement
 	\paragraph{}The assumptions we were able to define are \ref{A_disjPlates}, \ref{A_Single plate}, \ref{A_singleOwner}, \ref{A_accessiblePermissions}. Please note not all of them has been expressed by facts as some was already expressed by multiplicity in the signatures.
+	\lstinputlisting[language=alloy]{Alloy/Alloy.als}
 	
 \newpage
 \section{Effort spent} \textit{In this section you will include information about the number of hours each group member has worked for this document}
