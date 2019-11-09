@@ -52,18 +52,19 @@ and	(one c: Citizen | this in c.sent)
 
 sig Ticket{
 	viol: one Violation,
-	notif: lone Notification,
+	notif: set Notification,
 	plate: one Plate,
 	releasedBy: one Authority
 }{
 	some n:Notification | this=generateTicket[n] and
 	notif in SafeStreets.storedNotifications //A7: If a notification is not stored then no auth can see it and therefore no ticket can be released for that notification
+	and all disj n1,n2: Notification | (n1.viol = n2.viol and n1 in notif) => (n2 in notif)
 }
 
 sig Statistic{
 	violations: set Violation
 }{
-	#violations>0
+	#Violation>0 => #violations>0
 }
 
 sig Plate{}
@@ -130,7 +131,7 @@ fact R3{//Ensure no data is altered from the insertion to the eventual storage
 
 //R7 R8 R9 are enforced by the "store" function
 fact enforceStore{
-	all n:Notification | store[n]	
+	all n:Notification | store[n]	 and ack[n]
 }
 
 fact enforceGenerateStat{
@@ -181,10 +182,17 @@ pred notify[c,c': Citizen,v: Violation,n:Notification]{
 }
 
 pred store[n:Notification]{//models the checking of a notification and the eventual storage
-	(n in SafeStreets.storedNotifications)<=> n.modified=False 
+	(n in SafeStreets.storedNotifications) <=> n.modified=False 
 							and (no p:Permission |	(p.type=n.viol.type and
 										 	(some pic:Picture | pic in n.data and pic.plate=p.plate)))
-							and (all c:Citizen | n in c.sent => n in c.acked)
+}
+
+pred ack[n:Notification]{
+	all c:Citizen, n:Notification | n in c.sent => n in SafeStreets.storedNotifications => n in c.acked else n in c.nacked
+}
+
+pred isValid[n:Notification]{
+	n.modified=False and no p:Permission |	(p.type=n.viol.type and some pic:Picture | pic in n.data and pic.plate=p.plate)
 }
 
 //FUNCTIONS
@@ -209,6 +217,6 @@ pred W1{
 //check G2 for 10
 //check G3 for 10
 //check G4 for 10
-check G5 for 10
-//check G6 for 10
+//check G5 for 10
+check G6 for 10
 check G7 for 10
