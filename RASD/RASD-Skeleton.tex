@@ -1,5 +1,5 @@
 \documentclass{article}
-\title{Title of the project}
+\title{SafeStreets RASD}
 \date{release date: \today\\version 0: skeleton}
 \author{Matteo Secco, Mohammad Rahbari}
 \usepackage{enumitem}
@@ -11,6 +11,7 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{listings}
 \usepackage{alloy-style}
+\usepackage{subcaption}
 \newcommand{\enum}[1]{\texttt{#1.\arabic*}}
 \begin{document}
 \pagenumbering{gobble}
@@ -327,7 +328,7 @@
 		\caption{Login: sequence diagram}
 		
 	\end{figure}
-		
+	
 		\begin{table} [H]
 		\begin{center}
 		\caption{See the level of risk of each street on a map}
@@ -343,12 +344,12 @@
 									\item User Click on MAP button			
 									\item A request is sent to the server
 									\item The server aggregates the data in classes of risk
-									and sends them to the map API
-									\item The map API elaborates the data, generates the map 
-									and sends it back to SafeStreets' server
-									\item The server forwards the map to the user
+									and sends them to the User Interface
+									\item The User Interface sends these data to the Map API,
+									which returns the map to display
 									\item SafeStreets' application displays the map to 
-									the user
+									the user, who can navigate it thanks to the direct
+									channel with the API
 								\end{enumerate}\\
 			\hline
 			Exit condition 	&	The user can see the requested data presented on its device\\
@@ -362,6 +363,12 @@
 		\end{tabular}
 		\end{center}
 		\end{table} 
+		\centering
+	\begin{figure}[H]
+			\def\svgwidth{\columnwidth}
+			\input{Images/Map_statistics_sequence_diagram.pdf_tex}
+			\caption{See streets' risk: sequence diagram}
+	\end{figure}
 		
 		\begin{table} [H]
 		\begin{center}
@@ -559,6 +566,13 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 		
 		\subsubsection{User Interfaces}
 		\section{USER INTERFACE MOKUPS (REMOVE THIS TITLE LATER)}
+		
+%			\begin{figure}[H]
+%				\begin{subfigure}
+%				
+%				\end{subfigure}				
+%			\end{figure}					
+		
 			\begin{enumerate}[label=\enum{UI}]
 				\item A graphical user interface should be provided to the auths to allow them to retrive data manually. It could be web-based or desktop-based.
 				\item \label{UI_mobileApp}The citizen's user interface should be a mobile application to both be able to ensure mobility and security, being able to control the dataflow.
@@ -713,7 +727,6 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 			\item October 30: use case table. 1h
 			\item November 3: finishing all the use case tables 2h
 			\item November8: working on Sequence Diagram 3h
-			\item November9: Interface 2h
 		\end{list}
 \section{References}
 \end{document}

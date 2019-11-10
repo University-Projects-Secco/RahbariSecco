@@ -1,0 +1,99 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Images/Map_statistics_sequence_diagram.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{578.25bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,1.02018244)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.04150454,0.43393082){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}loop\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.06744488,0.36129787){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}alternative\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.70038911,0.28996195){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c} get map(data,new view) \end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.40337224,0.22122005){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}show new map\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.37224384,0.49229658){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}show map\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.72762646,0.98516298){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}SafeStreets'\\server\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.87548638,0.70500734){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}aggregate data(location)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.60959792,0.75169995){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c} get map data(location) \end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.50064851,0.98516298){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}User Interface\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.60570687,0.80747167){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c} gather location() \end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.24773022,0.94106441){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}User\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.36964981,0.8943718){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}see map\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.90920882,0.98516298){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Map API\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.61348898,0.60902809){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}return data\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.70038911,0.57011759){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c} get map(data,dafault view) \end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.70168612,0.51045481){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}return map\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.37354086,0.31071422){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}change map view\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.70038911,0.26013056){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}return new map\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.09597925,0.33146649){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}[Change map view]\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.0998703,0.15247816){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}[Consult actual view]\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{Images/Map_statistics_sequence_diagram.pdf}}%
+    \put(0.07782101,0.40409943){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}[Map section opened]\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
