@@ -34,13 +34,13 @@
 
 		\subsubsection{Goal list}
 			\begin{enumerate}[label=\enum{G}]
-				\item  \label{G_realTime}Allow citizens to notify parking violations and be acknowledged of the result as soon as possible
-				\item \label{G_allData}Force citizens to provide all the needed data about violation, in particular infraction type, picture, date, time and position
-				\item \label{G_helpAuth}Prevent the autorities to have to manually address parking tickets
-				\item \label{G_discardAltered} Ensure no tickets can be emitted if the notification's data has been modified somehow
-				\item \label{G_respectPermissions} Ensure no tickets can be emitted if the plate of the car that committed the infringment owns a permission for that infringiment
-				\item \label{G_storeFine} Every notification not covered by \ref{G_discardAltered} or \ref{G_respectPermissions} will be eligible for ticket generation
-				\item \label{G_statistics}Allow both citizens and authorities retrive informations about previous violations and released tickets, possibly in an aggregated form. Every violation reported to the system and stored will appear in some statistics
+				\item  \label{G:realTime}Allow citizens to notify parking violations and be acknowledged of the result as soon as possible
+				\item \label{G:allData}Force citizens to provide all the needed data about violation, in particular infraction type, picture, date, time and position
+				\item \label{G:helpAuth}Prevent the autorities to have to manually address parking tickets
+				\item \label{G:discardAltered} Ensure no tickets can be emitted if the notification's data has been modified somehow
+				\item \label{G:respectPermissions} Ensure no tickets can be emitted if the plate of the car that committed the infringment owns a permission for that infringiment
+				\item \label{G:storeFine} Every notification not covered by \ref{G:discardAltered} or \ref{G:respectPermissions} will be eligible for ticket generation
+				\item \label{G:statistics}Allow both citizens and authorities retrive informations about previous violations and released tickets, possibly in an aggregated form. Every violation reported to the system and stored will appear in some statistics
 				
 			\end{enumerate}
 
@@ -509,7 +509,7 @@
 				\end{itemize}
 				
 		\paragraph{Violation examination}
-			This is the way the system could deeply influence the world. This function, exploited by recognized authorities, is the first step for automatically releasing tickets (which is not doable as pointed out by \ref{C_noAutoTickets}. In particular, the authority will:
+			This is the way the system could deeply influence the world. This function, exploited by recognized authorities, is the first step for automatically releasing tickets (which is not doable as pointed out by \ref{C:noAutoTickets}. In particular, the authority will:
 			\begin{itemize}
 				\item Access the server from its interface
 				\item Retrieve data about violation
@@ -550,19 +550,19 @@
 	
 	\paragraph{Assumptions:}
 		\begin{enumerate}[label=\enum{A}]
-			\item \label{A_disjPlates} Different cars always have different plates
-			\item \label{A_Single plate}Each car exactly has 1 plate
-			\item \label{A_singleOwner}No car is owned by more than 1 person
-			\item \label{A_accessiblePermissions}Every auth will have access to any permission released by any other auth. SafeStreets will have access too.
-			\item \label{A_noGeneratedModifiedNotif}Every modified notification has a corresponding non-modified one (even only theoretical)
-			\item \label{A_newNotificationsAreNotModified}When a notification is created it is unmodified. Modifications can happen later, generating a new notification (see \ref{A_noGeneratedModifiedNotif})
-			\item \label{A_authsNotClairvoyants}If a notification is not stored then no auth can see it and therefore no ticket can be released for that notification
+			\item \label{A:disjPlates} Different cars always have different plates
+			\item \label{A:Single plate}Each car exactly has 1 plate
+			\item \label{A:singleOwner}No car is owned by more than 1 person
+			\item \label{A:accessiblePermissions}Every auth will have access to any permission released by any other auth. SafeStreets will have access too.
+			\item \label{A:noGeneratedModifiedNotif}Every modified notification has a corresponding non-modified one (even only theoretical)
+			\item \label{A:newNotificationsAreNotModified}When a notification is created it is unmodified. Modifications can happen later, generating a new notification (see \ref{A:noGeneratedModifiedNotif})
+			\item \label{A:authsNotClairvoyants}If a notification is not stored then no auth can see it and therefore no ticket can be released for that notification
 		\end{enumerate}
 	
 	\paragraph{Constraints:}
 		\begin{enumerate}[label=\enum{C}]
 			\item The authorities will not be able to register automatically to the service. For authentication, they'll be verified and added by an administrator of the system
-			\item \label{C_noAutoTickets}Due to italian law, the system won't be able to automatically produce tickets
+			\item \label{C:noAutoTickets}Due to italian law, the system won't be able to automatically produce tickets
 		\end{enumerate}
 	
 \newpage
@@ -571,15 +571,23 @@
 		\subsubsection{Scenarios}
 		
 			\begin{enumerate}[label=\enum{S}]
-				\item \label{S_The man, the street and the monstertruck}
+				\item \label{S:The man, the street and the monstertruck}
 				Mario is walking down the street when he comes to a cross. He would like to \textbf{cross the cross} staying on the pedestrian lines, but a monstertruck decided to park over there. So Mario needs to walk around the truck and through the street (cars are driving fast), but at least he can take a little revenge by taking out his mobile phone, opening the SafeStreets application and take a picture of the plate of the truck. The application automatically acquires data on time and position using the gps and sends the data to SafeStreets' server. In a second, Mario is notified that the violation has been saved and will be avilable for the police.
 Mario now knows the crazy-minded driver will pay what he deserves! (like some fines)
+<<<<<<< HEAD
 				\item \label{S_Prevent is better than healing}Luigi is late for work. He cannot find any parking, and is thinking about parking on the bycicle line. He's about to do that, when he suddently remembers that nowaday anyone could signal his infractions with SafeStreets. So he decides to keep searching for a proper parking, and granny Maria can take her daily ride on her bycicle!
 			\item\label{disabilities}Veronica is a driver with moving disabilities. She must go for therapy to the Clinic 3times per week, today the specifiec car park for people with disabilities is occupied by a car with normal driver so she cannot park near the clinic and there is no other car park near and she decides to notify this violation citizenship right by Safe Street App. next time She parks her car the right place but a stranger think she was a violator and tries to notify by Safe Street App but stranger gives a notification by the App that this "Parking" is completely right becuase this car's plate is saved in the data base of Safe Street as having permission to park in this area.
 		\item\label{cheating}Antonio wants to take a revenge from one of  his rommate(john) so he decides to take a photo of a violator car that the car is similar to john's car and he sticks a prepared paper with the number of john's car's plate on the violator car and send the photo but the Safe Street notify Antonio that his notification is rejected.
 		\item\label{manually ticket}Larry is a police Officer who wants to issued ticket for someone by his hands but The App make force him that just  tickets are confirm through the application are validated.
 		\item\label{statistics} Lisa is a police officer who wants to observe some statistic about most frequency of violation area and also the most commit violator for some reason so she can see all of this information by Safe Street App easily.
+=======
+				\item \label{S:Prevent is better than healing}Luigi is late for work. He cannot find any parking, and is thinking about parking on the bycicle line. He's about to do that, when he suddently remembers that nowaday anyone could signal his infractions with SafeStreets. So he decides to keep searching for a proper parking, and granny Maria can take her daily ride on her bycicle!
+>>>>>>> 1fa656571dd862ce7f195db56b2d1cec88ec0283
 			\end{enumerate}
+			
+							\item\label{S:disabilities}Veronica is a driver with moving disabilities. She must go for therapy to the Clinic 3times per week, today the specifiec car park for people with disabilities is occupied by a car with normal driver so she cannot park near the clinic and there is no other car park near and she decides to notify this violation citizenship right by Safe Street App. next time She parks her car the right place but a stranger think she was a violator and tries to notify by Safe Street App but stranger gives a notification by the App that this "Parking" is completely right becuase this car's plate is saved in the data base of Safe Street as having permission to park in this area.
+		\item\label{S:cheating}Antonio wants to take a revenge from one of  his rommate(john) so he decides to take a photo of a violator car that the car is similar to john's car and he sticks a prepared paper with the number of john's car's plate on the violator car and send the photo but the Safe Street notify Antonio that his notification is rejected.
+		\item\label{S:manually ticket}Larry is a police Officer who wants to issued ticket for someone by his hands but The App make force him that just  tickets are confirm through the application are validated 
 
 \newpage
 	\subsection{External Interface Requirements}
@@ -617,14 +625,14 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 			\newpage	
 		
 			\begin{enumerate}[label=\enum{UI}]
-				\item \label{UI_authority}A graphical user interface should be provided to the auths to allow them to retrive data manually. It could be web-based or desktop-based.
-				\item \label{UI_citizen}The citizen's user interface should be a mobile application to both be able to ensure mobility and security, being able to control the dataflow.
+				\item \label{UI:authority}A graphical user interface should be provided to the auths to allow them to retrive data manually. It could be web-based or desktop-based.
+				\item \label{UI:citizen}The citizen's user interface should be a mobile application to both be able to ensure mobility and security, being able to control the dataflow.
 			\end{enumerate}
 			
 		\subsubsection{Software Interfaces}
 			\begin{enumerate}[label=\enum{SW}]
-				\item An api should be produced to allow auth's servers to access data programmatically
-				\item An external api should be used to manage the map-based displaying of statistics
+				\item \label{SW:Internal api} An api should be produced to allow auth's servers to access data programmatically
+				\item \label{SW:map api} An external api should be used to manage the map-based displaying of statistics
 			\end{enumerate}
 			
 	\subsection{Functional Requirements} \textit{Definition of use case diagrams, usa cases and associated sequence/activity diagrams, and mapping on requirements}
@@ -632,34 +640,34 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 		\subsubsection{Requirements}
 		
 			\begin{enumerate}[label=\enum{R}]
-				\item \label{R_storeTickets}Requires the authorities to give SafeStreets access to the tickets they emitted using SafeStreets' data
-				\item \label{R_autoPlate}Automatically extract the plate number of the car from the photo, ignoring cars in the background if present
-				\item \label{R_unalteredData}Ensure no data is altered from the insertion to the eventual storage
-				\item \label{R_dataGather}For each data to insert, if the  user's device has a sensor to collect thatkind of data, that sensor should be used instead of manual insertion (example: GPS). Otherwise it will be possible to insert it by hand.
-				\item \label{R_notifyUser}The system should notify the user when his notification has been processed correctly, or ask for more datailed data (example: a more focused picture) if needed.
-				\item \label{R_fullData}If a notification is missing any needed data, the client application will prevent the user from sending it
-				\item \label{R_modifiedNotStored}No modified notification will be stored by SafeStreets
-				\item \label{R_validPermissionNotStored}If a violation is invalidated by a permission, it won't be stored
-				\item \label{R_legitNotificationsAlwaysStored}All notifications which are not modified and neither covered by a permission will be saved
+				\item \label{R:storeTickets}Requires the authorities to give SafeStreets access to the tickets they emitted using SafeStreets' data
+				\item \label{R:autoPlate}Automatically extract the plate number of the car from the photo, ignoring cars in the background if present
+				\item \label{R:unalteredData}Ensure no data is altered from the insertion to the eventual storage
+				\item \label{R:dataGather}For each data to insert, if the  user's device has a sensor to collect thatkind of data, that sensor should be used instead of manual insertion (example: GPS). Otherwise it will be possible to insert it by hand.
+				\item \label{R:notifyUser}The system should notify the user when his notification has been processed correctly, or ask for more datailed data (example: a more focused picture) if needed.
+				\item \label{R:fullData}If a notification is missing any needed data, the client application will prevent the user from sending it
+				\item \label{R:modifiedNotStored}No modified notification will be stored by SafeStreets
+				\item \label{R:validPermissionNotStored}If a violation is invalidated by a permission, it won't be stored
+				\item \label{R:legitNotificationsAlwaysStored}All notifications which are not modified and neither covered by a permission will be saved
 			\end{enumerate}
 				
 	\subsection{Performance requirements}
 		\begin{enumerate}[label=\enum{P}]
-			\item The notification should be sent to the server as soon as possible. It should be recived and elaborated as soon as internet and the server's speed allows to match almost-real-time speed
-			\item The quality of the photo should be at most XYZ (to reduce overload on network and server) but at least PQR (to enable automatic recognition).
+			\item \label{P:speed}The notification should be sent to the server as soon as possible. It should be recived and elaborated as soon as internet and the server's speed allows to match almost-real-time speed
+			\item \label{P:Image quality}The quality of the photo should be at most XYZ (to reduce overload on network and server) but at least PQR (to enable automatic recognition).
 		\end{enumerate}
 		
 	\subsection{Design Constraints}
 	
 		\subsubsection{Hardware limitations} 
-			\begin{enumerate}[label=\enum{SW}]
-				\item The auth's hardware will require an internet connection to access the data.
-				\item The cit's device will have to be a smartphone for the reasons explained in \ref{UI_mobileApp}
+			\begin{enumerate}[label=\enum{HW}]
+				\item \label{HW:auth} The auth's hardware will require an internet connection to access the data.
+				\item \label{HW:cit} The cit's device will have to be a smartphone for the reasons explained in \ref{UI:citizen}
 			\end{enumerate}					
 		
 		\subsubsection{Any other constraint} 
 			\begin{enumerate}[label=\enum{OT}]
-				\item The citizen's device should be checked to be trustable, and rooted devices should be blocked (as they could change the app behaviour and submit altered photos)
+				\item \label{OT:cit device}The citizen's device should be checked to be trustable, and rooted devices should be blocked (as they could change the app behaviour and submit altered photos)
 			\end{enumerate}		
 		
 	\subsection{Software system attributes}
@@ -687,52 +695,74 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 		\begin{table}[H]
 			\begin{center}
 			\caption{Traceability matrix}
+			\small
 			\label{Trace matrix}
 			\begin{tabular}{|c|c|c|}
 			\hline
 				\textbf{Goal ID} & \textbf{Req ID} & \textbf{Usecase ID}\\
 			\hline
-				\ref{G_realTime} 			&\ref{R_autoPlate}						&\ref{S_The man,
+				\ref{G:realTime} 			&\ref{R:autoPlate}						&\ref{S:The man,
 																					the street and the
 																					monstertruck}\\
-											&\ref{R_dataGather}						&\\
-											&\ref{R_notifyUser}						&\\
-											&\ref{UI_citizen} 						&\\
+											&\ref{R:dataGather}						&\\
+											&\ref{R:notifyUser}						&\\
+											&\ref{UI:citizen} 						&\\
+											&\ref{P:speed}							&\\
+											&\ref{HW:cit}							&\\
 			\hline
-				\ref{G_allData} 				&\ref{R_dataGather} 						&\\
-											&\ref{R_fullData} 						&\\
-											&\ref{UI_citizen}						&\\
+				\ref{G:allData} 				&\ref{R:dataGather} 						&\\
+											&\ref{R:fullData} 						&\\
+											&\ref{UI:citizen}						&\\
+											&\ref{P:Image quality}					&\\
+											&\ref{HW:cit}							&\\
+											&\ref{OT:cit device}						&\\	
 											
 			\hline
-				\ref{G_helpAuth}				&\ref{A_disjPlates}						&\\
-											&\ref{A_Single plate}					&\\
-											&\ref{A_singleOwner}						&\\
-											&\ref{A_accessiblePermissions}			&\\
-											&\ref{A_noGeneratedModifiedNotif}		&\\
-											&\ref{A_newNotificationsAreNotModified}	&\\
-											&\ref{R_autoPlate}						&\\
-											&\ref{R_unalteredData}					&\\
-											&\ref{R_fullData}						&\\
+				\ref{G:helpAuth}				&\ref{A:disjPlates}						&\\
+											&\ref{A:Single plate}					&\\
+											&\ref{A:singleOwner}						&\\
+											&\ref{A:accessiblePermissions}			&\\
+											&\ref{A:noGeneratedModifiedNotif}		&\\
+											&\ref{A:newNotificationsAreNotModified}	&\\
+											&\ref{R:autoPlate}						&\\
+											&\ref{R:unalteredData}					&\\
+											&\ref{R:fullData}						&\\
+											&\ref{UI:authority}						&\\
+											&\ref{SW:Internal api}					&\\
+											&\ref{HW:auth}							&\\
+											&\ref{OT:cit device}						&\\
 			\hline
-				\ref{G_discardAltered}		&\ref{A_noGeneratedModifiedNotif}		&\\
-											&\ref{A_newNotificationsAreNotModified}	&\\
-											&\ref{R_unalteredData}					&\\
-											&\ref{R_dataGather}						&\\
-											&\ref{R_fullData}						&\\
+				\ref{G:discardAltered}		&\ref{A:noGeneratedModifiedNotif}		&\\
+											&\ref{A:newNotificationsAreNotModified}	&\\
+											&\ref{R:unalteredData}					&\\
+											&\ref{R:dataGather}						&\\
+											&\ref{R:fullData}						&\\
+											&\ref{HW:cit}							&\\
+											&\ref{OT:cit device}						&\\
 										
 			\hline
-				\ref{G_respectPermissions}	&\ref{A_disjPlates}						&\\
-											&\ref{A_Single plate}					&\\
-											&\ref{A_accessiblePermissions}			&\\
-											&\ref{R_autoPlate}						&\\
+				\ref{G:respectPermissions}	&\ref{A:disjPlates}						&\\
+											&\ref{A:Single plate}					&\\
+											&\ref{A:accessiblePermissions}			&\\
+											&\ref{R:autoPlate}						&\\
+											&\ref{SW:Internal api}					&\\
+											&\ref{HW:auth}							&\\
 			\hline
-				\ref{G_storeFine}			&\ref{A_disjPlates}						&\\
-											&\ref{A_Single plate}					&\\
-											&\ref{A_accessiblePermissions}			&\\
+				\ref{G:storeFine}			&\ref{A:disjPlates}						&\\
+											&\ref{A:Single plate}					&\\
+											&\ref{A:accessiblePermissions}			&\\
+											&\ref{P:Image quality}					&\\		
+											&\ref{HW:cit}							&\\
 			\hline
-				\ref{G_statistics}			&\ref{R_storeTickets}					&\\
-											&\ref{R_dataGather}						&\\
-											&\ref{R_fullData}						&\\
+				\ref{G:statistics}			&\ref{R:storeTickets}					&\\
+											&\ref{R:dataGather}						&\\
+											&\ref{R:fullData}						&\\
+											&\ref{UI:authority}						&\\
+											&\ref{UI:citizen}						&\\
+											&\ref{SW:Internal api}					&\\
+											&\ref{SW:map api}						&\\
+											&\ref{HW:auth}							&\\
+											&\ref{HW:cit}							&\\
 			\hline
 										
 				\end{tabular}
@@ -782,10 +812,10 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 	The first 3 images referes to the same instance, where the theme 
 	has been changed in order to highlight different properties. These instance was generated using
 	the predicate W1.\\
-	In particular, \ref{Alloy_W1_T1} has the purpouse of showing the basic relationships used in
+	In particular, \ref{Alloy:W1_T1} has the purpouse of showing the basic relationships used in
 	notifiying a violation and the encoded data.\\
 	
-	\ref{Alloy_W1_T2} focuses on storage and information sharing: the permission in the picture is
+	\ref{Alloy:W1_T2} focuses on storage and information sharing: the permission in the picture is
 	known by every authority in the instance, despite being released only from Authority2. Every 
 	ticket is known by SafeStreets (all the tickets in the model are intended as generated using
 	SafeStreets, as manually addressed ones are out of the application domain), and the system only 	stores notifications that may (and do in this case, as the model is enforced to do so) produce
@@ -795,32 +825,32 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 	it can produce a ticket and is stored. N4 issues the same plate of N1 and N2, but for a
 	violation of type 2, and then it is stored too and produces a ticket.\\
 	
-	 The main focus of \ref{Alloy_W1_T3} is to show how a Statistic only uses violations having a
+	 The main focus of \ref{Alloy:W1_T3} is to show how a Statistic only uses violations having a
 	 related stored notification, and so a ticket issued on them.\\
 	 
-	 \ref{Alloy_W2_T1} has the puprouse of showing another important property: every Statistic is 
+	 \ref{Alloy:W2_T1} has the puprouse of showing another important property: every Statistic is 
 	 related (transitively) to a Location, andevery Location "is covered" by some statistics. This
 	 property, which will need to be enforced, allows a clean and correct management of map-based
 	 statistics
 	\begin{figure}[H]
 		\includegraphics[width=\linewidth]{Images/Alloy_W1_T1}
 		\caption{World 1, view 1}
-		\label{Alloy_W1_T1}
+		\label{Alloy:W1_T1}
 	\end{figure}
 	\begin{figure}[H]
 		\includegraphics[width=\linewidth]{Images/Alloy_W1_T2}
 		\caption{World 1, view 2}
-		\label{Alloy_W1_T2}
+		\label{Alloy:W1_T2}
 	\end{figure}
 	\begin{figure}[H]
 		\includegraphics[width=\linewidth]{Images/Alloy_W1_T3}
 		\caption{World 1, view 3}
-		\label{Alloy_W1_T3}
+		\label{Alloy:W1_T3}
 	\end{figure}
 	\begin{figure}[H]
 		\includegraphics[width=\linewidth]{Images/Alloy_W2_T1}
 		\caption{World 2}
-		\label{Alloy_W2_T1}
+		\label{Alloy:W2_T1}
 	\end{figure}
 	
 	
