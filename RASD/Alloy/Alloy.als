@@ -210,13 +210,35 @@ fun generateStats[l: Location]: one Statistic{
 
 //WORLDS
 pred W1{
-
+	#Authority = 3 
+and	#Citizen = 5 
+and	#Violation = 4 
+and	#Plate = 4
+and	#Data <= 8
+and	#Permission = 1
+and #Ticket = 2
+and no disj n,n': Notification | some p:Picture | p in n.data and p in n'.data	//Theoretically possible to have identical picture, but messes the diagrams
 }
 
-//check G1 for 10
-//check G2 for 10
-//check G3 for 10
-//check G4 for 10
-//check G5 for 10
+pred W2{
+	#Authority = 1
+and	#Citizen = 2
+and	#Plate = 4
+and	#Permission = 0
+and	#Violation = 4
+and	#Ticket = 4
+and	#Location = 4
+and	all d:Data | some n:Notification | d in n.data
+and no disj n,n': Notification | some p:Picture | p in n.data and p in n'.data	//Theoretically possible to have identical picture, but messes the diagrams
+}
+
+check G1 for 10
+check G2 for 10
+check G3 for 10
+check G4 for 10
+check G5 for 10
 check G6 for 10
 check G7 for 10
+
+run W1 for 10
+run W2 for 10
