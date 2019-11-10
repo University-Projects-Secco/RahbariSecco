@@ -645,27 +645,27 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 			\begin{center}
 				\caption{Traceability matrix}
 				\label{Trace matrix}
-				\begin{tabular}{c|c|c}
+				\begin{tabular}{|p{6cm}|p{6cm}|p{3cm}|}
 					\textbf{Goal ID} & \textbf{Req ID} & \textbf{Usecase ID}\\
 					\hline
-					\ref{G_realTime} 	& \ref{R_autoPlate}	& \ref{S_The man, the street and the monstertruck}\\
-										&\ref{R_dataGather}	&\\
-										&\ref{R_notifyUser}	&\\
+					\ref{G_realTime} Allow citizens to notify parking violations and be acknowledged of the result as soon as possible 	& \ref{R_autoPlate} Automatically extract the plate number of the car from the photo, ignoring cars in the background if present	& \ref{S_The man, the street and the monstertruck}\\
+										&\ref{R_dataGather} For each data to insert, if the  user's device has a sensor to collect thatkind of data, that sensor should be used instead of manual insertion (example: GPS). Otherwise it will be possible to insert it by hand.	&\\
+										&\ref{R_notifyUser} The system should notify the user when his notification has been processed correctly, or ask for more datailed data (example: a more focused picture) if needed.	&\\
 					\hline
-					\ref{G_allData} 	& \ref{R_dataGather} & \\
-									& \ref{R_fullData} & \\
+					\ref{G_allData} Force citizens to provide all the needed data about violation, in particular infraction type, picture, date, time and position	& \ref{R_dataGather}  For each data to insert, if the  user's device has a sensor to collect thatkind of data, that sensor should be used instead of manual insertion (example: GPS). Otherwise it will be possible to insert it by hand.	 & \\
+									& \ref{R_fullData} If a notification is missing any needed data, the client application will prevent the user from sending it& \\
 					\hline
-					\ref{G_helpAuth}	&\ref{A_disjPlates}&\\
-									&\ref{A_Single plate}&\\
-									&\ref{A_singleOwner}&\\
-									&\ref{A_accessiblePermissions}&\\
+					\ref{G_helpAuth} Prevent the autorities to have to manually address parking tickets	&\ref{A_disjPlates}  Different cars always have different plates&\\
+									&\ref{A_Single plate} Each car exactly has 1 plate&\\
+									&\ref{A_singleOwner} No car is owned by more than 1 person&\\
+									&\ref{A_accessiblePermissions} Every auth will have access to any permission released by any other auth. SafeStreets will have access too.&\\
 									&\ref{A_noGeneratedModifiedNotif}&\\
-									&\ref{A_newNotificationsAreNotModified}&\\
-									&\ref{R_autoPlate}&\\
-									&\ref{R_unalteredData}&\\
-									&\ref{R_fullData}&\\
+									&\ref{A_newNotificationsAreNotModified} Every modified notification has a corresponding non-modified one (even only theoretical)&\\
+									&\ref{R_autoPlate} Automatically extract the plate number of the car from the photo, ignoring cars in the background if present&\\
+									&\ref{R_unalteredData} Ensure no data is altered from the insertion to the eventual storage&\\
+									&\ref{R_fullData}  If a notification is missing any needed data, the client application will prevent the user from sending it&\\
 					\hline
-					\ref{G_discardAltered}	&\ref{A_noGeneratedModifiedNotif}&\\
+					\ref{G_discardAltered}  Ensure no tickets can be emitted if the notification's data has been modified somehow	&\ref{A_noGeneratedModifiedNotif}&\\
 											&\ref{A_newNotificationsAreNotModified}&\\
 											&\ref{R_unalteredData}&\\
 											&\ref{R_dataGather}&\\
