@@ -1,0 +1,93 @@
+%% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Images/Top_violators_sequence_diagram.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{601.13055469bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.96131364)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.03867712,0.3100408){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}for\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.17591852,0.89144529){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Citizen\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.50155494,0.92762711){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}SafeStreets'\\application\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.84964904,0.92762711){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}SefeStreets'\\server\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.94571802,0.41983392){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}compute ranking()\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.33561761,0.8028622){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}see top violators\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.33811291,0.05427274){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}display top violators ranking\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.03992477,0.7342415){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}alternative\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.06238246,0.70554557){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}[GPS is available]\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.59762392,0.71303146){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}retrieve location()\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.06737305,0.60074305){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}[GPS not available]\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.31066463,0.57828536){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}request location\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.30941698,0.5183982){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}location\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.67248287,0.45352045){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}get top violators(location)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.67497817,0.07922572){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}return <violator,picture> list\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.13848905,0.28134487){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}[Violator in the computed ranking]\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.94072743,0.3075455){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}retrieve picture()\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{Images/Top_violators_sequence_diagram.pdf}}%
+    \put(0.94571802,0.1703041){\color[rgb]{0,0,0}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}hide plate(picture)\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
