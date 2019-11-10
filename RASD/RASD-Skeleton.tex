@@ -151,34 +151,37 @@
 		\caption{Register as a Citizen}
 		\begin{tabular}{|c|p{8cm}|}
 			\hline
-			Actor&User\\
+			Actor			&	User\\
 			\hline
-			Entry condition & \begin{itemize}[noitemsep,topsep=0pt]
-								\item The user has installed the Application
-								\item The user has opened the Application
-							\end{itemize}\\
+			Entry condition	&	\begin{itemize}[noitemsep,topsep=0pt]
+									\item The user has installed the Application
+									\item The user has opened the Application
+								\end{itemize}\\
 			\hline
-			Events flow & \begin{enumerate}[noitemsep,topsep=0pt]
-							\item Click on “Sign up” button
-							\item Fill all the mandatory fields and provide the necessary information
-							\item Click on “Confirm” button
-							\item The system saves the data temporarly
-							\item The user confirm his/her email
-							\item The system stores the data permanently
-							
-						\end{enumerate}\\
+			Events flow 		& 	\begin{enumerate}[noitemsep,topsep=0pt]
+									\item Click on “Sign up” button
+									\item Fill all the mandatory fields and provide the
+									 necessary information
+									\item Click on “Confirm” button
+									\item The system saves the data temporarly
+									\item The user confirm his/her email
+									\item The system stores the data permanently
+								\end{enumerate}\\
 			\hline
-			Exit condition & The user's Account has register successfully\\
+			Exit condition	& 	The user's Account has register successfully\\
 			\hline
-			Exeption & \begin{itemize}[noitemsep,topsep=0pt]
-			
-							\item The user is already signed up.In this case the system warns the user and suggests him/her to do the login.
-							\item The username is already taken
-							\item The e-mail is already registered
-							\item The user didn’t fill all of the mandatory fields with valid data
-							\item The user doesn't confirm the email in time, and its data are deleted
-							\item Server is unreachable
-						\end{itemize}\\
+			Exeption 		& 	\begin{itemize}[noitemsep,topsep=0pt]
+									\item The user is already signed up.
+									In this case the system warns the user and suggests
+									 him/her to do the login.
+									\item The username is already taken
+									\item The e-mail is already registered
+									\item The user didn’t fill all of the mandatory fields 
+									with valid data
+									\item The user doesn't confirm the email in time, 
+									and its data are deleted
+									\item Server is unreachable
+								\end{itemize}\\
 			\hline
 		\end{tabular}	
 		\end{center}
@@ -197,28 +200,34 @@
 		\caption{Register as an authority}
 		\begin{tabular}{|c|p{8cm}|}
 			\hline
-			Actor&Authorities\\
+			Actor			&	Authorities\\
 			\hline
-			Entry condition&\begin{itemize}[noitemsep,topsep=0pt]
-								\item The user has installed the Application
-								\item The user has opened the Application
-							\end{itemize}\\
+			Entry condition	&	\begin{itemize}[noitemsep,topsep=0pt]
+									\item The user has installed the Application
+									\item The user has opened the Application
+								\end{itemize}\\
 			\hline
-			Events flow & \begin{enumerate}[noitemsep,topsep=0pt]
-							\item Click on “Sign up” button
-							\item Fill all the mandatory fields and provide the necessary information(different for authorities such as there is no field for enter their Email and their username should be their personal code as an officer ...)
-							\item Click on “Confirm” button
-							\item The system saves the data
-						\end{enumerate}\\
+			Events flow		&	\begin{enumerate}[noitemsep,topsep=0pt]
+									\item Click on “Sign up” button
+									\item Fill all the mandatory fields and provide the
+									 necessary information(different for authorities such as
+									  there is no field for enter their Email and their 
+									  username should be their personal code as an officer ...)
+									\item Click on “Confirm” button
+									\item The system saves the data
+								\end{enumerate}\\
 			\hline
-			Exit condition& The user's Account has register successfully\\
+			Exit condition	&	The user's Account has register successfully\\
 			\hline
-			Exeption& \begin{itemize}[noitemsep,topsep=0pt]
-							\item The user is already signed up.In this case the system warns the user and suggests him/her to do the login.
-							\item The username is already taken
-							\item The user didn’t fill all of the mandatory fields with valid data
-							\item Server is unreachable
-						\end{itemize}\\
+			Exeption			& 	\begin{itemize}[noitemsep,topsep=0pt]
+									\item The user is already signed up. In this case the
+									 system warns the user and suggests him/her to do the
+									  login.
+									\item The username is already taken
+									\item The user didn’t fill all of the mandatory 
+									fields with valid data
+									\item Server is unreachable
+								\end{itemize}\\
 			\hline
 		\end{tabular}
 		\end{center}
@@ -236,27 +245,29 @@
 		\caption{Login}
 		\begin{tabular}{|c|p{8cm}|}
 			\hline
-			Actor&User\\
+			Actor			&	User\\
 			\hline
-			Entry condition& \begin{itemize}[noitemsep,topsep=0pt]
-								\item The user has already signed up and has the application on own device
-								\item The user has opened the Application
-							\end{itemize}\\
+			Entry condition	&	\begin{itemize}[noitemsep,topsep=0pt]
+									\item The user has already signed up and has 
+									the application on own device
+									\item The user has opened the Application
+								\end{itemize}\\
 			\hline
-			Events flow& \begin{enumerate}[noitemsep,topsep=0pt]
-							\item Fill the Username and Password fields 
-							\item Click on "sign in" button
-							\item The user is successfully logged in 
-			
-						\end{enumerate}\\
+			Events flow		&	\begin{enumerate}[noitemsep,topsep=0pt]
+									\item Fill the Username and Password fields 
+									\item Click on "sign in" button
+									\item The user is successfully logged in 
+								\end{enumerate}\\
 			\hline
-			Exit condition& The user is signed in and can access the services for its user class\\
+			Exit condition	&	The user is signed in and can access the services 
+								for its user class\\
 			\hline
-			Exeption& \begin{itemize}[noitemsep,topsep=0pt]
-							\item The user enters invalid Username
-							\item The user enters invalid Password
-							\item All the exceptions are handled by notifying the user which fieldis are wrong , suggesting to correct it
-						\end{itemize}\\
+			Exeption			&	\begin{itemize}[noitemsep,topsep=0pt]
+									\item The user enters invalid Username
+									\item The user enters invalid Password
+									\item All the exceptions are handled by notifying 
+									the user which fieldis are wrong , suggesting to correct it
+								\end{itemize}\\
 			\hline
 		\end{tabular}
 		\end{center}
@@ -273,25 +284,36 @@
 		\caption{Report a violation}
 		\begin{tabular}{|c|p{8cm}|}
 			\hline
-			Actor&citizens\\
+			Actor			&	citizens\\
 			\hline
-			Entry condition&The user is signed in into the application\\
+			Entry condition	&	The user is signed in into the application\\
 			\hline
-			 Events flow& \begin{enumerate}[noitemsep,topsep=0pt]
-							\item User open the app and observe that the first interface is like a camera App for faster access to taking the photo			
-							\item After focus on the violator's car's license plate push the Red Circle Button to taking photo
-							\item If the photo have all the well captured photo (vivid picture) push the send button
-							\item Inform the user that his/her photo successfully recieved by representing a notification
-							\item App after some seconds send the result whether it is accepted as a violation or this is Reserved parking place for some Special citizens(Such as under cover police or people with dissabilities and...)
-						\end{enumerate}\\
+			Events flow		&	\begin{enumerate}[noitemsep,topsep=0pt]
+									\item User open the app and observe that the first
+									 interface is like a camera App for faster access to
+									  taking the photo			
+									\item After focus on the violator's car's license
+									 plate push the Red Circle Button to taking photo
+									\item If the photo have all the well captured photo 
+									(vivid picture) push the send button
+									\item Inform the user that his/her photo successfully
+									 recieved by representing a notification
+									\item App after some seconds send the result whether it 
+									is accepted as a violation or this is Reserved parking
+									 place for some Special citizens(Such as under cover 
+									 police or people with disabilities and...)
+								\end{enumerate}\\
 			\hline
-			Exit condition& The violation is stored and the user is notified of the result\\
+			Exit condition	&	The violation is stored and the user is notified 
+								of the result\\
 			\hline
-			Exeption& \begin{itemize}[noitemsep,topsep=0pt]
-						\item Server is unreachable
-						\item The notification is discarded for some reason, such as a permission for the car to park in the reserved parking. In that case, the user is notified
-						\item Server is unreachable
-					\end{itemize}\\
+			Exeption			&	\begin{itemize}[noitemsep,topsep=0pt]
+									\item Server is unreachable
+									\item The notification is discarded for some reason,
+									 such as a permission for the car to park in the 
+									 reserved parking. In that case, the user is notified
+									\item Server is unreachable
+								\end{itemize}\\
 			\hline
 		\end{tabular}
 		\end{center}
@@ -308,30 +330,34 @@
 		
 		\begin{table} [H]
 		\begin{center}
-		\caption{Mine the recieved information}
+		\caption{See the level of risk of each street on a map}
 		\begin{tabular}{|c|p{8cm}|}
 			\hline
-			Actor&Citizens\\
+			Actor			&	User\\
 			\hline
-			Entry condition& \begin{itemize}[noitemsep,topsep=0pt]
+			Entry condition	&	\begin{itemize}[noitemsep,topsep=0pt]
 								\item The user is signed in into the application
-							\end{itemize}\\
+								\end{itemize}\\
 			\hline
-			 Events flow& \begin{enumerate}[noitemsep,topsep=0pt]
-							\item User Click on MINE DATA button			
-							\item App represent two kind of option(The map-The list of vehicles)
-							\item The first one indicate a Map with Highlighted street with considering the most violation area in the city
-							\item The second option show a list of vehicles that commit the most violation by order %for authorities only?
-							\item The server provides the user with the required data in the already specified format
-						\end{enumerate}\\
+			 Events flow		&	\begin{enumerate}[noitemsep,topsep=0pt]
+									\item User Click on MAP button			
+									\item A request is sent to the server
+									\item The server aggregates the data in classes of risk
+									and sends them to the map API
+									\item The map API elaborates the data, generates the map 
+									and sends it back to SafeStreets' server
+									\item The server forwards the map to the user
+									\item SafeStreets' application displays the map to 
+									the user
+								\end{enumerate}\\
 			\hline
-			Exit condition & The user can see the requested data presented on its device\\
+			Exit condition 	&	The user can see the requested data presented on its device\\
 			\hline
-			Exeption& \begin{itemize}[noitemsep,topsep=0pt]
-						\item Server is unreachable
-						\item The service for map creation is not available
-						\item The needed data cannot be retrived from the database
-					\end{itemize}\\
+			Exeption			&	\begin{itemize}[noitemsep,topsep=0pt]
+									\item Server is unreachable
+									\item The service for map creation is not available
+									\item The needed data cannot be retrived from the database
+								\end{itemize}\\
 			\hline
 		\end{tabular}
 		\end{center}
@@ -339,29 +365,66 @@
 		
 		\begin{table} [H]
 		\begin{center}
-		\caption{Mine the recieved information}
+		\caption{See the ranking of top violators}
 		\begin{tabular}{|c|p{8cm}|}
 			\hline
-			Actor&Authorities\\
+			Actor			&	Citizen\\
 			\hline
-			Entry condition& \begin{itemize}[noitemsep,topsep=0pt]
+			Entry condition	&	\begin{itemize}[noitemsep,topsep=0pt]
 								\item The user is signed in into the application
-							\end{itemize}\\
+								\end{itemize}\\
 			\hline
-			 Events flow& \begin{enumerate}[noitemsep,topsep=0pt]
-							\item User Click on MINE DATA buttom 			
-							\item App represent two kind of option(The map-The statistic)
-							\item The first one indicate a Map with Highlighted street with considering the most violation area in the city
-							\item The second option show some statistics for give a deep understanding about the city and Appication usage
-						\end{enumerate}\\
+			 Events flow		&	\begin{enumerate}[noitemsep,topsep=0pt]
+									\item User Click on RANKING button			
+									\item A request is sent to the server
+									\item The server computes the ranking, takes a picture for
+									each ranked violator, hides the plates and sends this data 
+									back to the User's application
+									\item The application displays the ranking to the user
+								\end{enumerate}\\
 			\hline
-			Exit condition& The user can see the requested data presented on its device\\
+			Exit condition 	&	The user can see the requested data presented on its device\\
 			\hline
-			Exeption& \begin{itemize}[noitemsep,topsep=0pt]
-						\item Server is unreachable
-						\item The service for map creation is not available
-						\item The needed data cannot be retrived from the database
-					\end{itemize}\\
+			Exeption			&	\begin{itemize}[noitemsep,topsep=0pt]
+									\item Server is unreachable
+									\item The service for map creation is not available
+									\item The needed data cannot be retrived from the database
+								\end{itemize}\\
+			\hline
+		\end{tabular}
+		\end{center}
+		\end{table} 
+		
+		\begin{table} [H]
+		\begin{center}
+		\caption{Automated data mining}
+		\begin{tabular}{|c|p{8cm}|}
+			\hline
+			Actor			&	Authorities\\
+			\hline
+			Entry condition	&	\begin{itemize}[noitemsep,topsep=0pt]
+									\item The user is signed in into the application
+								\end{itemize}\\
+			\hline
+			 Events flow		&	\begin{enumerate}[noitemsep,topsep=0pt]
+									\item (SafeStreets' server will periodically run algorithms
+									for data mining and data analysis, to identify and report
+									useful informations to the authorities of the city)
+									\item An authority clicks on MINE DATA button
+									\item A request is sent to the server
+									\item If the background computation spotted some useful
+									informations about the city of competence of the authority,
+									these are sent to the authority's device
+									\item The informations are presented to the user
+								\end{enumerate}\\
+			\hline
+			Exit condition	& 	The user can see the requested data presented on its device\\
+			\hline
+			Exeption			& 	\begin{itemize}[noitemsep,topsep=0pt]
+									\item Server is unreachable
+									\item The service for map creation is not available
+									\item The needed data cannot be retrived from the database
+								\end{itemize}\\
 			\hline
 		\end{tabular}
 		\end{center}
@@ -372,33 +435,42 @@
 		\caption{Issuing tickets}
 		\begin{tabular}{|c|p{8cm}|}
 			\hline
-			Actor&Authorities\\
+			Actor			&	Authorities\\
 			\hline
-			Entry condition& \begin{itemize}[noitemsep,topsep=0pt]
-								\item The user is signed in into the application
-							\end{itemize}\\
+			Entry condition	&	\begin{itemize}[noitemsep,topsep=0pt]
+									\item The user is signed in into the application
+								\end{itemize}\\
 			\hline
-			 Events flow& \begin{enumerate}[noitemsep,topsep=0pt]
-							\item User see all the recieved photos from citizens by order
-							\item User clicks on one of them to analize the details
-							\item Decide to choose Issuing the ticket or Ignore it (for some reason such as this licence plate belongs to some justified people)
-							\item \textbf{Provide infos about the ticket (ex: how much money}
-						\end{enumerate}\\
+			 Events flow		&	\begin{enumerate}[noitemsep,topsep=0pt]
+									\item User see all the recieved photos from 
+									citizens by order
+									\item User clicks on one of them to analize the details
+									\item Decide to choose Issuing the ticket or Ignore it 
+									(for some reason such as this licence plate belongs to 
+									some justified people)
+									\item \textbf{Provide infos about the ticket 
+									(ex: how much money}
+								\end{enumerate}\\
 			\hline
-			Exit condition& \begin{itemize}[noitemsep,topsep=0pt]
-								\item The authority releases a ticket for the choosen violation
-								\item If the owner of the plate which recived the ticket is a SefeStreets user, he's notified of the ticket
-							\end{itemize}\\
+			Exit condition	&	\begin{itemize}[noitemsep,topsep=0pt]
+									\item The authority releases a ticket for 
+									the choosen violation
+									\item If the owner of the plate which recived 
+									the ticket is a SefeStreets user, he's notified 
+									of the ticket
+								\end{itemize}\\
 			\hline
-			Exeption& \begin{itemize}[noitemsep,topsep=0pt]
-						\item Server is unreachable
-						\item Violation is discarded
-					\end{itemize}\\
+			Exeption			&	\begin{itemize}[noitemsep,topsep=0pt]
+									\item Server is unreachable
+									\item Violation is discarded
+								\end{itemize}\\
 			\hline
 		\end{tabular}
 		\end{center}
 		\end{table} 
+		
 	\newpage
+	
 	\subsection{Product functions}
 	The main functions of the system follows (lines in parenthesis are outside the system domain but are inserted for completeness):
 		\paragraph{Violation notification}
