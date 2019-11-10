@@ -736,12 +736,22 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 		\end{table}
 		
 \newpage
-\section{Formal analysis using alloy} \textit{This section should include a brief presentation of the main objectives driving the formal modeling activity, as well as a description of the model itself, what can be proved with it, and why what is proved is important given the problem at hand. To show the soundness and correctness of the model, this section can show some worlds obtained by running it, and/or the results of the checks performed on meaningful assertions}
-	\paragraph{}The signatures are omitted in the document as they reflect the entities 				desctibes in section \ref{definitions}, plus some "enumerations". The goals we were able to define in Alloy are \ref{G_discardAltered},\ref{G_respectPermissions} and \ref{G_storeFine}.
-	There was no need to check \ref{G_statistics} and \ref{G_allData} as they can be satisfied 	by an equal requirement
-	\paragraph{}The assumptions we were able to define are \ref{A_disjPlates}, \ref{A_Single plate}, \ref{A_singleOwner}, \ref{A_accessiblePermissions}. Please note not all of them has been expressed by facts as some was already expressed by multiplicity in the signatures.
+\section{Formal analysis using alloy}
+	We tryed to build a model using alloy to verify the satisfaction of the goals. As the reader can see in \ref{Alloy:Goals} our model is
+	successful in doing this.
+	As it can be seen from the alloy code, to enforce the goals we needed to introduce 5 new facts (which is the way requirements and assumptions 
+	are modelled
+	in Alloy). The first two ensure unicity of Notifications and Permissions, which can be a reasonable domain assumption. The third one ensures 
+	that every time a notification is stored, it generates a ticket. This property was used to avoid to take into account the time between storage
+	and ticket issue, but should \textbf{not} be enforced in the final system. The fourth fact enforces the system to store or
+	discard every notification, and notify the user about what happened (so it's again to ignore waiting/processing phases).
+	The last fact is probably the most important, is a new requirement we found out from the formal analysis which is explained better in section \ref{section:Alloy worlds}
+	
+	\subsection{Code}
 	\lstinputlisting[language=alloy]{Alloy/Alloy.als}
-	\begin{figure}
+	\subsection{Satisfied goals}
+	\label{Alloy:Goals}
+	\begin{figure}[H]
 		\begin{subfigure}[H]{\linewidth}
 			\includegraphics[width=\linewidth]{Images/Alloy_G1.png}
 		\end{subfigure}
@@ -764,6 +774,51 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 			\includegraphics[width=\linewidth]{Images/Alloy_G7.png}
 		\end{subfigure}
 	\end{figure}
+	\subsection{Generated worlds} \label{section:Alloy worlds}
+	The first 3 images referes to the same instance, where the theme 
+	has been changed in order to highlight different properties. These instance was generated using
+	the predicate W1.\\
+	In particular, \ref{Alloy_W1_T1} has the purpouse of showing the basic relationships used in
+	notifiying a violation and the encoded data.\\
+	
+	\ref{Alloy_W1_T2} focuses on storage and information sharing: the permission in the picture is
+	known by every authority in the instance, despite being released only from Authority2. Every 
+	ticket is known by SafeStreets (all the tickets in the model are intended as generated using
+	SafeStreets, as manually addressed ones are out of the application domain), and the system only 	stores notifications that may (and do in this case, as the model is enforced to do so) produce
+	a ticket. One by one: N0 was modified and then is not stored, N1 and N2 notify a violation of
+	type 3, but the plate of the car which committed it owns a permission for these kind of
+	infractions. N3 a was not modified, and its violation is not covered by a permission, therefore
+	it can produce a ticket and is stored. N4 issues the same plate of N1 and N2, but for a
+	violation of type 2, and then it is stored too and produces a ticket.\\
+	
+	 The main focus of \ref{Alloy_W1_T3} is to show how a Statistic only uses violations having a
+	 related stored notification, and so a ticket issued on them.\\
+	 
+	 \ref{Alloy_W2_T1} has the puprouse of showing another important property: every Statistic is 
+	 related (transitively) to a Location, andevery Location "is covered" by some statistics. This
+	 property, which will need to be enforced, allows a clean and correct management of map-based
+	 statistics
+	\begin{figure}[H]
+		\includegraphics[width=\linewidth]{Images/Alloy_W1_T1}
+		\caption{World 1, view 1}
+		\label{Alloy_W1_T1}
+	\end{figure}
+	\begin{figure}[H]
+		\includegraphics[width=\linewidth]{Images/Alloy_W1_T2}
+		\caption{World 1, view 2}
+		\label{Alloy_W1_T2}
+	\end{figure}
+	\begin{figure}[H]
+		\includegraphics[width=\linewidth]{Images/Alloy_W1_T3}
+		\caption{World 1, view 3}
+		\label{Alloy_W1_T3}
+	\end{figure}
+	\begin{figure}[H]
+		\includegraphics[width=\linewidth]{Images/Alloy_W2_T1}
+		\caption{World 2}
+		\label{Alloy_W2_T1}
+	\end{figure}
+	
 	
 \newpage
 \section{Effort spent} \textit{In this section you will include information about the number of hours each group member has worked for this document}
