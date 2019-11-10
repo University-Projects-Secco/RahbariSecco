@@ -363,7 +363,6 @@
 		\end{tabular}
 		\end{center}
 		\end{table} 
-		\centering
 	\begin{figure}[H]
 			\def\svgwidth{\columnwidth}
 			\input{Images/Map_statistics_sequence_diagram.pdf_tex}
@@ -401,6 +400,14 @@
 		\end{tabular}
 		\end{center}
 		\end{table} 
+		
+		\begin{figure}[H]
+			\def\svgwidth{\columnwidth}
+			\input{Images/Top_violators_sequence_diagram.pdf_tex}
+			\caption{See streets' risk: sequence diagram}
+		\end{figure}		
+		
+		
 		
 		\begin{table} [H]
 		\begin{center}
@@ -561,17 +568,40 @@ Mario now knows the crazy-minded driver will pay what he deserves! (like some fi
 				\item \label{S_Prevent is better than healing}Luigi is late for work. He cannot find any parking, and is thinking about parking on the bycicle line. He's about to do that, when he suddently remembers that nowaday anyone could signal his infractions with SafeStreets. So he decides to keep searching for a proper parking, and granny Maria can take her daily ride on her bycicle!
 			\end{enumerate}
 
+\newpage
 	\subsection{External Interface Requirements}
 		These requirements come from the needing to communicate to the local police to submit notifications and gather ticket statistics, and to reduce the project cost by outsourcing.
 		
 		\subsubsection{User Interfaces}
-		\section{USER INTERFACE MOKUPS (REMOVE THIS TITLE LATER)}
 		
-%			\begin{figure}[H]
-%				\begin{subfigure}
-%				
-%				\end{subfigure}				
-%			\end{figure}					
+			\begin{figure}[H]
+				\centering
+				\begin{subfigure}[H]{0.25\linewidth}
+					\includegraphics[width=\linewidth]{Images/Sign_In.png}
+					\caption{Sign in}
+				\end{subfigure}	
+				\begin{subfigure}[H]{0.25\linewidth}
+					\includegraphics[width=\linewidth]{Images/Sign_Up.png}
+					\caption{Sign up}
+				\end{subfigure}
+				\begin{subfigure}[H]{0.25\linewidth}
+					\includegraphics[width=\linewidth]{Images/Menu.png}
+					\caption{Menu}
+				\end{subfigure}
+				\begin{subfigure}[H]{0.25\linewidth}
+					\includegraphics[width=\linewidth]{Images/Camera.png}
+					\caption{Menu}
+				\end{subfigure}
+				\begin{subfigure}[H]{0.25\linewidth}
+					\includegraphics[width=\linewidth]{Images/Maps.png}
+					\caption{Menu}
+				\end{subfigure}
+				\begin{subfigure}[H]{0.25\linewidth}
+					\includegraphics[width=\linewidth]{Images/Top_Violators.png}
+					\caption{Menu}
+				\end{subfigure}
+			\end{figure}				
+			\newpage	
 		
 			\begin{enumerate}[label=\enum{UI}]
 				\item A graphical user interface should be provided to the auths to allow them to retrive data manually. It could be web-based or desktop-based.
