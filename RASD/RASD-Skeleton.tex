@@ -12,7 +12,9 @@
 \usepackage{listings}
 \usepackage{alloy-style}
 \usepackage{subcaption}
+\usepackage{hyperref}
 \newcommand{\enum}[1]{\texttt{#1.\arabic*}}
+\newcommand{\link}[2]{{\color{blue}\underline{\href{#1}{#2}}}}
 \begin{document}
 \pagenumbering{gobble}
 \maketitle
@@ -130,14 +132,21 @@
 			\item Graphical review
 			\begin{enumerate}[label*=\arabic*.]
 				\item Changed images format from svg to png
+				\item Added Reference Documents
 				\item Update effort spent TODO
 				\item Fixed typos and text formatting	TODO
 				\item Added document structure	TODO
-				\item Added Reference Documents	TODO(IF NEEDED)
+				
 			\end{enumerate}
 		\end{enumerate}
-%	\subsection{Reference documents}
-%	\subsection{Document Structure}
+	\subsection{Reference documents}
+		\begin{itemize}
+			\item \link{https://www.uml-diagrams.org/}{UML Diagrams}
+			\item \link{http://alloy.lcs.mit.edu/alloy/documentation.html}{Alloy}
+			\item \link{http://www.math.uaa.alaska.edu/~afkjm/cs401/IEEE830.pdf}{IEEE	Std	830-1998	IEEE	Recommended	Practice	for	Software	Requirements	Specifications}
+			\item \link{https://drive.google.com/file/d/1VYhcYWY0I6FrwtEWGsfs-CzNf0mMMaP2/view?usp=sharing}{SafeStreets Mandatory Project Assignment}
+		\end{itemize}
+	\subsection{Document Structure}
 
 \newpage
 \section{Overall descriprion}
