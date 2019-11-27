@@ -11,7 +11,9 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{listings}
 \usepackage{subcaption}
+\usepackage{hyperref}
 \newcommand{\enum}[1]{\texttt{#1.\arabic*}}
+\newcommand{\link}[2]{{\color{blue}\underline{\href{#1}{#2}}}}
 \begin{document}
 \pagenumbering{gobble}
 \maketitle
@@ -132,13 +134,21 @@
 	\subsection{Overview} \textit{High-level components and their interaction}
 	In this section the architectural design of SafeStreets is presented. 
 	\begin{list}{$\bullet$}{The presentation is divided into the following parts:}
-		\item \textbf{High level architecture:} This section will provide an high level view of the system architecture.
-		\item \textbf{Data model:}This part will describe the Database structure.
-		\item \textbf{Component view:} This part will introduce all the components the system will be made from, their functionalities and their interactions.
-		\item \textbf{Deployment view:} This part describes the hardware that will compose the system as well as the software that will be runned on it.
-		\item \textbf{Runtime view:} This parts describes in detail the executon behaviour of each component.
-		\item \textbf{Component interfaces:} This pat describes the interface that the components will use to communicate one with the other, as well as the interfaces with other systems.
-		\item \textbf{Selected architectural styles and patterns:} This parts describes the design choices  about the architecture of the application.
+		\item \textbf{High level architecture:} 
+			This section will provide an high level view of the system architecture.
+		\item \textbf{Data model:}
+			This part will describe the Database structure.
+		\item \textbf{Component view:} 
+			This part will introduce all the components the system will be made from, their functionalities and their interactions.
+		\item \textbf{Deployment view:} 
+			This part describes the hardware that will compose the system as well as the software that will be runned on it.
+		\item \textbf{Runtime view:} 
+			This parts describes in detail the executon behaviour of each component.
+		\item \textbf{Component interfaces:} 
+			This pat describes the interface that the components will use to communicate one with the other, as well as the interfaces with other
+			systems.
+		\item \textbf{Selected architectural styles and patterns:} 
+			This parts describes the design choices  about the architecture of the application.
 	\end{list}
 	\subsection{High level architecture}
 	\subsection{Component view} \label{Section:Component view} \textit{Here we thescribe how the project can be modularized}\\
@@ -148,27 +158,102 @@
 		\caption{Components}
 		\begin{tabular}{|l|l|l|l|l|l|}
 		\hline
-		&	\textbf{Security}	&	\textbf{Interfaces}	&	\textbf{Presentation}	&	\textbf{Data manipulation}	&	\textbf{Storage}\\
+		&\textbf{Security}			&\textbf{Interfaces}	&\textbf{Presentation}		&\textbf{Data manipulation}	&\textbf{Storage}\\
 		\hline
 		\textbf{Server}	
-		&	AuthenticationManager&	WebServer			&	NotificationManager		&	ComputerVisionEngine			&	DBMS\\
-		&	SignupController		&	MailServer			&	MapBuilder				&	DataMiningEngine				&		\\
-		&	EncryptionService	&	MessageHandler		&	TopViolatorsRankingBuilder&	TicketManager				&		\\
-		&						&						&	StatisticsPresenter		&								&		\\
-		&						&						&	TicketPresenter			&								&		\\
+		&AuthenticationManager		&WebServer			&NotificationManager			&ComputerVisionEngine		&	DBMS\\
+		&SignupController			&MailServer			&MapBuilder					&DataMiningEngine			&		\\
+		&EncryptionService			&MessageHandler		&TopViolatorsRankingBuilder	&TicketManager				&		\\
+		&							&					&StatisticsPresenter			&							&		\\
+		&							&					&TicketPresenter				&							&		\\
 		\hline
 		\textbf{Citizen}
-		&	EncryptionService	&	MessageHandler		&	MapDisplayer				&	CameraManager				&		\\
-		&						&						&	TopViolatorsDisplayer	&	GPSManager					&		\\
-		&						&						&	NotificationService		&	RealTimeManager				&		\\
+		&TlsEncryptionService		&MessageHandler		&MapDisplayer				&CameraManager				&		\\
+		&							&					&TopViolatorsDisplayer		&GPSManager					&		\\
+		&							&					&NotificationService			&CurrentTimeManager			&		\\
 		\hline
 		\textbf{Authority}
-		&	EncryptionService	&	WebBrowser			&	WebBrowser				&								&		\\
+		&							&WebBrowser			&WebBrowser					&							&		\\
 		\hline
 		\end{tabular}
 	\end{center}
 	\end{table}
-	\subsection{Deployment view} How the modules arre implemented, explaying both hardware and software
+	The following list provides a detailed description of each module's functionalities (calls to components are omitted here as they will be
+	datailed in sequence diagrams):
+	\begin{itemize}
+		\item \label{component:AuthenticationManager} \textbf{AuthenticationManager:}
+			This module will authenticate the user comparing the provided credentials with the ones stored to the database, and if a match is found
+			will generate a session token for authentication. The provided password will be hashed before comparison (as passwords won't be stored
+			in plain text). The usage of a token (nounce) can prevent many malicious attacks, such as 
+		 	\link{https://en.wikipedia.org/wiki/Cross-site_request_forgery}{Csrf attacks} or 
+			\link{https://en.wikipedia.org/wiki/Replay_attack}{Replay attacks}. 
+		 \item \label{component:SignupController} \textbf{SignupController:} 
+		 	This component will manage the signup procedure, in particular it's main functionalities will be: reciving a signup request, check the
+		 	constraints of the provided data (in example, unicity of username and email, strength of the password), hash the password using a known
+		 	and mature password encoder, such as \link{https://en.wikipedia.org/wiki/Bcrypt}{BCrypt}, temporary store these data, generate and send a
+		 	token to the given email to verify it, persistently store the data. The email validation can provide some protection against
+		 	\link{https://en.wikipedia.org/wiki/Denial-of-service_attack}{DoS attacks}, but full protection is
+		 	currently unachievable (many researches are running to find a solution)
+		 \item \label{component:EncryptionService} \textbf{EncryptionService:}
+		 	This is probably the core component of the security group. It provides encription of all the transmitted data, using 
+		 	\link{https://en.wikipedia.org/wiki/Transport_Layer_Security}{tls} when communicating with a Citizen (as cits communicate by an ad-hoc
+		 	communication protocol), \link{https://en.wikipedia.org/wiki/HTTPS}{https} when communicating with an Authority (as auths need to
+		 	access the system by a web browser or a web application), and \link{https://en.wikipedia.org/wiki/Opportunistic_TLS}{STARTTLS}. 
+		 	These methods are handled by a single service as dividing them (and therefore redirect the request to the required component) could
+		 	expose the system to \link{https://en.wikipedia.org/wiki/Man-in-the-middle_attack}{Man in the Middle attacks}. 
+		 	Please note that this component performs encryption and decryption of messages, that are later forwarded to other components. 
+		 	No other functionality is expected.
+		 \item \label{component:TlsEncryptionService} \textbf{TlsEncryptionService:}
+		 	This component will exploit \link{https://en.wikipedia.org/wiki/Transport_Layer_Security}{tls} encryption on the Citizen's device.
+		 \item \label{component:WebServer} \textbf{WebServer:}
+		 	This component is an interface to handle \link{https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol}{http} requests.
+		 \item \label{component:MailServer} \textbf{MailServer:} 
+		 	This component is an interface for mail transfer
+		 \item \label{component:MessageHandler} \textbf{MessageHandler:} 
+		 	This component will handle the custom messaging protocol with Citizen's devices.
+		 \item \label{component:WebBrowser} \textbf{WebBrowser:}
+		 	This component is responsible of displaying the html pages to the Users. Only used by the Authorities.
+		 \item \label{component:MailClient} \textbf{MailClient:}
+		 	This component allows the Users to read their emails hiding the mail transfer protocol used.
+		 \item \label{component:NotificationManager} \textbf{NotificationManager:}
+		 	This component will decide when is needed to send a notification to an User, exploiting the NotificationService for the Citizens
+		 	or by email for Authorities
+		 \item \label{component:MapBuilder} \textbf{MapBuilder:}
+		 	This component is responsible to transform the data in the database to an aggregated format suitable for the MapDisplayer. 
+		 	This prevents potential exposure of sensible data.
+		 \item \label{component:TopViolatorsRankingBuilder} \textbf{TopViolatorsRankingBuilder:}
+		 	This component will hide the plate from pictures and generate the list for the Top Violators page.
+		 \item \label{component:StatisticViewBuilder} \textbf{StatisticViewBuilder}
+		 	This component will recive the data from the DataMiningEngine and find the best way to present them.
+		 \item \label{component:TicketViewBuilder} \textbf{TicketViewBuilder:}
+		 	This component will recive the data from the TicketManager and find the best way to present them.
+		 \item \label{component:MapDisplayer} \textbf{MapDisplayer:}
+		 	This component will recive the data from the MapBuilder and display them graphically to the User.
+		 \item \label{component:TopViolatorsDisplayer} \textbf{TopViolatorsDisplayer:}
+		 	This component will recive data from the TopViolatorsRankingBuilder and display them graphically to the Citizen.
+		 \item \label{component:NotificationService} \textbf{NotificationService:}
+		 	This component will, under request, display a notification on the user's mobile phone.
+		 \item \label{component:ComputerVisionEngine} \textbf{ComponentVisionEngine:}
+		 	The main functionality of this component is to recive a picture and extract the car plate out of it.
+		 	It will also be used to hide the plates from the TopViolatorsRanking.
+		 \item \label{component:DataMiningEngine} \textbf{DataMiningEngine:}
+		 	This component will run data mining algorithms on the database to discover relevant informations with regard to specific geographical
+		 	locations.
+		 \item \label{component:TicketManager} \textbf{TicketManager:}
+		 	This component will filter incoming notifications in order to avoid to store non-ticketable violations. An API will be prepared to allow 
+		 	authorities to specify a format for data presentation, and the component will be able to prepare the data in order to meet that format.
+		 \item \label{component:CameraManager} \textbf{CameraManager:}
+		 	This component will grant secure access to the camera of a Citizen's device, preventing it from notifying violations if the camera is not 
+		 	available (for hardware fault or denied permission).
+		 \item \label{component:GPSManager} \textbf{GPSManager:}
+		 	This component will regulate the access to the GPS of the citizen device, as well as the gathering of the position.
+		 \item \label{component:CurrentTimeManager} \textbf{CurrentTimeManager:}
+		 	This component will check if the date and time settings on the user device are set to auto (the device synchronizes it's clock using 
+		 	internet or the GPS). If they are, the current time is collected, otherwise the notification is blocked until the settings are changed
+		 \item \label{component:DBMS} \textbf{DBMS:}
+		 	This component will be respopnsible of managing the database.
+	\end{itemize}
+	\subsection{Deployment view} How the modules are implemented, explaying both hardware and software
 	\subsection{Runtime view}	You	can	use	sequence	diagrams	to	describe	the	way	components	interact	
 to	accomplish	specific	tasks	typically	related	to	your	use	cases
 	\subsection{Selected architectural styles and patterns} Please	explain	which	styles/patterns	you	used,	
