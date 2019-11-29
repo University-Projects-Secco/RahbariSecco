@@ -156,19 +156,21 @@
 	\begin{table}[H]
 	\begin{center}
 		\caption{Components}
+		\small
 		\begin{tabular}{|l|l|l|l|l|l|}
 		\hline
 		&\textbf{Security}			&\textbf{Interfaces}	&\textbf{Presentation}		&\textbf{Data manipulation}	&\textbf{Storage}\\
 		\hline
 		\textbf{Server}	
-		&AuthenticationManager		&WebServer			&NotificationManager			&ComputerVisionEngine		&	DBMS\\
+		&AuthenticationManager		&HtmlServer			&NotificationManager			&ComputerVisionEngine		&	DBMS\\
 		&SignupController			&MailServer			&MapBuilder					&DataMiningEngine			&		\\
-		&EncryptionService			&MessageHandler		&TopViolatorsRankingBuilder	&TicketManager				&		\\
+		&EncryptionService			&RestApi		&TopViolatorsRankingBuilder	&TicketManager				&		\\
 		&							&					&StatisticsPresenter			&							&		\\
 		&							&					&TicketPresenter				&							&		\\
+		&							&					&JSP							&							&		\\
 		\hline
 		\textbf{Citizen}
-		&TlsEncryptionService		&MessageHandler		&MapDisplayer				&CameraManager				&		\\
+		&EncryptionService			&RestApi		&MapDisplayer				&CameraManager				&		\\
 		&							&					&TopViolatorsDisplayer		&GPSManager					&		\\
 		&							&					&NotificationService			&CurrentTimeManager			&		\\
 		\hline
@@ -196,20 +198,16 @@
 		 	currently unachievable (many researches are running to find a solution)
 		 \item \label{component:EncryptionService} \textbf{EncryptionService:}
 		 	This is probably the core component of the security group. It provides encription of all the transmitted data, using 
-		 	\link{https://en.wikipedia.org/wiki/Transport_Layer_Security}{tls} when communicating with a Citizen (as cits communicate by an ad-hoc
-		 	communication protocol), \link{https://en.wikipedia.org/wiki/HTTPS}{https} when communicating with an Authority (as auths need to
-		 	access the system by a web browser or a web application), and \link{https://en.wikipedia.org/wiki/Opportunistic_TLS}{STARTTLS}. 
+		 	 \link{https://en.wikipedia.org/wiki/HTTPS}{https}, and \link{https://en.wikipedia.org/wiki/Opportunistic_TLS}{STARTTLS}. 
 		 	These methods are handled by a single service as dividing them (and therefore redirect the request to the required component) could
 		 	expose the system to \link{https://en.wikipedia.org/wiki/Man-in-the-middle_attack}{Man in the Middle attacks}. 
 		 	Please note that this component performs encryption and decryption of messages, that are later forwarded to other components. 
 		 	No other functionality is expected.
-		 \item \label{component:TlsEncryptionService} \textbf{TlsEncryptionService:}
-		 	This component will exploit \link{https://en.wikipedia.org/wiki/Transport_Layer_Security}{tls} encryption on the Citizen's device.
-		 \item \label{component:WebServer} \textbf{WebServer:}
+		 \item \label{component:HtmlServer} \textbf{HtmlServer:}
 		 	This component is an interface to handle \link{https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol}{http} requests.
 		 \item \label{component:MailServer} \textbf{MailServer:} 
 		 	This component is an interface for mail transfer
-		 \item \label{component:MessageHandler} \textbf{MessageHandler:} 
+		 \item \label{component:RestApi} \textbf{RestApi:} 
 		 	This component will handle the custom messaging protocol with Citizen's devices.
 		 \item \label{component:WebBrowser} \textbf{WebBrowser:}
 		 	This component is responsible of displaying the html pages to the Users. Only used by the Authorities.
@@ -254,6 +252,10 @@
 		 	This component will be respopnsible of managing the database.
 	\end{itemize}
 	\subsection{Deployment view} How the modules are implemented, explaying both hardware and software
+	\begin{figure}[H]
+		\includegraphics[width=\linewidth]{images/Deployment_diagram.png}
+		\caption{Deployment diagram}
+	\end{figure}
 	\subsection{Runtime view}	You	can	use	sequence	diagrams	to	describe	the	way	components	interact	
 to	accomplish	specific	tasks	typically	related	to	your	use	cases
 	\subsection{Selected architectural styles and patterns} Please	explain	which	styles/patterns	you	used,	
@@ -292,6 +294,10 @@ why,	and	how
 						interface mathods. With regard to the web application, it's navigable 
 						using web links (see \ref{fig:homepage})
 			\end{itemize}
+		\subsection{MVC pattern}
+			The \link{https://en.wikipedia.org/wiki/Model-view-controller}{Model, View, Controller} pattern is a widely 
+			used pattern. Its main advantage is a significant reduction of the complexity, granted by a layered
+			structure that subdivides responsibilities.
 	\subsection{Other design decisions}
 \section{User Interface Design}Provide	an	overview	on	how	the	user	interface(s)	of	your	system	will	
 look	like; if	you	 have	included	 this	 part	in	 the	 RASD,	you	 can	 simply	 refer	 to	what	you	 have	
@@ -327,6 +333,7 @@ group	member	has	worked	for	this	document.
 		\begin{itemize}
 			\item 25 November: Components, toghether. 3h
 			\item 27 November: Components. 3h
+			\item 29 November: Deployment. 4h
 		\end{itemize}
 	\paragraph{Rahbari}
 		\begin{itemize}
