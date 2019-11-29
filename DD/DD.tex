@@ -258,10 +258,64 @@
 to	accomplish	specific	tasks	typically	related	to	your	use	cases
 	\subsection{Selected architectural styles and patterns} Please	explain	which	styles/patterns	you	used,	
 why,	and	how
+		\subsubsection{REST paradigm}
+			We decided to design the system following the REpresentational State Transfer paradigm, 				in order to reduce the design complexity and improve reusability and maintainability.
+			Following are stated the key concepts of REST and how they're 
+			\begin{itemize}
+				\item \textbf{Client-server architecture}
+				\item \textbf{Stateless:} 
+					The components does not store information of what they are doing. Every request comes with all the needed data to
+					provide a response, or any missing data can be retrieved from the database or by transforming the already available
+					data.
+				\item \textbf{Cacheability:} 
+					All the responses are marked as cacheable or not (if a response can be cached, overall 
+					latency can be significantly reduced)
+				\item \textbf{Layered:} 
+					As pointed in \ref{somewhere}, the system is organized in layers and provide
+					interfaces to external processes (controlled by users or automated=
+				\item \textbf{Uniform interface:} 
+					Uniformity of the interface is granded by exposing HTTP endpoints, which transmit resources using
+					the \link{https://json.org/json-en.html}{JSON} format.
+					\subitem \textbf{Resource identification:} 
+						Evevry data exposed to the outside and not representational (Webpages) is 
+						encoded in the JSON format. Web pages are obviously provided in 
+						\link{https://en.wikipedia.org/wiki/HTML}{HTM}L format, in order to be displayable by
+						common web browsers.
+					\subitem \textbf{Resource manipulation through representations:}
+						The format of the resources can be easly modified, as are represented
+						in a structured text format
+					\subitem \textbf{Self-descriptive messages:}
+						The JSON format names every data exchanged. The names we use are
+						expressive enought to be self-descriptive
+					\subitem \textbf{Hypermedia as the engine of application state:}
+						Concerning the API, we provide a service broker to expose all of the
+						interface mathods. With regard to the web application, it's navigable 
+						using web links (see \ref{fig:homepage})
+			\end{itemize}
 	\subsection{Other design decisions}
 \section{User Interface Design}Provide	an	overview	on	how	the	user	interface(s)	of	your	system	will	
 look	like; if	you	 have	included	 this	 part	in	 the	 RASD,	you	 can	 simply	 refer	 to	what	you	 have	
 already	done,	possibly,	providing	here	some	extensions	if	applicable.
+	\subsection{Mobile application interface}
+	\subsection{Web application interface}
+		\label{fig:homepage}
+		\begin{figure}[H]
+			\includegraphics[width=\linewidth]{images/home.png}
+			\caption{Home page}
+		\end{figure}
+		\begin{figure}[H]
+			\includegraphics[width=\linewidth]{images/map.png}
+			\caption{City map with risky streets marked}
+		\end{figure}
+		\begin{figure}[H]
+			\includegraphics[width=\linewidth]{images/ticketing.png}
+			\caption{Insert ticket informations}
+		\end{figure}
+		\begin{figure}[H]
+			\includegraphics[width=\linewidth]{images/log in.png}
+			\caption{Login screen}
+		\end{figure}
+	
 \section{Requirement traceability}	Explain	how	the	requirements	you	have	defined	in	the	RASD	
 map	to the	design	elements	that	you	have	defined	in	this	document
 \section{Implementation, Integration and Test plan}	Identify	here	the	order	in	which	you	plan	
