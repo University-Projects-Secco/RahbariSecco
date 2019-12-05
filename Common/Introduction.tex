@@ -1,0 +1,104 @@
+
+\section{Introduction}
+
+	\subsection{Purpose}
+	
+		\paragraph{}The required system, called SafeStreets, is a distributed system to allow the citizens to signal parking violations to the competent autorities.
+		\paragraph{}The system must allow the citizen to submit pictures of the violation, attaching data such as date, time and position. The user will have to specify the type of the violation when sending these data. 
+		\paragraph{}When reciving such data, the system must store them, toghether with the plate of the car that performed the violation (elictated from the picture the citizen sent), the informations about the violation itself (in particular the type of violation), and the name of the street where the violation occourred (which can be retrieved by the positioning information the user sent).
+		\paragraph{}In addition, the application must allow both autorities and citizens to analyze the stored data, for example highlighting streets or plates with most violations registered. Different levels of security can be offered.
+		\paragraph{}Finally, the application must be enable authorities to automatically generate traffic tickets using its data for people commiting violations, if and only if it can be verified that the data concerning it has not been altered. In this case, SafeStreets could use this informations to build additional statistics.
+
+		\subsubsection{Goal list}
+			\begin{enumerate}[label=\enum{G}]
+				\item  \label{G:realTime}Allow citizens to notify parking violations and be acknowledged of the result as soon as possible
+				\item \label{G:allData}Force citizens to provide all the needed data about violation, in particular infraction type, picture, date, time and position
+				\item \label{G:helpAuth}Prevent the autorities to have to manually address parking tickets
+				\item \label{G:discardAltered} Ensure no tickets can be emitted if the notification's data has been modified somehow
+				\item \label{G:respectPermissions} Ensure no tickets can be emitted if the plate of the car that committed the infringment owns a permission for that infringiment
+				\item \label{G:storeFine} Every notification not covered by \ref{G:discardAltered} or \ref{G:respectPermissions} will be eligible for ticket generation
+				\item \label{G:statistics}Allow both citizens and authorities retrive informations about previous violations and released tickets, possibly in an aggregated form. Every violation reported to the system and stored will appear in some statistics
+				
+			\end{enumerate}
+
+	\subsection{Scope} 
+	The world where the system must fit is an everday city, with focus on the traffic of moterized veichles.\\
+	The events the system aims to influence are the parking of motorized veichles,  in particular the ones considered infractions.\\
+	In the context of the system, when any user notices an illegal parking, he/she may notify the system and provide any needed informations to the competent authorities. In particular, the notification is composed by a picture of the infraction, a timestamp (date and time), the geographical location of the infraction and the type of infraction wich is to be notified. Some of these informations can be gathered automatically from the user's device. Notice that, for legal reasons, SafeStreets will just make the data available to the auth, and will \underline{not} generate tickets itself. \\
+	In addiction, the user may interrogate the system to gather aggregated informations about the locations with more violation incidence, and the cars which committed more violations. 
+	
+	\begin{table}[H]
+	\begin{center}
+		\caption{Phenomena}
+		\small
+		\begin{tabular}{|l|c|c|}
+			\hline
+			\textbf{Phenomenon}		&	\textbf{Shared}&\textbf{Who controls it}\\
+			\hline
+			A citizen parks its car	&	N	&	W\\
+			A citizen spots a car in 
+			an illegal parking		&	N	&	W\\
+			A citizen wants to
+			notify a violation		&	Y	&	W\\
+			The user fills the data
+			needed to notify 
+			a violation				&	Y	&	W\\
+			The machine revices a
+			notification, analyzes
+			it and stored stores it 
+			if it's trusted			&	N	&	M\\
+			A user requests
+			map statistics			&	Y	&	W\\
+			A citizen requests
+			top violators statistics	&	Y	&	W\\
+			The machine analyzes
+			data and builds 
+			statistics				&	N	&	M\\
+			Statistics are organized
+			and presented
+			to the user				&	Y	&	M\\
+			An authority wants to
+			generate tickets			&	N	&	W\\
+			An authority requests
+			some violation notified
+			and stored in the
+			machine					&	Y	&	W\\
+			The machine provides
+			some notification to
+			an authority requesting
+			them						&	Y	&	M\\
+			The authority decides
+			whether generate a ticket
+			for a violation or not	&	Y	&	W\\
+			The authority generates
+			a ticket for a
+			violation				&	N	&	W\\
+			The authority informs
+			the machine she has 
+			generated a ticket 
+			for a given violation	&	Y	&	W\\
+			An authority requests
+			informative statistics
+			about its competence 
+			area						&	Y	&	W\\
+			\hline
+		\end{tabular}				
+	\end{center}
+	\end{table}
+		
+	\subsection{Definitions, Acronyms,Abbreviations} \label{definitions}
+		\paragraph{Person:}A person in the real world. Every Citizen is a person, generally an Authorithy is not
+		\paragraph{User:}A person, an organization or a system which somehow uses SafeStreets
+		\paragraph{Citizen (cit):} This term will be used to denote every \underline{user} not owning particular privileges or permissions. A citizen is only allowed to notify violations and see some aggregated data
+		\paragraph{Authority (auth):} This term will denote every \underline{user} (phisical or digital) having privileged access to the stored data. An example of Authority is the Local Police.
+		\paragraph{Notification:} 
+			\begin{list}{-}{Represents a set of data submitted by any user composed by:}
+				\item A picture of a parking infraction
+				\item A timestamp of when the notification occourred, containing date and time (may be gathered automatically by the citizen's device)
+				\item A geographical position of where the infraction occurred (may be gathered automatically by the citizen's device)
+				\item The type of infraction notified
+			\end{list}
+		\paragraph{Car:}The word car will be used to issue every mothorized vehicle
+		\paragraph{Plate:}Identifies a \underline{car}
+		\paragraph{Permisison:}A document released by a verified authority, granting to a car the permission to park in a set of reserved parkings (ex: permission to park on parking reserved for disabled people). 
+		
