@@ -51,7 +51,7 @@
 	\subsection{Component view} \label{Section:Component view} \textit{Here we thescribe how the project can be modularized}\\
 	\begin{figure}
 		\includegraphics[width=\linewidth]{images/Component_Diagram.png}
-		\caption{Component Diagram}
+		\caption{Component Diagram (Client components are omitted for brevity)}
 	\end{figure}
 	The following table collects the component by functional group and by user group:
 	\begin{table}[H]
@@ -92,46 +92,32 @@
 			\link{https://en.wikipedia.org/wiki/Replay_attack}{Replay attacks}. 
 		 \item \label{component:SignupController} \textbf{SignupController:} 
 		 	This component will manage the signup procedure, in particular it's main functionalities will be: reciving a signup request, check the
-		 	constraints of the provided data (in example, unicity of username and email, strength of the password), hash the password using a known
-		 	and mature password encoder, such as \link{https://en.wikipedia.org/wiki/Bcrypt}{BCrypt}, temporary store these data, generate and send a
-		 	token to the given email to verify it, persistently store the data. The email validation can provide some protection against
+		 	constraints of the provided data (in example, unicity of username and email, strength of the password), hash the password, temporary store these data, 
+		 	generate and send a token to the given email to verify it, persistently store the data. The email validation can provide some protection against
 		 	\link{https://en.wikipedia.org/wiki/Denial-of-service_attack}{DoS attacks}, but full protection is
 		 	currently unachievable (many researches are running to find a solution)
 		 \item \label{component:EncryptionService} \textbf{EncryptionService:}
-		 	This is probably the core component of the security group. It provides encription of all the transmitted data, using 
-		 	 \link{https://en.wikipedia.org/wiki/HTTPS}{https}, and \link{https://en.wikipedia.org/wiki/Opportunistic_TLS}{STARTTLS}. 
-		 	These methods are handled by a single service as dividing them (and therefore redirect the request to the required component) could
-		 	expose the system to \link{https://en.wikipedia.org/wiki/Man-in-the-middle_attack}{Man in the Middle attacks}. 
-		 	Please note that this component performs encryption and decryption of messages, that are later forwarded to other components. 
-		 	No other functionality is expected.
+		 	\link{https://en.wikipedia.org/wiki/Bcrypt}{BCrypt}
 		 \item \label{component:HtmlServer} \textbf{HtmlServer:}
-		 	This component is an interface to handle \link{https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol}{http} requests.
+		 	This component is an interface to handle \link{https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol}{http} requests for the HTML pages to be displayed
+		 	on a web browser. 
 		 \item \label{component:MailServer} \textbf{MailServer:} 
-		 	This component is an interface for mail transfer
+		 	This component is an interface for mail sending emails to the users, in particular notifications (i.e: a ticket has been issued to them) and the first email
+		 	used to confirm the email address.
 		 \item \label{component:RestApi} \textbf{RestApi:} 
-		 	This component will handle the custom messaging protocol with Citizen's devices.
-		 \item \label{component:WebBrowser} \textbf{WebBrowser:}
-		 	This component is responsible of displaying the html pages to the Users. Only used by the Authorities.
-		 \item \label{component:MailClient} \textbf{MailClient:}
-		 	This component allows the Users to read their emails hiding the mail transfer protocol used.
+		 	This component will handle the custom messaging protocol with Citizen's devices. The communication will rely on HTTPS, in order to protect the system from 
+		 	\link{https://en.wikipedia.org/wiki/Man-in-the-middle_attack}{Man in the Middle attacks}.
+		 \item \label{component:JSP} \textbf{\link{https://en.wikipedia.org/wiki/JavaServer_Pages}{JSP:}}
+		 	This component, relying on a well-known technology, will dynamically create HTML data starting from given templates and data.
 		 \item \label{component:NotificationManager} \textbf{NotificationManager:}
-		 	This component will decide when is needed to send a notification to an User, exploiting the NotificationService for the Citizens
-		 	or by email for Authorities
+		 	This component will decide when is needed to send a notification to an User, by sending an email in case of Authorities, or by displaying a notification 
+		 	on the application and/or sending an email in case of Citizens, according to the preferences they setted.
 		 \item \label{component:MapBuilder} \textbf{MapBuilder:}
-		 	This component is responsible to transform the data in the database to an aggregated format suitable for the MapDisplayer. 
-		 	This prevents potential exposure of sensible data.
+		 	This component is responsible to aggregate data from the database according to a geographical location, and to create the data needed to display them
+		 	using the %TODO
 		 \item \label{component:TopViolatorsRankingBuilder} \textbf{TopViolatorsRankingBuilder:}
-		 	This component will hide the plate from pictures and generate the list for the Top Violators page.
-		 \item \label{component:StatisticViewBuilder} \textbf{StatisticViewBuilder}
-		 	This component will recive the data from the DataMiningEngine and find the best way to present them.
-		 \item \label{component:TicketViewBuilder} \textbf{TicketViewBuilder:}
-		 	This component will recive the data from the TicketManager and find the best way to present them.
-		 \item \label{component:MapDisplayer} \textbf{MapDisplayer:}
-		 	This component will recive the data from the MapBuilder and display them graphically to the User.
-		 \item \label{component:TopViolatorsDisplayer} \textbf{TopViolatorsDisplayer:}
-		 	This component will recive data from the TopViolatorsRankingBuilder and display them graphically to the Citizen.
-		 \item \label{component:NotificationService} \textbf{NotificationService:}
-		 	This component will, under request, display a notification on the user's mobile phone.
+		 	This component will query the database for Violations based on a geographical location, hide the plate from pictures and
+		 	generate the list for the Top Violators page.
 		 \item \label{component:ComputerVisionEngine} \textbf{ComponentVisionEngine:}
 		 	The main functionality of this component is to recive a picture and extract the car plate out of it.
 		 	It will also be used to hide the plates from the TopViolatorsRanking.
@@ -139,8 +125,8 @@
 		 	This component will run data mining algorithms on the database to discover relevant informations with regard to specific geographical
 		 	locations.
 		 \item \label{component:TicketManager} \textbf{TicketManager:}
-		 	This component will filter incoming notifications in order to avoid to store non-ticketable violations. An API will be prepared to allow 
-		 	authorities to specify a format for data presentation, and the component will be able to prepare the data in order to meet that format.
+		 	This component will filter incoming notifications in order to avoid to store non-ticketable violations, and provide stored violations that are
+		 	issuable on demand.
 		 \item \label{component:CameraManager} \textbf{CameraManager:}
 		 	This component will grant secure access to the camera of a Citizen's device, preventing it from notifying violations if the camera is not 
 		 	available (for hardware fault or denied permission).
@@ -159,6 +145,11 @@
 	\end{figure}
 	\subsection{Runtime view}	You	can	use	sequence	diagrams	to	describe	the	way	components	interact	
 to	accomplish	specific	tasks	typically	related	to	your	use	cases
+	\subsection{Component Interfaces}
+		\begin{figure}[H]
+			\includegraphics[width=\linewidth]{images/Interface_diagram.png}
+			\caption{Component interfaces diagram}
+		\end{figure}
 	\subsection{Selected architectural styles and patterns} Please	explain	which	styles/patterns	you	used,	
 why,	and	how
 		\subsubsection{REST paradigm}
@@ -182,7 +173,7 @@ why,	and	how
 					\subitem \textbf{Resource identification:} 
 						Evevry data exposed to the outside and not representational (Webpages) is 
 						encoded in the JSON format. Web pages are obviously provided in 
-						\link{https://en.wikipedia.org/wiki/HTML}{HTM}L format, in order to be displayable by
+						\link{https://en.wikipedia.org/wiki/HTML}{HTML} format, in order to be displayable by
 						common web browsers.
 					\subitem \textbf{Resource manipulation through representations:}
 						The format of the resources can be easly modified, as are represented
@@ -195,7 +186,7 @@ why,	and	how
 						interface mathods. With regard to the web application, it's navigable 
 						using web links (see \ref{fig:homepage})
 			\end{itemize}
-		\subsection{MVC pattern}
+		\subsubsection{MVC pattern}
 			The \link{https://en.wikipedia.org/wiki/Model-view-controller}{Model, View, Controller} pattern is a widely 
 			used pattern. Its main advantage is a significant reduction of the complexity, granted by a layered
 			structure that subdivides responsibilities.
