@@ -1,3 +1,4 @@
+
 \documentclass{article}
 \title{SafeStreets DD}
 \date{release date: \today\\version 1}
@@ -114,7 +115,7 @@
 		 	on the application and/or sending an email in case of Citizens, according to the preferences they setted.
 		 \item \label{component:MapBuilder} \textbf{MapBuilder:}
 		 	This component is responsible to aggregate data from the database according to a geographical location, and to create the data needed to display them
-		 	using the %TODO
+		 	using the Google Maps API.
 		 \item \label{component:TopViolatorsRankingBuilder} \textbf{TopViolatorsRankingBuilder:}
 		 	This component will query the database for Violations based on a geographical location, hide the plate from pictures and
 		 	generate the list for the Top Violators page.
@@ -138,14 +139,45 @@
 		 \item \label{component:DBMS} \textbf{DBMS:}
 		 	This component will be respopnsible of managing the database.
 	\end{itemize}
+	\newpage
 	\subsection{Deployment view} How the modules are implemented, explaying both hardware and software
 	\begin{figure}[H]
 		\includegraphics[width=\linewidth]{images/Deployment_diagram.png}
 		\caption{Deployment diagram}
 	\end{figure}
-	\subsection{Runtime view}	You	can	use	sequence	diagrams	to	describe	the	way	components	interact	
-to	accomplish	specific	tasks	typically	related	to	your	use	cases
+	\newpage
+	\subsection{Runtime view} The following diagrams show the interactions between components in order to achieve the
+	required functions
+	\begin{figure}[H]
+		\includegraphics[width=\linewidth]{images/Register_citizen_sequence_diagram.png}
+		\caption{Register citizen sequence diagram}
+	\end{figure}
+	\begin{figure}[H]
+		\includegraphics[width=\linewidth]{images/Register_authority_sequence_diagram.png}
+		\caption{Register authority sequence diagram}
+	\end{figure}
+	\begin{figure}[H]
+		\includegraphics[width=\linewidth]{images/Login(Citizen)_sequence_diagram.png}
+		\caption{Login citizen sequence diagram}
+	\end{figure}
+	\begin{figure}[H]
+		\includegraphics[width=\linewidth]{images/Login(authority)_sequence_diagram.png}
+		\caption{Login authority sequence diagram}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\includegraphics[width=\linewidth]{images/See_statistics_sequence_diagram.png}
+		\caption{See statistics sequence diagram}
+	\end{figure}
+	\begin{figure}[H]
+		\includegraphics[width=\linewidth]{images/See_Top_Violators_Sequence_Diagram.png}
+		\caption{See top violators ranking sequence diagram}
+	\end{figure}
+	
+	
+	\newpage
 	\subsection{Component Interfaces}
+	The following diagram illustrates the interfaces and the dependencies between different components.
 		\begin{figure}[H]
 			\includegraphics[width=\linewidth]{images/Interface_diagram.png}
 			\caption{Component interfaces diagram}
@@ -257,6 +289,8 @@ group	member	has	worked	for	this	document.
 			\item 25 November: Components, toghether. 3h
 			\item 27 November: Components. 3h
 			\item 29 November: Deployment. 4h
+			\item 5 December: Inserted images, refactor structure. 1h
+			\item 7 December: Sequence diagrams. 5h
 		\end{itemize}
 	\paragraph{Rahbari}
 		\begin{itemize}
