@@ -14,6 +14,7 @@
 \usepackage{hyperref}
 \usepackage{multirow}
 \usepackage[section]{placeins}
+\usepackage{cleveref}
 \newcommand{\enum}[1]{\texttt{#1.\arabic*}}
 \newcommand{\link}[2]{{\color{blue}\underline{\href{#1}{#2}}}}
 \begin{document}
@@ -57,7 +58,7 @@
 			\caption{High level architecture}
 			\label{fig:HighLevelArchitecture}
 		\end{figure}
-		As displayed in Figure \ref{fig:HighLevelArchitecture}, the system embraces the MVC architectural pattern (see \ref{sec:Patterns}) and can be divided into 5 subsystems:
+		As displayed in \cref{fig:HighLevelArchitecture}, the system embraces the MVC architectural pattern (see \cref{sec:Patterns}) and can be divided into 5 subsystems:
 		\begin{itemize}
 			\item \textbf{Storage:} 
 				The Storage subsystem is responsible of encoding and persist the data needed by the system. 
@@ -79,7 +80,7 @@
 				activated by this one, which forwards user requests.
 		\end{itemize}
 		\FloatBarrier
-	\subsection{Data model} The system's data will be stored in a cloud-based relational database. The Entity-Relationship diagram in figure \ref{fig:DataModel} explains which data the system will store and manage. In detail, the database will contain the following tables:
+	\subsection{Data model} The system's data will be stored in a cloud-based relational database. The Entity-Relationship diagram in \cref{fig:DataModel} explains which data the system will store and manage. In detail, the database will contain the following tables:
 	\begin{figure}[h]
 		\includegraphics[width=\linewidth]{images/Data_model_diagram.png}
 		\caption{Data model diagram}
@@ -92,7 +93,7 @@
 		\caption{Component Diagram (Some client components are omitted for brevity)}
 		\label{fig:Components}
 	\end{figure}
-	In figure \ref{fig:Components} the components of the system are presented with their connections, and inserted in the propter subsystem. Table \ref{tab:Components} summarizes the belonging of each component to its subsystem. 
+	In \cref{fig:Components} the components of the system are presented with their connections, and inserted in the propter subsystem. In \cref{tab:Components} summarizes the belonging of each component to its subsystem. 
 	\begin{table}[h]
 	\begin{center}
 		\centering
@@ -192,7 +193,7 @@
 		\item HTML Server: a replicated device used to generate dynamic HTML pages. We are planning to merge this first two servers in a following version of this document.
 		\item Data Analysis Server: this replicated device will handle the heavy load of the computation, covering a big portion of the Data Manipulation subsystem.
 	\end{itemize}
-	Figure \ref{fig:Deployment} summarizes the datails of the deployment, highlighting the hardware, the operative systems, the running software and the resources available in the different hardwares.
+	In \cref{fig:Deployment} summarizes the datails of the deployment, highlighting the hardware, the operative systems, the running software and the resources available in the different hardwares.
 	\begin{figure}[h]
 		\includegraphics[width=\linewidth]{images/Deployment_diagram.png}
 		\caption{Deployment diagram}
@@ -251,7 +252,7 @@
 					All the responses are marked as cacheable or not (if a response can be cached, overall 
 					latency can be significantly reduced)
 				\item \textbf{Layered:} 
-					As pointed in \ref{somewhere}, the system is organized in layers and provide
+					As pointed in \cref{somewhere}, the system is organized in layers and provide
 					interfaces to external processes (controlled by users or automated=
 				\item \textbf{Uniform interface:} 
 					Uniformity of the interface is granded by exposing HTTP endpoints, which transmit resources using
@@ -270,7 +271,7 @@
 					\subitem \textbf{Hypermedia as the engine of application state:}
 						Concerning the API, we provide a service broker to expose all of the
 						interface mathods. With regard to the web application, it's navigable 
-						using web links (see \ref{fig:homepage})
+						using web links (see \cref{fig:homepage})
 			\end{itemize}
 		\subsubsection{MVC pattern}
 			The \link{https://en.wikipedia.org/wiki/Model-view-controller}{Model, View, Controller} pattern is a widely 
@@ -341,7 +342,7 @@ map	to the	design	elements	that	you	have	defined	in	this	document
 \section{Implementation, Integration and Test plan}	Identify 	here	the	order	in	which	you	plan	
 to	implement	the	subcomponents	of	your	system	and	the	order	in	which	you	plan	to	integrate	
 such	subcomponents	and	test	the	integration.	\\\\
-First, each component has been prioritized for both value generated for each user-type and implementation difficulty. The results of this prioritization are displayed in the table \ref{tab:developPriorities}. For cloud-placed and bought components, the expected price and the configuration effort for the chosen implementation are both written in parenthesis. Empty cells indicate components not significant for that type of user. Finally, components fullfilled by the same service (cloud-based or bought) are not separated by horizontal lines.
+First, each component has been prioritized for both value generated for each user-type and implementation difficulty. The results of this prioritization are displayed in the \cref{tab:developPriorities}. For cloud-placed and bought components, the expected price and the configuration effort for the chosen implementation are both written in parenthesis. Empty cells indicate components not significant for that type of user. Finally, components fullfilled by the same service (cloud-based or bought) are not separated by horizontal lines.
 \begin{table}[h]
 \begin{center}
 \caption{Component priorities}
@@ -387,7 +388,7 @@ First, each component has been prioritized for both value generated for each use
 \end{tabular}
 \end{center}
 \end{table}
-Analyzing the table, we indentified 5 implementation phases: Prototype, Basic Logic, Authentication, Mobile Security, Extended features. Table \ref{tab:developPhases} describes, for each phase, which component are to develop in that phase, how it's planned to develop them, their estimated effort and the estimate effort of the phase. Finally, figure \ref{fig:developmentPriorities} shows which phases must happen before and which later (note that some may be performed in parallel).
+Analyzing the table, we indentified 5 implementation phases: Prototype, Basic Logic, Authentication, Mobile Security, Extended features. In \cref{tab:developPhases} describes, for each phase, which component are to develop in that phase, how it's planned to develop them, their estimated effort and the estimate effort of the phase. Finally, \cref{fig:developmentPriorities} shows which phases must happen before and which later (note that some may be performed in parallel).
 \begin{table}[h]
 \begin{center}
 \caption{Development phases}
@@ -439,7 +440,27 @@ Analyzing the table, we indentified 5 implementation phases: Prototype, Basic Lo
 
 \paragraph{Unit testing}For testing, we have to assume that every outsourced solution has been tested and is perfectly working (as we can't perform unit testing on them). With regard to the Mobile Application, the Ticket Manager, the Data Mining Engine, the Notification Manager and the Top Violators Ranking Builder, a set of tests will be generated before the beginning of the coding phase in order to guide it, and to define some initial acceptance criteria. More precise tests will be developed during the coding phase, in order to test the coponent behaviour more in detail.
 
-\paragraph{Integration testing} Into each phase, integration testing will be performed to integrate components of the same phase one with the other and with the pre-existing system (assumed to be working perfectly and already tested exhaustively). A more detailed integration and testing plan will be provided in a following version of this document.
+\paragraph{Integration testing} Into each phase, integration testing will be performed to integrate components of the same phase one with the other and with the pre-existing system (assumed to be working perfectly and already tested exhaustively). Figures \cref{fig:integrationPrototype}
+	\begin{figure}[h]
+		\caption{Prototype integration}
+		\label{fig:integrationPrototype}
+		\centering
+		\begin{subfigure}[H]{\linewidth}
+			\includegraphics[width=.5\textwidth]{images/Integration_prototype_1.png}
+			\includegraphics[width=.5\textwidth]{images/Integration_prototype_3.png}
+			\caption{Model-controller integration}
+		\end{subfigure}
+		\begin{subfigure}[H]{\linewidth}
+			\centering
+			\includegraphics[width=\textwidth]{images/Integration_prototype_2.png}
+			\includegraphics[width=\textwidth]{images/Integration_prototype_4.png}
+			\caption{Model-controller-view integration}
+		\end{subfigure}
+		\begin{subfigure}[H]{\linewidth}
+			\includegraphics[width=\textwidth]{images/Integration_prototype_5.png}
+			\caption{Final integration}
+		\end{subfigure}
+	\end{figure}
 
 \paragraph{Acceptance test} A set of acceptance tests will be generated at the beginning of each phase. This of acceptance tests will cover a great number of test cases, and will be usable as Regression tests as well
 
