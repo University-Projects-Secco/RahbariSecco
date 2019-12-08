@@ -13,7 +13,7 @@
 \usepackage{subcaption}
 \usepackage{hyperref}
 \usepackage{multirow}
-\usepackage{tabularx}
+\usepackage[section]{placeins}
 \newcommand{\enum}[1]{\texttt{#1.\arabic*}}
 \newcommand{\link}[2]{{\color{blue}\underline{\href{#1}{#2}}}}
 \begin{document}
@@ -29,6 +29,7 @@
 	\subsection{Reference documents}
 	\subsection{Document Structure}
 
+\newpage
 \section{Architectural Design}
 	\subsection{Overview} \textit{High-level components and their interaction}
 	In this section the architectural design of SafeStreets is presented. 
@@ -49,26 +50,54 @@
 		\item \textbf{Selected architectural styles and patterns:} 
 			This parts describes the design choices  about the architecture of the application.
 	\end{list}
+	\FloatBarrier
 	\subsection{High level architecture}
-		\begin{figure}[H]
+		\begin{figure}[h]
 			\includegraphics[width=\linewidth]{images/High_level_architecture.png}
 			\caption{High level architecture}
 			\label{fig:HighLevelArchitecture}
 		\end{figure}
-	\subsection{Data model} The data will be stored in a cloud-based relational database. The following Entity-Relationship diagram explains which data the system will store and manage
-	\begin{figure}[H]
+		As displayed in Figure \ref{fig:HighLevelArchitecture}, the system embraces the MVC architectural pattern (see \ref{sec:Patterns}) and can be divided into 5 subsystems:
+		\begin{itemize}
+			\item \textbf{Storage:} 
+				The Storage subsystem is responsible of encoding and persist the data needed by the system. 
+				As the system even embraces the REST pattern, this is the only subsystem that stores data. 
+				This subsystem is only composed by the Database Management System. This subsystem coincides with the Model subsystem.
+			\item \textbf{Data manipulation:} 
+				This is the main Controller subsystem. 
+				Its components are responsible to handle the User's requests, recive data (and forward them to the Storage), and in general to cover the functional 
+				sides of the system.
+			\item \textbf{Security:} 
+				The Security subsystem is an auxiliary controller. It will grant Authentication functionalities to the system, but plays no role in fullfilling
+				funcitonal requirements.
+			\item \textbf{Presentation:}
+				This subsystem is responsible of displaying the outputs of the Data Manipulation subsystem in a way appreciable by an average user. 
+				It takes care of the presentation for both authorities (exploiting HTML pages) and citizens (exploiting the GUI of the mobile application).
+			\item \textbf{Interface:}
+				This subsystem manages the communication between the server(s) and the clients. It is responsible for handling HTTP requests for both webpages and
+				raw resources (used later by the mobile application), and of sending emails as well. In a typical working scenario, the previous subsystems are
+				activated by this one, which forwards user requests.
+		\end{itemize}
+		\FloatBarrier
+	\subsection{Data model} The system's data will be stored in a cloud-based relational database. The Entity-Relationship diagram in figure \ref{fig:DataModel} explains which data the system will store and manage. In detail, the database will contain the following tables:
+	\begin{figure}[h]
 		\includegraphics[width=\linewidth]{images/Data_model_diagram.png}
 		\caption{Data model diagram}
+		\label{fig:DataModel}
 	\end{figure}
-	\subsection{Component view} \label{Section:Component view} \textit{Here we thescribe how the project can be modularized}\\
-	\begin{figure}
+	\FloatBarrier
+	\subsection{Component view} \label{Section:Component view}
+	\begin{figure}[h]
 		\includegraphics[width=\linewidth]{images/Component_Diagram.png}
-		\caption{Component Diagram (Client components are omitted for brevity)}
+		\caption{Component Diagram (Some client components are omitted for brevity)}
+		\label{fig:Components}
 	\end{figure}
-	The following table collects the component by functional group and by user group:
-	\begin{table}[H]
+	In figure \ref{fig:Components} the components of the system are presented with their connections, and inserted in the propter subsystem. Table \ref{tab:Components} summarizes the belonging of each component to its subsystem. 
+	\begin{table}[h]
 	\begin{center}
+		\centering
 		\caption{Components}
+		\label{tab:Components}
 		\small
 		\begin{tabular}{|l|l|l|l|l|l|}
 		\hline
@@ -93,6 +122,7 @@
 		\end{tabular}
 	\end{center}
 	\end{table}
+	\FloatBarrier
 	The following list provides a detailed description of each module's functionalities (calls to components are omitted here as they will be
 	datailed in sequence diagrams):
 	\begin{itemize}
@@ -150,55 +180,64 @@
 		 \item \label{component:DBMS} \textbf{DBMS:}
 		 	This component will be respopnsible of managing the database.
 	\end{itemize}
-	\newpage
-	\subsection{Deployment view} How the modules are implemented, explaying both hardware and software
-	\begin{figure}[H]
+	\newpage \FloatBarrier
+	\subsection{Deployment view} 
+	Designing the system, our main focuses were costs (both initial and maintenance) and complexity (of the system architecture and of the development).
+	For this reason, we decided to put as many components on the cloud, relying on well-known and trusted providers (Amazon and Google). The final hardware system will so be composed by:
+	\begin{itemize}
+		\item Android devices: used by Citizens to interface with the system.
+		\item iOs devices: used by Citizens to interface with the system. We needed to distinguish between the two kind of devices because of the possible differences in the development of the Mobile Application for different operative systems.
+		\item Personal Computers: used by Authorities to interface with the system.
+		\item Web Server: a replicated device used to hande HTTP requests.
+		\item HTML Server: a replicated device used to generate dynamic HTML pages. We are planning to merge this first two servers in a following version of this document.
+		\item Data Analysis Server: this replicated device will handle the heavy load of the computation, covering a big portion of the Data Manipulation subsystem.
+	\end{itemize}
+	Figure \ref{fig:Deployment} summarizes the datails of the deployment, highlighting the hardware, the operative systems, the running software and the resources available in the different hardwares.
+	\begin{figure}[h]
 		\includegraphics[width=\linewidth]{images/Deployment_diagram.png}
 		\caption{Deployment diagram}
+		\label{fig:Deployment}
 	\end{figure}
-	\newpage
+	\newpage \FloatBarrier
 	\subsection{Runtime view} The following diagrams show the interactions between components in order to achieve the
 	required functions
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\includegraphics[width=\linewidth]{images/Register_citizen_sequence_diagram.png}
 		\caption{Register citizen sequence diagram}
 	\end{figure}
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\includegraphics[width=\linewidth]{images/Register_authority_sequence_diagram.png}
 		\caption{Register authority sequence diagram}
 	\end{figure}
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\includegraphics[width=\linewidth]{images/Login(Citizen)_sequence_diagram.png}
 		\caption{Login citizen sequence diagram}
 	\end{figure}
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\includegraphics[width=\linewidth]{images/Login(authority)_sequence_diagram.png}
 		\caption{Login authority sequence diagram}
 	\end{figure}
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\includegraphics[width=\linewidth]{images/See_statistics_sequence_diagram.png}
 		\caption{See statistics sequence diagram}
 	\end{figure}
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\includegraphics[width=\linewidth]{images/See_Top_Violators_Sequence_Diagram.png}
 		\caption{See top violators ranking sequence diagram}
 	\end{figure}
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\includegraphics[width=\linewidth]{images/Notify_Violation_sequence_diagram.png}
 		\caption{Notify violation sequence diagram}
-	\end{figure}
-	
-	
-	\newpage
+	\end{figure}	
+	\newpage \FloatBarrier
 	\subsection{Component Interfaces}
-	The following diagram illustrates the interfaces and the dependencies between different components.
+	The following diagram illustrates the interfaces and the dependencies between different components, highlighting user interfaces and programming interfaces.
 		\begin{figure}[H]
 			\includegraphics[width=\linewidth]{images/Interface_diagram.png}
 			\caption{Component interfaces diagram}
 		\end{figure}
-	\subsection{Selected architectural styles and patterns} Please	explain	which	styles/patterns	you	used,	
-why,	and	how
+	\subsection{Selected architectural styles and patterns} \label{sec:Patterns}
 		\subsubsection{REST paradigm}
 			We decided to design the system following the REpresentational State Transfer paradigm, 				in order to reduce the design complexity and improve reusability and maintainability.
 			Following are stated the key concepts of REST and how they're 
@@ -242,67 +281,71 @@ why,	and	how
 \section{User Interface Design}Provide	an	overview	on	how	the	user	interface(s)	of	your	system	will	
 look	like; if	you	 have	included	 this	 part	in	 the	 RASD,	you	 can	 simply	 refer	 to	what	you	 have	
 already	done,	possibly,	providing	here	some	extensions	if	applicable.
+	\FloatBarrier
 	\subsection{Mobile application interface}
-		\begin{figure}[H]
+		\begin{figure}[h]
 			\centering
-			\begin{subfigure}[H]{0.49\linewidth}
+			\begin{subfigure}[h]{0.49\linewidth}
 				\includegraphics[width=\linewidth]{images/Sign_In.png}
 				\caption{Sign in}
 			\end{subfigure}	
-			\begin{subfigure}[H]{0.49\linewidth}
+			\begin{subfigure}[h]{0.49\linewidth}
 				\includegraphics[width=\linewidth]{images/Sign_Up.png}
 				\caption{Sign up}
 			\end{subfigure}
 		\end{figure}
-		\begin{figure}[H]
-			\begin{subfigure}[H]{0.49\linewidth}
+		\begin{figure}[h]
+			\begin{subfigure}[h]{0.49\linewidth}
 				\includegraphics[width=\linewidth]{images/Menu.png}
 				\caption{Menu}
 			\end{subfigure}
-			\begin{subfigure}[H]{0.49\linewidth}
+			\begin{subfigure}[h]{0.49\linewidth}
 				\includegraphics[width=\linewidth]{images/Camera.png}
 				\caption{Camera}
 			\end{subfigure}
 		\end{figure}
-		\begin{figure}[H]
-			\begin{subfigure}[H]{0.49\linewidth}
+		\begin{figure}[h]
+			\begin{subfigure}[h]{0.49\linewidth}
 				\includegraphics[width=\linewidth]{images/Maps.png}
 				\caption{Map}
 			\end{subfigure}
-			\begin{subfigure}[H]{0.49\linewidth}
+			\begin{subfigure}[h]{0.49\linewidth}
 				\includegraphics[width=\linewidth]{images/Top_Violators.png}
 				\caption{Top Violators}
 			\end{subfigure}
 		\end{figure}			
+	\FloatBarrier
 	\subsection{Mobile application UX diagrams}
+	\FloatBarrier
 	\subsection{Web application interface}
 		\label{fig:homepage}
-		\begin{figure}[H]
+		\begin{figure}[h]
 			\includegraphics[width=\linewidth]{images/home.png}
 			\caption{Home page}
 		\end{figure}
-		\begin{figure}[H]
+		\begin{figure}[h]
 			\includegraphics[width=\linewidth]{images/map.png}
 			\caption{City map with risky streets marked}
 		\end{figure}
-		\begin{figure}[H]
+		\begin{figure}[h]
 			\includegraphics[width=\linewidth]{images/ticketing.png}
 			\caption{Insert ticket informations}
 		\end{figure}
-		\begin{figure}[H]
-			\includegraphics[width=\linewidth]{images/log in.png}
+		\begin{figure}[h]
+			\includegraphics[width=\linewidth]{images/log_in.png}
 			\caption{Login screen}
 		\end{figure}
-	
+\FloatBarrier
 \section{Requirement traceability}	Explain	how	the	requirements	you	have	defined	in	the	RASD	
 map	to the	design	elements	that	you	have	defined	in	this	document
 \section{Implementation, Integration and Test plan}	Identify 	here	the	order	in	which	you	plan	
 to	implement	the	subcomponents	of	your	system	and	the	order	in	which	you	plan	to	integrate	
-such	subcomponents	and	test	the	integration.	
-First, each component has been prioritized for both value generated for each user-type and implementation difficulty. The results of this prioritization are displayed in the following table. For cloud-placed and bought components, the expected price and the configuration effort for the chosen implementation are both written in parenthesis. Empty cells indicate components not significant for that type of user. Finally, components fullfilled by the same service (cloud-based or bought) are not separated by horizontal lines.
-\begin{table}[H]
+such	subcomponents	and	test	the	integration.	\\\\
+First, each component has been prioritized for both value generated for each user-type and implementation difficulty. The results of this prioritization are displayed in the table \ref{tab:developPriorities}. For cloud-placed and bought components, the expected price and the configuration effort for the chosen implementation are both written in parenthesis. Empty cells indicate components not significant for that type of user. Finally, components fullfilled by the same service (cloud-based or bought) are not separated by horizontal lines.
+\begin{table}[h]
 \begin{center}
 \caption{Component priorities}
+\label{tab:developPriorities}
 \small
 \begin{tabular}{|c|c|c|c|}
 	\hline
@@ -344,12 +387,13 @@ First, each component has been prioritized for both value generated for each use
 \end{tabular}
 \end{center}
 \end{table}
-\newpage
-Analyzing the table, we indentified 5 implementation phases: Prototype, Basic Logic, Authentication, Mobile Security, Extended features. Each phase is described in the following table:
-\begin{table}[H]
+Analyzing the table, we indentified 5 implementation phases: Prototype, Basic Logic, Authentication, Mobile Security, Extended features. Table \ref{tab:developPhases} describes, for each phase, which component are to develop in that phase, how it's planned to develop them, their estimated effort and the estimate effort of the phase. Finally, figure \ref{fig:developmentPriorities} shows which phases must happen before and which later (note that some may be performed in parallel).
+\begin{table}[h]
 \begin{center}
+\caption{Development phases}
+\label{tab:developPhases}
 \small
-\setlength\tabcolsep{0pt}
+\centering
 \begin{tabular}{|c|c|c|c|c|}
 		\hline
 		\textbf{Implementation Phase}		&\textbf{Adopted solution}					&\textbf{Covered Components}		&\textbf{Solution effort}	&\textbf{Phase Efforts}\\
@@ -387,10 +431,10 @@ Analyzing the table, we indentified 5 implementation phases: Prototype, Basic Lo
 \end{center}
 \end{table}
 
-And in the following graph the dependencies between the phases are shown.
-
-\begin{figure}[H]
+\begin{figure}[h]
 \includegraphics[width=\linewidth]{images/Implementation_phases.png}
+\caption{Phase priority}
+\label{fig:developmentPriorities}
 \end{figure}
 
 \paragraph{Unit testing}For testing, we have to assume that every outsourced solution has been tested and is perfectly working (as we can't perform unit testing on them). With regard to the Mobile Application, the Ticket Manager, the Data Mining Engine, the Notification Manager and the Top Violators Ranking Builder, a set of tests will be generated before the beginning of the coding phase in order to guide it, and to define some initial acceptance criteria. More precise tests will be developed during the coding phase, in order to test the coponent behaviour more in detail.
