@@ -1,4 +1,3 @@
-
 \documentclass{article}
 \title{SafeStreets DD}
 \date{release date: \today\\version 1}
@@ -14,6 +13,7 @@
 \usepackage{subcaption}
 \usepackage{hyperref}
 \usepackage{multirow}
+\usepackage{tabularx}
 \newcommand{\enum}[1]{\texttt{#1.\arabic*}}
 \newcommand{\link}[2]{{\color{blue}\underline{\href{#1}{#2}}}}
 \begin{document}
@@ -50,6 +50,11 @@
 			This parts describes the design choices  about the architecture of the application.
 	\end{list}
 	\subsection{High level architecture}
+	\subsection{Data model} The data will be stored in a cloud-based relational database. The following Entity-Relationship diagram explains which data the system will store and manage
+	\begin{figure}[H]
+		\includegraphics[width=\linewidth]{images/Data_model_diagram.png}
+		\caption{Data model diagram}
+	\end{figure}
 	\subsection{Component view} \label{Section:Component view} \textit{Here we thescribe how the project can be modularized}\\
 	\begin{figure}
 		\includegraphics[width=\linewidth]{images/Component_Diagram.png}
@@ -174,6 +179,10 @@
 		\includegraphics[width=\linewidth]{images/See_Top_Violators_Sequence_Diagram.png}
 		\caption{See top violators ranking sequence diagram}
 	\end{figure}
+	\begin{figure}[H]
+		\includegraphics[width=\linewidth]{images/Notify_Violation_sequence_diagram.png}
+		\caption{Notify violation sequence diagram}
+	\end{figure}
 	
 	
 	\newpage
@@ -224,6 +233,7 @@ why,	and	how
 			used pattern. Its main advantage is a significant reduction of the complexity, granted by a layered
 			structure that subdivides responsibilities.
 	\subsection{Other design decisions}
+\newpage
 \section{User Interface Design}Provide	an	overview	on	how	the	user	interface(s)	of	your	system	will	
 look	like; if	you	 have	included	 this	 part	in	 the	 RASD,	you	 can	 simply	 refer	 to	what	you	 have	
 already	done,	possibly,	providing	here	some	extensions	if	applicable.
@@ -259,6 +269,7 @@ already	done,	possibly,	providing	here	some	extensions	if	applicable.
 				\caption{Top Violators}
 			\end{subfigure}
 		\end{figure}			
+	\subsection{Mobile application UX diagrams}
 	\subsection{Web application interface}
 		\label{fig:homepage}
 		\begin{figure}[H]
@@ -296,93 +307,93 @@ First, each component has been prioritized for both value generated for each use
 	Signup Controller				&Low	 to Medium					&High							&Cloud (cheap,low)						\\
 	Encryption Service				&Low								&High							&Cloud (cheap,low)						\\
 	\hline
-	Mobile Application				&High							&								&Medium to High							\\ %TODO
+	Mobile Application				&High							&								&Medium to High							\\ 
 	\hline
 	HTML Server						&								&High							&Buy	 (free,low)							\\
 	Rest Api							&High							&								&Buy (free,low)							\\
 	\hline
 	Mail Server						&Low								&Low								&Cloud (cheap,low)						\\
 	\hline
-	JSP								&								&High							&Buy (free,low)							\\ %TODO
+	JSP								&								&High							&Buy (free,low)							\\ 
 	\hline
-	Notification Manager				&Medium							&Medium to Low					&Low										\\ %TODO
+	Notification Manager				&Medium							&Medium to Low					&Low										\\ 
 	\hline
-	Map Builder						&High							&High							&Cloud (cheap,medium)					\\ %TODO
+	Map Builder						&High							&High							&Cloud (cheap,medium)					\\ 
 	\hline
-	Top Violators Ranking Builder	&Low to Medium					&								&Low										\\ %TODO
+	Top Violators Ranking Builder	&Low to Medium					&								&Low										\\ 
 	\hline
 	Computer Vision Engine			&Medium to High					&Medium to High					&Cloud (cheap,medium to high)			\\
 	\hline
-	Data Mining Engine				&								&Medium to High					&High									\\ %TODO
+	Data Mining Engine				&								&Medium to High					&High									\\ 
 	\hline
 	Ticket Manager					&								&High							&Low										\\
 	\hline
-	Camera Manager					&Medium							&High							&Medium to Low							\\ %TODO
+	Camera Manager					&Medium							&High							&Medium to Low							\\ 
 	\hline
-	GPS Manager						&Medium							&Medium							&Medium to Low							\\ %TODO
+	GPS Manager						&Medium							&Medium							&Medium to Low							\\ 
 	\hline
-	Current Time Manager				&Medium							&Medium							&Low										\\ %TODO
+	Current Time Manager				&Medium							&Medium							&Low										\\ 
 	\hline
 	DBMS								&High							&High							&Buy (cheap,low)							\\
 	\hline
 \end{tabular}
 \end{center}
 \end{table}
-Analyzing the table, we plan to implement/configure the components according the following schedule:
+\newpage
+Analyzing the table, we indentified 5 implementation phases: Prototype, Basic Logic, Authentication, Mobile Security, Extended features. Each phase is described in the following table:
 \begin{table}[H]
 \begin{center}
-\begin{tabular}{|c|c|c|}
+\small
+\setlength\tabcolsep{0pt}
+\begin{tabular}{|c|c|c|c|c|}
 		\hline
-		\textbf{Implementation Phase}				&\textbf{Adopted solution}					&\textbf{Covered Components}		\\
+		\textbf{Implementation Phase}		&\textbf{Adopted solution}					&\textbf{Covered Components}		&\textbf{Solution effort}	&\textbf{Phase Efforts}\\
 		\hline
-		\multirow{4}{*}{Prototype}					&Amazon S3									&DBMS							\\
-													\cline{2-3}
-													&\multirow{2}{*}{Tomcat Web Server}			&Rest Api						\\
-													&											&HTML Server						\\
-													\cline{2-3}
-													&Custom made Application						&Mobile Application				\\
-													\cline{2-3}
-													&JSP											&JSP								\\
+		\multirow{5}{*}{Prototype}			&Amazon S3									&DBMS							&Low				&\multirow{5}{*}{Low}			\\
+											\cline{2-4}
+											&\multirow{2}{*}{Tomcat Web Server}			&Rest Api						&\multirow{2}{*}{Low}&							\\
+											&											&HTML Server						&				&								\\
+											\cline{2-4}
+											&Custom made Application						&Mobile Application				&Medium to High	&								\\
+											\cline{2-4}
+											&JSP											&JSP								&None			&								\\
 		\hline
-		\multirow{3}{*}{Basic logic}					&Amazon Rekognition							&Computer Vision Engine			\\
-													\cline{2-3}
-													&Google Cloud: Maps							&Map Builder						\\
-													\cline{2-3}
-													&Custom controller							&Ticket Manager					\\
+		\multirow{3}{*}{Basic logic}			&Amazon Rekognition							&Computer Vision Engine			&Medium to High	&\multirow{3}{*}{Medium}			\\
+											\cline{2-4}
+											&Google Cloud: Maps							&Map Builder						&Medium			&								\\
+											\cline{2-4}
+											&Custom controller							&Ticket Manager					&Low				&								\\
 		\hline		
-		\multirow{4}{*}{Authentication}				&\multirow{3}{*}{Amazon cognito}				&Authentication Manager			\\
-													&											&Signup Controller				\\
-													&											&Encryption Service				\\
-													\cline{2-3}
-													&Amazon Simple Mail							&Mail Server						\\
+		\multirow{4}{*}{Authentication}		&\multirow{3}{*}{Amazon cognito}				&Authentication Manager			&\multirow{3}{*}{Low}&\multirow{4}{*}{Low}		\\
+											&											&Signup Controller				&				&								\\
+											&											&Encryption Service				&				&								\\
+											\cline{2-4}
+											&Amazon Simple Mail							&Mail Server						&Low				&								\\
 		\hline		
-		\multirow{3}{*}{Mobile Security}				&\multirow{3}{*}{Mobile Application Update}	&Camera Manager					\\
-													&											&GPS Manager						\\
-													&											&Current Time Manager			\\
+		\multirow{3}{*}{Mobile Security}		&\multirow{3}{*}{Mobile Application Update}	&Camera Manager		&\multirow{3}{*}{Medium to Low}&\multirow{3}{*}{Medium to Low}\\
+											&											&GPS Manager						&				&								\\
+											&											&Current Time Manager			&				&								\\
 		\hline
-		\multirow{3}{*}{Extended features}			&\multirow{3}{*}{Custom controllers}			&Data Mining Engine				\\
-													&											&Notification Manager			\\
-													&											&Top Violators Ranking Builder	\\
+		\multirow{3}{*}{Extended features}	&\multirow{3}{*}{Custom controllers}			&Data Mining Engine				&High			&\multirow{3}{*}{Medium}			\\
+											&											&Notification Manager			&Low				&								\\
+											&											&Top Violators Ranking Builder	&Low				&								\\
 		\hline
 \end{tabular}
 \end{center}
 \end{table}
-\begin{enumerate}
-	\item Citizen prototype
-		\begin{enumerate}
-		\item DBMS
-		\item Rest API
-		\item Mobile Application
-		\end{enumerate}
-		
-	
-	\item Ticket Manager
-	\item Computer Vision Engine
-	\item Amazon cognito (Signup Controller, Authentication Manager, Encryption Service)
-	\item Tomcat Web Server (HTML server, Rest Api)
-	\item Amazon simple email service (Mail server)
-	\item \textbf{TODO} %TODO
-\end{enumerate}
+
+And in the following graph the dependencies between the phases are shown.
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{images/Implementation_phases.png}
+\end{figure}
+
+\paragraph{Unit testing}For testing, we have to assume that every outsourced solution has been tested and is perfectly working (as we can't perform unit testing on them). With regard to the Mobile Application, the Ticket Manager, the Data Mining Engine, the Notification Manager and the Top Violators Ranking Builder, a set of tests will be generated before the beginning of the coding phase in order to guide it, and to define some initial acceptance criteria. More precise tests will be developed during the coding phase, in order to test the coponent behaviour more in detail.
+
+\paragraph{Integration testing} Into each phase, integration testing will be performed to integrate components of the same phase one with the other and with the pre-existing system (assumed to be working perfectly and already tested exhaustively). A more detailed integration and testing plan will be provided in a following version of this document.
+
+\paragraph{Acceptance test} A set of acceptance tests will be generated at the beginning of each phase. This of acceptance tests will cover a great number of test cases, and will be usable as Regression tests as well
+
 \section{Effort spent}In	 this	 section	you	will	include	information	about	 the	number	of	hours	each	
 group	member	has	worked	for	this	document.
 	\paragraph{Matteo Secco}
