@@ -13,6 +13,7 @@
 \usepackage{listings}
 \usepackage{subcaption}
 \usepackage{hyperref}
+\usepackage{multirow}
 \newcommand{\enum}[1]{\texttt{#1.\arabic*}}
 \newcommand{\link}[2]{{\color{blue}\underline{\href{#1}{#2}}}}
 \begin{document}
@@ -279,9 +280,109 @@ already	done,	possibly,	providing	here	some	extensions	if	applicable.
 	
 \section{Requirement traceability}	Explain	how	the	requirements	you	have	defined	in	the	RASD	
 map	to the	design	elements	that	you	have	defined	in	this	document
-\section{Implementation, Integration and Test plan}	Identify	here	the	order	in	which	you	plan	
+\section{Implementation, Integration and Test plan}	Identify 	here	the	order	in	which	you	plan	
 to	implement	the	subcomponents	of	your	system	and	the	order	in	which	you	plan	to	integrate	
 such	subcomponents	and	test	the	integration.	
+First, each component has been prioritized for both value generated for each user-type and implementation difficulty. The results of this prioritization are displayed in the following table. For cloud-placed and bought components, the expected price and the configuration effort for the chosen implementation are both written in parenthesis. Empty cells indicate components not significant for that type of user. Finally, components fullfilled by the same service (cloud-based or bought) are not separated by horizontal lines.
+\begin{table}[H]
+\begin{center}
+\caption{Component priorities}
+\small
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	\textbf{Component}				&\textbf{Value (for citizens)}	&\textbf{Value(for authorities)}	&\textbf{Difficulty of implementation}	\\
+	\hline
+	Authentication Manager			&Low to Medium					&High							&Cloud (cheap,low)						\\
+	Signup Controller				&Low	 to Medium					&High							&Cloud (cheap,low)						\\
+	Encryption Service				&Low								&High							&Cloud (cheap,low)						\\
+	\hline
+	Mobile Application				&High							&								&Medium to High							\\ %TODO
+	\hline
+	HTML Server						&								&High							&Buy	 (free,low)							\\
+	Rest Api							&High							&								&Buy (free,low)							\\
+	\hline
+	Mail Server						&Low								&Low								&Cloud (cheap,low)						\\
+	\hline
+	JSP								&								&High							&Buy (free,low)							\\ %TODO
+	\hline
+	Notification Manager				&Medium							&Medium to Low					&Low										\\ %TODO
+	\hline
+	Map Builder						&High							&High							&Cloud (cheap,medium)					\\ %TODO
+	\hline
+	Top Violators Ranking Builder	&Low to Medium					&								&Low										\\ %TODO
+	\hline
+	Computer Vision Engine			&Medium to High					&Medium to High					&Cloud (cheap,medium to high)			\\
+	\hline
+	Data Mining Engine				&								&Medium to High					&High									\\ %TODO
+	\hline
+	Ticket Manager					&								&High							&Low										\\
+	\hline
+	Camera Manager					&Medium							&High							&Medium to Low							\\ %TODO
+	\hline
+	GPS Manager						&Medium							&Medium							&Medium to Low							\\ %TODO
+	\hline
+	Current Time Manager				&Medium							&Medium							&Low										\\ %TODO
+	\hline
+	DBMS								&High							&High							&Buy (cheap,low)							\\
+	\hline
+\end{tabular}
+\end{center}
+\end{table}
+Analyzing the table, we plan to implement/configure the components according the following schedule:
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{Implementation Phase}				&\textbf{Adopted solution}					&\textbf{Covered Components}		\\
+		\hline
+		\multirow{4}{*}{Prototype}					&Amazon S3									&DBMS							\\
+													\cline{2-3}
+													&\multirow{2}{*}{Tomcat Web Server}			&Rest Api						\\
+													&											&HTML Server						\\
+													\cline{2-3}
+													&Custom made Application						&Mobile Application				\\
+													\cline{2-3}
+													&JSP											&JSP								\\
+		\hline
+		\multirow{3}{*}{Basic logic}					&Amazon Rekognition							&Computer Vision Engine			\\
+													\cline{2-3}
+													&Google Cloud: Maps							&Map Builder						\\
+													\cline{2-3}
+													&Custom controller							&Ticket Manager					\\
+		\hline		
+		\multirow{4}{*}{Authentication}				&\multirow{3}{*}{Amazon cognito}				&Authentication Manager			\\
+													&											&Signup Controller				\\
+													&											&Encryption Service				\\
+													\cline{2-3}
+													&Amazon Simple Mail							&Mail Server						\\
+		\hline		
+		\multirow{3}{*}{Mobile Security}				&\multirow{3}{*}{Mobile Application Update}	&Camera Manager					\\
+													&											&GPS Manager						\\
+													&											&Current Time Manager			\\
+		\hline
+		\multirow{3}{*}{Extended features}			&\multirow{3}{*}{Custom controllers}			&Data Mining Engine				\\
+													&											&Notification Manager			\\
+													&											&Top Violators Ranking Builder	\\
+		\hline
+\end{tabular}
+\end{center}
+\end{table}
+\begin{enumerate}
+	\item Citizen prototype
+		\begin{enumerate}
+		\item DBMS
+		\item Rest API
+		\item Mobile Application
+		\end{enumerate}
+		
+	
+	\item Ticket Manager
+	\item Computer Vision Engine
+	\item Amazon cognito (Signup Controller, Authentication Manager, Encryption Service)
+	\item Tomcat Web Server (HTML server, Rest Api)
+	\item Amazon simple email service (Mail server)
+	\item \textbf{TODO} %TODO
+\end{enumerate}
 \section{Effort spent}In	 this	 section	you	will	include	information	about	 the	number	of	hours	each	
 group	member	has	worked	for	this	document.
 	\paragraph{Matteo Secco}
@@ -291,6 +392,7 @@ group	member	has	worked	for	this	document.
 			\item 29 November: Deployment. 4h
 			\item 5 December: Inserted images, refactor structure. 1h
 			\item 7 December: Sequence diagrams. 5h
+			\item 7 December: Implementation, integration and testing. 0.45h
 		\end{itemize}
 	\paragraph{Rahbari}
 		\begin{itemize}
