@@ -440,7 +440,7 @@ Analyzing the table, we indentified 5 implementation phases: Prototype, Basic Lo
 
 \paragraph{Unit testing}For testing, we have to assume that every outsourced solution has been tested and is perfectly working (as we can't perform unit testing on them). With regard to the Mobile Application, the Ticket Manager, the Data Mining Engine, the Notification Manager and the Top Violators Ranking Builder, a set of tests will be generated before the beginning of the coding phase in order to guide it, and to define some initial acceptance criteria. More precise tests will be developed during the coding phase, in order to test the coponent behaviour more in detail.
 
-\paragraph{Integration testing} Into each phase, integration testing will be performed to integrate components of the same phase one with the other and with the pre-existing system (assumed to be working perfectly and already tested exhaustively). Figures \cref{fig:integrationPrototype}
+\paragraph{Integration testing} Into each phase, integration testing will be performed to integrate components of the same phase one with the other and with the pre-existing system (assumed to be working perfectly and already tested exhaustively). Figures \crefrange{fig:integrationPrototype}{fig:integrationBasicLogic}
 	\begin{figure}[h]
 		\caption{Prototype integration}
 		\label{fig:integrationPrototype}
@@ -459,6 +459,43 @@ Analyzing the table, we indentified 5 implementation phases: Prototype, Basic Lo
 		\begin{subfigure}[H]{\linewidth}
 			\includegraphics[width=\textwidth]{images/Integration_prototype_5.png}
 			\caption{Final integration}
+		\end{subfigure}
+	\end{figure}
+	\begin{figure}[h]
+		\caption{Basic Logic Integration}
+		\label{fig:integrationBasicLogic}
+		\begin{subfigure}[H]{\linewidth}
+			\includegraphics[width=.33\linewidth]{images/Integration_basicLogic_1.png}
+			\includegraphics[width=.33\linewidth]{images/Integration_basicLogic_5.png}
+			\includegraphics[width=.33\linewidth]{images/Integration_basicLogic_9.png}	
+			\caption{Model-controller integrations}
+		\end{subfigure}
+		\begin{subfigure}[H]{\linewidth}
+			\includegraphics[width=\textwidth]{images/Integration_basicLogic_2.png}
+			\includegraphics[width=\textwidth]{images/Integration_basicLogic_3.png}
+			\caption{Model-controller-view integration for Ticket Manager}
+		\end{subfigure}
+		\begin{subfigure}[H]{\linewidth}
+			\includegraphics[width=\linewidth]{images/Integration_basicLogic_6.png}
+			\includegraphics[width=\linewidth]{images/Integration_basicLogic_7.png}
+			\caption{Model-controller-view integration for Map Builder}
+		\end{subfigure}
+		\begin{subfigure}[H]{\linewidth}
+			\includegraphics[width=\linewidth]{images/Integration_basicLogic_10.png}
+			\includegraphics[width=\linewidth]{images/Integration_basicLogic_11.png}
+			\caption{Model-controller-view integration for Computer Vision Engine}
+		\end{subfigure}
+		\begin{subfigure}[H]{\linewidth}
+			\includegraphics[width=\linewidth]{images/Integration_basicLogic_4.png}
+			\caption{Final integration: Ticket Manager}
+		\end{subfigure}
+		\begin{subfigure}[H]{\linewidth}
+			\includegraphics[width=\linewidth]{images/Integration_basicLogic_8.png}
+			\caption{Final integration: Map Builder}
+		\end{subfigure}
+		\begin{subfigure}[H]{\linewidth}
+			\includegraphics[width=\linewidth]{images/Integration_basicLogic_12.png}
+			\caption{Final integration: Computer Vision Engine}
 		\end{subfigure}
 	\end{figure}
 
