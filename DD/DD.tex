@@ -115,8 +115,8 @@
 		&							&					&JSP							&							&		\\
 		\hline
 		\textbf{Citizen}
-		&EncryptionService			&RestApi		&MapDisplayer				&CameraManager				&		\\
-		&							&					&TopViolatorsDisplayer		&GPSManager					&		\\
+		&EncryptionService			&RestApi				&MapDisplayer				&CameraManager				&		\\
+		&							&Mobile Application	&TopViolatorsDisplayer		&GPSManager					&		\\
 		&							&					&NotificationService			&CurrentTimeManager			&		\\
 		\hline
 		\textbf{Authority}
@@ -128,7 +128,7 @@
 	\FloatBarrier
 	The following list provides a detailed description of each module's functionalities (calls to components are omitted here as they will be
 	datailed in sequence diagrams):
-	\begin{itemize}
+	\begin{enumerate}[label=\enum{COMP}]
 		\item \label{component:AuthenticationManager} \textbf{AuthenticationManager:}
 			This module will authenticate the user comparing the provided credentials with the ones stored to the database, and if a match is found
 			will generate a session token for authentication. The provided password will be hashed before comparison (as passwords won't be stored
@@ -169,6 +169,7 @@
 		 \item \label{component:DataMiningEngine} \textbf{DataMiningEngine:}
 		 	This component will run data mining algorithms on the database to discover relevant informations with regard to specific geographical
 		 	locations.
+		 \item \label{component:MobileApplication} \textbf{Mobile Application:} The application running on the Citizen's mobile device.
 		 \item \label{component:TicketManager} \textbf{TicketManager:}
 		 	This component will filter incoming notifications in order to avoid to store non-ticketable violations, and provide stored violations that are
 		 	issuable on demand.
@@ -182,7 +183,7 @@
 		 	internet or the GPS). If they are, the current time is collected, otherwise the notification is blocked until the settings are changed
 		 \item \label{component:DBMS} \textbf{DBMS:}
 		 	This component will be respopnsible of managing the database.
-	\end{itemize}
+	\end{enumerate}
 	\newpage \FloatBarrier
 	\subsection{Deployment view} 
 	Designing the system, our main focuses were costs (both initial and maintenance) and complexity (of the system architecture and of the development).
@@ -254,7 +255,7 @@
 					All the responses are marked as cacheable or not (if a response can be cached, overall 
 					latency can be significantly reduced)
 				\item \textbf{Layered:} 
-					As pointed in \cref{somewhere}, the system is organized in layers and provide
+					As pointed in \ref{Section:Component view}, the system is organized in layers and provide
 					interfaces to external processes (controlled by users or automated=
 				\item \textbf{Uniform interface:} 
 					Uniformity of the interface is granded by exposing HTTP endpoints, which transmit resources using
@@ -273,7 +274,7 @@
 					\subitem \textbf{Hypermedia as the engine of application state:}
 						Concerning the API, we provide a service broker to expose all of the
 						interface mathods. With regard to the web application, it's navigable 
-						using web links (see \cref{fig:homepage})
+						using web links (see \cref{fig:web_homepage})
 			\end{itemize}
 		\subsubsection{MVC pattern}
 			The \link{https://en.wikipedia.org/wiki/Model-view-controller}{Model, View, Controller} pattern is a widely 
@@ -350,22 +351,25 @@ already	done,	possibly,	providing	here	some	extensions	if	applicable.
 	\item Figure 18 : Officers can access to Tickets page through the up bar and by filling obligatory data they can issue tickets.
 	\item Figure 19 : With this approach that officers are already registered into the system they just need to insert their personal code and their Pre-prepared password for login to the system.
 	\end {itemize}
-		\label{fig:homepage}
 		\begin{figure}[h]
 			\includegraphics[width=\linewidth]{images/home.png}
 			\caption{Home page}
+			\label{fig:web_homepage}
 		\end{figure}
 		\begin{figure}[h]
 			\includegraphics[width=\linewidth]{images/map.png}
 			\caption{City map with risky streets marked}
+			\label{fig:web_map}
 		\end{figure}
 		\begin{figure}[h]
 			\includegraphics[width=\linewidth]{images/ticketing.png}
 			\caption{Insert ticket informations}
+			\label{fig:web_ticket}
 		\end{figure}
 		\begin{figure}[h]
 			\includegraphics[width=\linewidth]{images/log_in.png}
 			\caption{Login screen}
+			\label{fig:web_login}
 		\end{figure}
 \FloatBarrier
 \section{Requirement traceability}	
@@ -471,7 +475,7 @@ Analyzing the table, we indentified 5 implementation phases: Prototype, Basic Lo
 
 \paragraph{Unit testing}For testing, we have to assume that every outsourced solution has been tested and is perfectly working (as we can't perform unit testing on them). With regard to the Mobile Application, the Ticket Manager, the Data Mining Engine, the Notification Manager and the Top Violators Ranking Builder, a set of tests will be generated before the beginning of the coding phase in order to guide it, and to define some initial acceptance criteria. More precise tests will be developed during the coding phase, in order to test the coponent behaviour more in detail.
 
-\paragraph{Integration testing} Into each phase, integration testing will be performed to integrate components of the same phase one with the other and with the pre-existing system (assumed to be working perfectly and already tested exhaustively). Figures \crefrange{fig:integrationPrototype}{fig:integrationBasicLogic} shows for each implementation phase the corresponding integration phases.
+\paragraph{Integration testing} Into each phase, integration testing will be performed to integrate components of the same phase one with the other and with the pre-existing system (assumed to be working perfectly and already tested exhaustively). Figures \crefrange{fig:integrationPrototype}{fig:integrationMobileSec} shows for each implementation phase the corresponding integration phases.
 	\begin{figure}[h]
 		\caption{Prototype integration}
 		\label{fig:integrationPrototype}
@@ -531,22 +535,66 @@ Analyzing the table, we indentified 5 implementation phases: Prototype, Basic Lo
 	\end{figure}
 	\begin{figure}[h]
 		\caption{Authentication Integration}
+		\centering
+		\label{fig:integrationAuthentication}
 		\begin{subfigure}[H]{\linewidth}
 			\includegraphics[width=.5\linewidth]{images/integrationAuthentication_1.png}
 			\includegraphics[width=.5\linewidth]{images/integrationAuthentication_2.png}
 			\caption{Model-controller integrations}
 		\end{subfigure}
-		\begin{subfigure}[H]{\linewidth}
+		\begin{subfigure}[H]{.49\linewidth}
 			\includegraphics[width=\linewidth]{images/integrationAuthentication_3.png}
 			\caption{HTML-authentication integration}
 		\end{subfigure}
-		\begin{subfigure}[H]{\linewidth}
+		\begin{subfigure}[H]{.49\linewidth}
 			\includegraphics[width=\linewidth]{images/integrationAuthentication_4.png}
 			\caption{Rest-authentication integration}
 		\end{subfigure}
 		\begin{subfigure}[H]{\linewidth}
 			\includegraphics[width=\linewidth]{images/integrationAuthentication_5.png}
+			\caption{Controllers integration: authentication}
+		\end{subfigure}
+		\begin{subfigure}[H]{\linewidth}
+			\includegraphics[width=\linewidth]{images/integrationAuthentication_6.png}
 			\caption{Final integration: authentication}
+		\end{subfigure}
+	\end{figure}
+	\begin{figure}[h]
+	\centering
+		\caption{Mobile Security Integration}
+		\label{fig:integrationMobileSec}
+		\begin{subfigure}[H]{\linewidth}
+			\includegraphics[width=\linewidth]{images/integration_mobile_security_1.png}
+			\caption{GPS Manager integration}
+		\end{subfigure}
+		\begin{subfigure}[H]{\linewidth}
+			\includegraphics[width=\linewidth]{images/integration_mobile_security_2.png}
+			\caption{Camera Manager Integration}
+		\end{subfigure}
+		\begin{subfigure}[H]{\linewidth}
+			\includegraphics[width=\linewidth]{images/integration_mobile_security_3.png}
+			\caption{Current time manager integration}
+		\end{subfigure}
+	\end{figure}
+	\begin{figure}[h]
+		\caption{Extended Features Integration}
+		\begin{subfigure}[H]{.5\linewidth}
+			\includegraphics[width=\linewidth]{images/integration_extended_1.png}
+			\includegraphics[width=\linewidth]{images/integration_extended_2.png}
+			\includegraphics[width=\linewidth]{images/integration_extended_3.png}
+			\caption{Model-controller integrations}
+		\end{subfigure}
+		\begin{subfigure}[H]{.5\linewidth}
+			\includegraphics[width=\linewidth]{images/integration_extended_7.png}
+			\includegraphics[width=\linewidth]{images/integration_extended_5.png}
+			\caption{Notification Manager Integration}
+		\end{subfigure}
+		\begin{subfigure}[H]{\linewidth}
+			\centering
+			\includegraphics[width=.49\linewidth]{images/integration_extended_4.png}
+			\includegraphics[width=.49\linewidth]{images/integration_extended_6.png}
+			\includegraphics[width=.6\linewidth]{images/integration_extended_8.png}
+			\caption{Progressive full-system integrations}
 		\end{subfigure}
 	\end{figure}
 
