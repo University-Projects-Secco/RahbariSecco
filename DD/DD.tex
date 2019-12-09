@@ -82,8 +82,7 @@
 				activated by this one, which forwards user requests.
 		\end{itemize}
 		\FloatBarrier
-	\subsection{Data model} The system's data will be stored in a cloud-based relational database. The Entity-Relationship diagram in \cref{fig:DataModel} explains which data the system will store and manage. In detail, the database will contain the following tables:
-	Citizens can have multiple cars,Tickets and sent notification but all of these must be identified by only one citizen.All of officers can access to all of the Tickets that issued by themselves to specific citizen also each officer belongs to one Authority organization releated to their job and their location for having different access(for instance officers in Milan have distinct location and radius than officer in Como).Moreover officers are linked to Notifications and its rechable for them to observe all of them.  
+	\subsection{Data model} The system's data will be stored in a cloud-based relational database. The Entity-Relationship diagram in \cref{fig:DataModel} explains which data the system will store and manage. In detail:Citizens can have multiple Cars, Tickets and sent Notifications but all of these must be identified by only one citizen. All of Officers can access to all of the Tickets that issued by themselves to specific Citizen also each Officer belongs to one Authority organization releated to their job and their location for having different access(for instance officers in Milan have distinct location and radius than officer in Como). Moreover Officers are linked to Notifications and its reachable for them to observe all of them.  
 	\begin{figure}[h]
 		\includegraphics[width=\linewidth]{images/Data_model_diagram.png}
 		\caption{Data model diagram}
@@ -279,7 +278,12 @@
 		\subsubsection{MVC pattern}
 			The \link{https://en.wikipedia.org/wiki/Model-view-controller}{Model, View, Controller} pattern is a widely 
 			used pattern. Its main advantage is a significant reduction of the complexity, granted by a layered
-			structure that subdivides responsibilities.
+			structure that subdivides responsibilities. In detail:
+			\begin{itemize}
+				\item \textbf{Model:} the portion of the  system responsible for data definition and storage
+				\item \textbf{Controller:} the portion of the system responsible for business and functional logic
+				\item \textbf{View:} the portion of the system responsible of data presentation and displaying
+			\end{itemize}
 	\subsection{Other design decisions}
 \newpage
 \section{User Interface Design}Provide	an	overview	on	how	the	user	interface(s)	of	your	system	will	
@@ -288,42 +292,48 @@ already	done,	possibly,	providing	here	some	extensions	if	applicable.
 	\FloatBarrier
 	\subsection{Mobile application interface}
 	Here we have mockups about some part of Mobile App and below you can see a short description for each one of them:	\begin{itemize}
-		\item Figure(a)Sign in : users need to insert their username and password to login.
-		\item Figure(b)Sign up :If users donot have any account they must choose username and password and verify their email to making an account.
-  		\item Figure(a)Menu :By clicking on the three-line icon users can access to Menu and choose any item that they need.
-		\item Figure(b)Camera :The first page after they open the application is Camera for having a rapid photo taking at the right moment.
-		\item Figure(a)Map : through the Menu users by clicking on the map option they will see a city map with highlighted  streets that gives some useful information about more risky area.
-		\item Figure(b)Top Violator: After choosing the Top violator option from the Menu the rank of toppest violator will be represent.
+		\item \Cref{fig:mob_signin}: Users need to insert their username and password to login.
+		\item \Cref{fig:mob_signup}: If users do not have any account they must choose username and password and verify their email to make an account.
+  		\item \Cref{fig:mob_menu}: By clicking on the three-line icon users can access to Menu and choose any item that they need.
+		\item \Cref{fig:mob_camera}: The first page after they open the application is Camera for having a rapid photo taking at the right moment.
+		\item \Cref{fig:mob_map}: Through the Menu users by clicking on the map option they will see a city map with highlighted  streets that gives some useful information about more risky area.
+		\item \Cref{fig:mobile_violators}: After choosing the Top violator option from the Menu the list of top ranked violators will be represented.
 		\end{itemize}   
 		\begin{figure}[h]
 			\centering
 			\begin{subfigure}[h]{0.49\linewidth}
 				\includegraphics[width=\linewidth]{images/Sign_In.png}
 				\caption{Sign in}
+				\label{fig:mob_signin}
 			\end{subfigure}	
 			\begin{subfigure}[h]{0.49\linewidth}
 				\includegraphics[width=\linewidth]{images/Sign_Up.png}
 				\caption{Sign up}
+				\label{fig:mob_signup}
 			\end{subfigure}
 		\end{figure}
 		\begin{figure}[h]
 			\begin{subfigure}[h]{0.49\linewidth}
 				\includegraphics[width=\linewidth]{images/Menu.png}
 				\caption{Menu}
+				\label{fig:mob_menu}
 			\end{subfigure}
 			\begin{subfigure}[h]{0.49\linewidth}
 				\includegraphics[width=\linewidth]{images/Camera.png}
 				\caption{Camera}
+				\label{fig:mob_camera}
 			\end{subfigure}
 		\end{figure}
 		\begin{figure}[h]
 			\begin{subfigure}[h]{0.49\linewidth}
 				\includegraphics[width=\linewidth]{images/Maps.png}
 				\caption{Map}
+				\label{fig:mob_map}
 			\end{subfigure}
 			\begin{subfigure}[h]{0.49\linewidth}
 				\includegraphics[width=\linewidth]{images/Top_Violators.png}
 				\caption{Top Violators}
+				\label{fig:mobile_violators}
 			\end{subfigure}
 		\end{figure}			
 	\FloatBarrier \newpage
