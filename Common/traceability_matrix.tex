@@ -10,19 +10,25 @@
 			\hline
 				\ref{G:realTime} 			&\ref{R:autoPlate}						&\ref{S:The man,
 																					the street and the
-																					monstertruck}				&\\
-											&\ref{R:dataGather}						&\ref{S:disabilities}		&\\
-											&\ref{R:notifyUser}						&\ref{S:cheating}			&\\
+																					monstertruck}				&\ref{component:AuthenticationManager}\\
+											&\ref{R:dataGather}						&\ref{S:disabilities}		&\ref{component:CameraManager},
+																												\ref{component:GPSManager},
+																												\ref{component:CurrentTimeManager}\\
+											&\ref{R:notifyUser}						&\ref{S:cheating}			&\ref{component:NotificationManager}\\
 											&\ref{UI:citizen} 						&							&\\
 											&\ref{P:speed}							&							&\\
 											&\ref{HW:cit}							&							&\\
 			\hline
 				\ref{G:allData} 				&\ref{R:dataGather} 						&\ref{S:The man,
 																					the street and the
-																					monstertruck}				&\\
-											&\ref{R:fullData} 						&							&\\
-											&\ref{UI:citizen}						&							&\\
-											&\ref{P:Image quality}					&							&\\
+																					monstertruck}				&\ref{component:CameraManager},
+																												\ref{component:GPSManager},
+																												\ref{component:CurrentTimeManager}\\
+											&\ref{R:fullData} 						&							&\ref{component:MobileApplication}\\
+											&\ref{UI:citizen}						&							&\ref{component:MobileApplication},
+																												\crefrange{fig:mob_signin}
+																														{fig:mobile_violators}\\
+											&\ref{P:Image quality}					&							&\ref{component:CameraManager}\\
 											&\ref{HW:cit}							&							&\\	
 											&\ref{OT:cit device}						&							&\\	
 											
@@ -33,19 +39,25 @@
 											&\ref{A:accessiblePermissions}			&							&\\
 											&\ref{A:noGeneratedModifiedNotif}		&							&\\
 											&\ref{A:newNotificationsAreNotModified}	&							&\\
-											&\ref{R:autoPlate}						&							&\\
-											&\ref{R:unalteredData}					&							&\\
-											&\ref{R:fullData}						&							&\\
-											&\ref{UI:authority}						&							&\\
-											&\ref{SW:Internal api}					&							&\\
+											&\ref{R:autoPlate}						&							&\ref{component:ComputerVisionEngine},
+																												\ref{component:CameraManager}\\
+											&\ref{R:unalteredData}					&							&\ref{component:MobileApplication},
+																												\ref{component:EncryptionService}\\
+											&\ref{R:fullData}						&							&\ref{component:MobileApplication}\\
+											&\ref{UI:authority}						&							&\ref{component:HtmlServer},
+																												\crefrange{fig:web_homepage}{fig:web_login}\\
+											&\ref{SW:Internal api}					&							&\ref{component:RestApi}\\
 											&\ref{HW:auth}							&							&\\
 											&\ref{OT:cit device}						&							&\\
 			\hline
 				\ref{G:discardAltered}		&\ref{A:noGeneratedModifiedNotif}		&\ref{S:cheating}			&\\
 											&\ref{A:newNotificationsAreNotModified}	&							&\\
-											&\ref{R:unalteredData}					&							&\\
-											&\ref{R:dataGather}						&							&\\
-											&\ref{R:fullData}						&							&\\
+											&\ref{R:unalteredData}					&							&\ref{component:MobileApplication},
+																												\ref{component:EncryptionService}\\
+											&\ref{R:dataGather}						&							&\ref{component:CameraManager},
+																												\ref{component:GPSManager},
+																												\ref{component:CurrentTimeManager}\\
+											&\ref{R:fullData}						&							&\ref{component:MobileApplication}\\
 											&\ref{HW:cit}							&							&\\
 											&\ref{OT:cit device}						&							&\\
 										
@@ -53,8 +65,8 @@
 				\ref{G:respectPermissions}	&\ref{A:disjPlates}						&\ref{S:disabilities}		&\\
 											&\ref{A:Single plate}					&							&\\
 											&\ref{A:accessiblePermissions}			&							&\\
-											&\ref{R:autoPlate}						&							&\\
-											&\ref{SW:Internal api}					&							&\\
+											&\ref{R:autoPlate}						&							&\ref{component:AuthenticationManager}\\
+											&\ref{SW:Internal api}					&							&\ref{component:RestApi}\\
 											&\ref{HW:auth}							&							&\\
 			\hline
 				\ref{G:storeFine}			&\ref{A:disjPlates}						&\ref{S:The man,
@@ -62,16 +74,22 @@
 																					monstertruck}				&\\
 											&\ref{A:Single plate}					&							&\\
 											&\ref{A:accessiblePermissions}			&							&\\
-											&\ref{P:Image quality}					&							&\\		
+											&\ref{P:Image quality}					&							&\ref{component:CameraManager}\\		
 											&\ref{HW:cit}							&							&\\
 			\hline
-				\ref{G:statistics}			&\ref{R:storeTickets}					&\ref{S:cityStatistics}		&\\
-											&\ref{R:dataGather}						&							&\\
-											&\ref{R:fullData}						&							&\\
-											&\ref{UI:authority}						&							&\\
-											&\ref{UI:citizen}						&							&\\
-											&\ref{SW:Internal api}					&							&\\
-											&\ref{SW:map api}						&							&\\
+				\ref{G:statistics}			&\ref{R:storeTickets}					&\ref{S:cityStatistics}		&\ref{component:HtmlServer},
+																												\ref{component:TicketManager}\\
+											&\ref{R:dataGather}						&							&\ref{component:CameraManager},
+																												\ref{component:GPSManager},
+																												\ref{component:CurrentTimeManager}\\
+											&\ref{R:fullData}						&							&\ref{component:MobileApplication}\\
+											&\ref{UI:authority}						&							&\ref{component:HtmlServer},
+																												\crefrange{fig:web_homepage}{fig:web_login}\\
+											&\ref{UI:citizen}						&							&\ref{component:MobileApplication},
+																												\crefrange{fig:mob_signin}
+																														{fig:mobile_violators}\\
+											&\ref{SW:Internal api}					&							&\ref{component:RestApi}\\
+											&\ref{SW:map api}						&							&\ref{component:MapBuilder}\\
 											&\ref{HW:auth}							&							&\\
 											&\ref{HW:cit}							&							&\\
 			\hline
