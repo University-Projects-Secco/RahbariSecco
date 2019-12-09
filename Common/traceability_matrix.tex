@@ -4,72 +4,76 @@
 			\caption{Traceability matrix}
 			\small
 			\label{Trace matrix}
-			\begin{tabular}{|c|c|c|}
+			\begin{tabular}{|c|c|c|c|}
 			\hline
-				\textbf{Goal ID} & \textbf{Req ID} & \textbf{Usecase ID}\\
+				\textbf{Goal ID} & \textbf{Req ID} & \textbf{Scenario ID}	&	\textbf{Responsible component}\\
 			\hline
 				\ref{G:realTime} 			&\ref{R:autoPlate}						&\ref{S:The man,
 																					the street and the
-																					monstertruck}\\
-											&\ref{R:dataGather}						&\\
-											&\ref{R:notifyUser}						&\\
-											&\ref{UI:citizen} 						&\\
-											&\ref{P:speed}							&\\
-											&\ref{HW:cit}							&\\
+																					monstertruck}				&\\
+											&\ref{R:dataGather}						&\ref{S:disabilities}		&\\
+											&\ref{R:notifyUser}						&\ref{S:cheating}			&\\
+											&\ref{UI:citizen} 						&							&\\
+											&\ref{P:speed}							&							&\\
+											&\ref{HW:cit}							&							&\\
 			\hline
-				\ref{G:allData} 				&\ref{R:dataGather} 						&\\
-											&\ref{R:fullData} 						&\\
-											&\ref{UI:citizen}						&\\
-											&\ref{P:Image quality}					&\\
-											&\ref{HW:cit}							&\\
-											&\ref{OT:cit device}						&\\	
+				\ref{G:allData} 				&\ref{R:dataGather} 						&\ref{S:The man,
+																					the street and the
+																					monstertruck}				&\\
+											&\ref{R:fullData} 						&							&\\
+											&\ref{UI:citizen}						&							&\\
+											&\ref{P:Image quality}					&							&\\
+											&\ref{HW:cit}							&							&\\	
+											&\ref{OT:cit device}						&							&\\	
 											
 			\hline
-				\ref{G:helpAuth}				&\ref{A:disjPlates}						&\\
-											&\ref{A:Single plate}					&\\
-											&\ref{A:singleOwner}						&\\
-											&\ref{A:accessiblePermissions}			&\\
-											&\ref{A:noGeneratedModifiedNotif}		&\\
-											&\ref{A:newNotificationsAreNotModified}	&\\
-											&\ref{R:autoPlate}						&\\
-											&\ref{R:unalteredData}					&\\
-											&\ref{R:fullData}						&\\
-											&\ref{UI:authority}						&\\
-											&\ref{SW:Internal api}					&\\
-											&\ref{HW:auth}							&\\
-											&\ref{OT:cit device}						&\\
+				\ref{G:helpAuth}				&\ref{A:disjPlates}						&\ref{S:disabilities}		&\\
+											&\ref{A:Single plate}					&\ref{S:environment}			&\\
+											&\ref{A:singleOwner}						&							&\\
+											&\ref{A:accessiblePermissions}			&							&\\
+											&\ref{A:noGeneratedModifiedNotif}		&							&\\
+											&\ref{A:newNotificationsAreNotModified}	&							&\\
+											&\ref{R:autoPlate}						&							&\\
+											&\ref{R:unalteredData}					&							&\\
+											&\ref{R:fullData}						&							&\\
+											&\ref{UI:authority}						&							&\\
+											&\ref{SW:Internal api}					&							&\\
+											&\ref{HW:auth}							&							&\\
+											&\ref{OT:cit device}						&							&\\
 			\hline
-				\ref{G:discardAltered}		&\ref{A:noGeneratedModifiedNotif}		&\\
-											&\ref{A:newNotificationsAreNotModified}	&\\
-											&\ref{R:unalteredData}					&\\
-											&\ref{R:dataGather}						&\\
-											&\ref{R:fullData}						&\\
-											&\ref{HW:cit}							&\\
-											&\ref{OT:cit device}						&\\
+				\ref{G:discardAltered}		&\ref{A:noGeneratedModifiedNotif}		&\ref{S:cheating}			&\\
+											&\ref{A:newNotificationsAreNotModified}	&							&\\
+											&\ref{R:unalteredData}					&							&\\
+											&\ref{R:dataGather}						&							&\\
+											&\ref{R:fullData}						&							&\\
+											&\ref{HW:cit}							&							&\\
+											&\ref{OT:cit device}						&							&\\
 										
 			\hline
-				\ref{G:respectPermissions}	&\ref{A:disjPlates}						&\\
-											&\ref{A:Single plate}					&\\
-											&\ref{A:accessiblePermissions}			&\\
-											&\ref{R:autoPlate}						&\\
-											&\ref{SW:Internal api}					&\\
-											&\ref{HW:auth}							&\\
+				\ref{G:respectPermissions}	&\ref{A:disjPlates}						&\ref{S:disabilities}		&\\
+											&\ref{A:Single plate}					&							&\\
+											&\ref{A:accessiblePermissions}			&							&\\
+											&\ref{R:autoPlate}						&							&\\
+											&\ref{SW:Internal api}					&							&\\
+											&\ref{HW:auth}							&							&\\
 			\hline
-				\ref{G:storeFine}			&\ref{A:disjPlates}						&\\
-											&\ref{A:Single plate}					&\\
-											&\ref{A:accessiblePermissions}			&\\
-											&\ref{P:Image quality}					&\\		
-											&\ref{HW:cit}							&\\
+				\ref{G:storeFine}			&\ref{A:disjPlates}						&\ref{S:The man,
+																					the street and the
+																					monstertruck}				&\\
+											&\ref{A:Single plate}					&							&\\
+											&\ref{A:accessiblePermissions}			&							&\\
+											&\ref{P:Image quality}					&							&\\		
+											&\ref{HW:cit}							&							&\\
 			\hline
-				\ref{G:statistics}			&\ref{R:storeTickets}					&\\
-											&\ref{R:dataGather}						&\\
-											&\ref{R:fullData}						&\\
-											&\ref{UI:authority}						&\\
-											&\ref{UI:citizen}						&\\
-											&\ref{SW:Internal api}					&\\
-											&\ref{SW:map api}						&\\
-											&\ref{HW:auth}							&\\
-											&\ref{HW:cit}							&\\
+				\ref{G:statistics}			&\ref{R:storeTickets}					&\ref{S:cityStatistics}		&\\
+											&\ref{R:dataGather}						&							&\\
+											&\ref{R:fullData}						&							&\\
+											&\ref{UI:authority}						&							&\\
+											&\ref{UI:citizen}						&							&\\
+											&\ref{SW:Internal api}					&							&\\
+											&\ref{SW:map api}						&							&\\
+											&\ref{HW:auth}							&							&\\
+											&\ref{HW:cit}							&							&\\
 			\hline
 										
 				\end{tabular}
