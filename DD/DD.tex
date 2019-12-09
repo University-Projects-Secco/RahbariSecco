@@ -14,9 +14,11 @@
 \usepackage{hyperref}
 \usepackage{multirow}
 \usepackage[section]{placeins}
+\usepackage{xr}
 \usepackage{cleveref}
 \newcommand{\enum}[1]{\texttt{#1.\arabic*}}
 \newcommand{\link}[2]{{\color{blue}\underline{\href{#1}{#2}}}}
+\externaldocument{../RASD/RASD-Skeleton}
 \begin{document}
 \pagenumbering{gobble}
 \maketitle
@@ -315,9 +317,12 @@ already	done,	possibly,	providing	here	some	extensions	if	applicable.
 				\caption{Top Violators}
 			\end{subfigure}
 		\end{figure}			
-	\FloatBarrier
+	\FloatBarrier \newpage
 	\subsection{Mobile application UX diagrams}
-	\FloatBarrier
+		\begin{figure}
+			\includegraphics[width=\linewidth]{images/UX_Login.png}
+		\end{figure}
+	\FloatBarrier \newpage
 	\subsection{Web application interface}
 		\label{fig:homepage}
 		\begin{figure}[h]
@@ -337,8 +342,8 @@ already	done,	possibly,	providing	here	some	extensions	if	applicable.
 			\caption{Login screen}
 		\end{figure}
 \FloatBarrier
-\section{Requirement traceability}	Explain	how	the	requirements	you	have	defined	in	the	RASD	
-map	to the	design	elements	that	you	have	defined	in	this	document
+\section{Requirement traceability}	
+	\input{../Common/traceability_matrix.tex}
 \section{Implementation, Integration and Test plan}	Identify 	here	the	order	in	which	you	plan	
 to	implement	the	subcomponents	of	your	system	and	the	order	in	which	you	plan	to	integrate	
 such	subcomponents	and	test	the	integration.	\\\\
