@@ -81,6 +81,7 @@
 		\end{itemize}
 		\FloatBarrier
 	\subsection{Data model} The system's data will be stored in a cloud-based relational database. The Entity-Relationship diagram in \cref{fig:DataModel} explains which data the system will store and manage. In detail, the database will contain the following tables:
+Citizens can have multiple cars,Tickets and sent notification but all of these must be identified by only one citizen.All of officers can access to all of the Tickets that issued by themselves to specific citizen also each officer belongs to one Authority organization releated to their job and their location for having different access(for instance officers in Milan have distinct location and radius than officer in Como).Moreover officers are linked to Notifications and its rechable for them to observe all of them.  
 	\begin{figure}[h]
 		\includegraphics[width=\linewidth]{images/Data_model_diagram.png}
 		\caption{Data model diagram}
@@ -284,6 +285,14 @@ look	like; if	you	 have	included	 this	 part	in	 the	 RASD,	you	 can	 simply	 re
 already	done,	possibly,	providing	here	some	extensions	if	applicable.
 	\FloatBarrier
 	\subsection{Mobile application interface}
+Here we have mockups about some part of Mobile App and below you can see a short description for each one of them:	\begin{itemize}
+		\item Figure(a)Sign in : users need to insert their username and password to login.
+		\item Figure(b)Sign up :If users donot have any account they must choose username and password and verify their email to making an account.
+  		\item Figure(a)Menu :By clicking on the three-line icon users can access to Menu and choose any item that they need.
+		\item Figure(b)Camera :The first page after they open the application is Camera for having a rapid photo taking at the right moment.
+		\item Figure(a)Map : through the Menu users by clicking on the map option they will see a city map with highlighted  streets that gives some useful information about more risky area.
+		\item Figure(b)Top Violator: After choosing the Top violator option from the Menu the rank of toppest violator will be represent.
+		\end{itemize}   
 		\begin{figure}[h]
 			\centering
 			\begin{subfigure}[h]{0.49\linewidth}
@@ -319,6 +328,13 @@ already	done,	possibly,	providing	here	some	extensions	if	applicable.
 	\subsection{Mobile application UX diagrams}
 	\FloatBarrier
 	\subsection{Web application interface}
+As you can see we provide some mockups for authorities interface through the web application.
+	\begin{itemize}
+	\item Figure 16 : After signing in, officers have access to the home page with all the features that they need.
+	\item Figure 17 : By scrolling down through the home page or clicking on the map option officers can represent the map that they are already working in with highlighted streets in different sort.
+	\item Figure 18 : Officers can access to Tickets page through the up bar and by filling obligatory data they can issue tickets.
+	\item Figure 19 : With this approach that officers are already registered into the system they just need to insert their personal code and their Pre-prepared password for login to the system.
+	\end {itemize}
 		\label{fig:homepage}
 		\begin{figure}[h]
 			\includegraphics[width=\linewidth]{images/home.png}
